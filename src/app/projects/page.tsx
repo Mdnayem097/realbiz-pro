@@ -317,10 +317,10 @@ const DashboardPage = () => {
       <div className="mt-6 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
         <div className="mb-5">
           <h2 className="text-base font-bold text-gray-900">
-            Working &amp; Financial Progress
+            Working &amp; Financial  Progress
           </h2>
           <p className="text-sm text-gray-500">
-            Financial progress by project
+            Financial progress by the project
           </p>
         </div>
 
