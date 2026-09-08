@@ -1,9 +1,10 @@
+import ProjectsDashboardPage from "./projects/page";
 
 
 export default function Home() {
   return (
    <div>
-    hellow project
+    <ProjectsDashboardPage/>
    </div>
   );
 }
