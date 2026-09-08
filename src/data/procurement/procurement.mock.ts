@@ -66,7 +66,7 @@ export const procurementStats: ProcurementStat[] = [
     value: 0,
     icon: "receipt",
     type: "pending",
-    color: "cyan",       // ✅ যোগ করুন
+    color: "cyan", 
     change: 0,
     changeLabel: "vs last month",
     chart: [12, 15, 10, 13, 11, 14, 9, 12],
