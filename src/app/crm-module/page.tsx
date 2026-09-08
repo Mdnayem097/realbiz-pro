@@ -30,6 +30,7 @@ export default function CrmModulePage() {
         <Topbar />
 
         <main className="flex-1 px-4 md:px-6 py-5 space-y-5 max-w-350 w-full mx-auto">
+          {/* Header Overview */}
           <motion.div
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
@@ -43,18 +44,23 @@ export default function CrmModulePage() {
             </p>
           </motion.div>
 
+          {/* 1. Stat Cards */}
           <StatGrid stats={stats} />
 
-          <TodoStrip items={todo} />
-
-          <div className="grid grid-cols-1 xl:grid-cols-[1.3fr_1fr] gap-5">
-            <div className="space-y-5">
-              <LiveFeed />
-              <ActivityChart range={range} />
-              <PropertyStatusChart />
-            </div>
-            <CalendarPanel range={range} onRangeChange={setRange} />
+          {/* 2. Side-by-Side Charts */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+            <ActivityChart range={range} />
+            <PropertyStatusChart />
           </div>
+
+          {/* 3. Lead Followups & Todos */}
+          <div className="space-y-5">
+            <TodoStrip items={todo} />
+            <LiveFeed />
+          </div>
+
+          {/* 4. Calendar Panel */}
+          <CalendarPanel range={range} onRangeChange={setRange} />
         </main>
       </div>
     </div>

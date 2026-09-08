@@ -54,34 +54,13 @@ const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export async function fetchStatCards(): Promise<StatCardData[]> {
   await delay(250);
-  // NOTE: leadStageId values below are placeholders — replace with your
-  // actual lead-stage IDs from the backend. "Total Leads" has none since
-  // it links to the unfiltered list.
   return [
-    { id: "total-leads", label: "Total Leads", value: 128, tone: "accent" },
-    { id: "junk-leads", label: "Junk Leads", value: 6, tone: "neutral", leadStageId: 1 },
-    { id: "sold", label: "Sold", value: 14, tone: "success", leadStageId: 2 },
-    { id: "high-prospect", label: "High Prospect", value: 22, tone: "accent", leadStageId: 3 },
-    { id: "priority", label: "Priority", value: 9, tone: "warning", leadStageId: 4 },
-    { id: "hold", label: "Hold", value: 11, tone: "info", leadStageId: 37 },
-    { id: "lost", label: "Lost", value: 17, tone: "danger", leadStageId: 5 },
-    { id: "closed", label: "Closed", value: 31, tone: "success", leadStageId: 6 },
-    { id: "negotiation", label: "Negotiation", value: 8, tone: "warning", leadStageId: 7 },
-    { id: "visit", label: "Visit", value: 13, tone: "info", leadStageId: 8 },
-    { id: "query", label: "Query", value: 19, tone: "neutral", leadStageId: 9 },
-    { id: "new-call", label: "New Call", value: 24, tone: "accent", leadStageId: 10 },
-    { id: "follow-up", label: "Follow Up", value: 27, tone: "info", leadStageId: 11 },
-    { id: "lead", label: "Lead", value: 41, tone: "neutral", leadStageId: 12 },
-    { id: "booked", label: "Booked", value: 16, tone: "success", leadStageId: 13 },
-    { id: "potential", label: "Potential", value: 20, tone: "accent", leadStageId: 14 },
-    { id: "high-potential", label: "High Potential", value: 12, tone: "warning", leadStageId: 15 },
-    { id: "token-lead", label: "Token Lead", value: 7, tone: "neutral", leadStageId: 16 },
-    { id: "booking", label: "Booking", value: 10, tone: "success", leadStageId: 17 },
-    { id: "registration", label: "Registration & Handover", value: 5, tone: "info", leadStageId: 18 },
-    { id: "exchange", label: "Exchange", value: 3, tone: "neutral", leadStageId: 19 },
-    { id: "emi-hold", label: "EMI Hold", value: 4, tone: "warning", leadStageId: 20 },
-    { id: "hold-for-later", label: "Hold For Later", value: 6, tone: "neutral", leadStageId: 21 },
-    { id: "token-hold", label: "Token Hold", value: 2, tone: "warning", leadStageId: 22 },
+    { id: "total-leads", label: "Total Inquiries", value: 128, tone: "accent" },
+    { id: "hot-prospects", label: "Hot Prospects", value: 22, tone: "warning", leadStageId: 1 },
+    { id: "site-visits", label: "Site Visits Scheduled", value: 13, tone: "info", leadStageId: 2 },
+    { id: "booking-pending", label: "Token / Booking", value: 10, tone: "accent", leadStageId: 3 },
+    { id: "closed-deals", label: "Handover & Closed", value: 31, tone: "success", leadStageId: 4 },
+    { id: "junk-leads", label: "Junk Inquiries", value: 6, tone: "neutral", leadStageId: 5 },
   ];
 }
 
@@ -178,11 +157,10 @@ export async function fetchPropertyStatusCounts(): Promise<PropertyStatusCount[]
   await delay(250);
   return [
     { status: "Ready Flat", count: 34 },
-    { status: "On going", count: 21 },
-    { status: "Upcoming", count: 12 },
-    { status: "Junk", count: 4 },
+    { status: "Ongoing Project", count: 21 },
+    { status: "Upcoming Project", count: 12 },
     { status: "Used Flat", count: 17 },
-    { status: "Land share", count: 9 },
+    { status: "Land Share", count: 9 },
   ];
 }
 
