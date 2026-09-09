@@ -145,7 +145,7 @@ export function NegotiationProcessView({
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse text-xs">
             <thead>
-              <tr className="bg-gradient-to-r from-cyan-900 via-slate-800 to-blue-900 text-white font-semibold uppercase tracking-wider text-[11px]">
+              <tr className="bg-slate-50 border-b border-slate-200/80 text-slate-700 font-bold uppercase tracking-wider text-[11px]">
                 <th className="py-3 px-3 w-12 text-center">SL</th>
                 <th className="py-3 px-3.5">Acquisition Lead / Parcel</th>
                 <th className="py-3 px-3.5">Mouza & Dag</th>

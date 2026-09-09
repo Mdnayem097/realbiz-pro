@@ -5,6 +5,7 @@ import { Avatar, Badge, Button, InputGroup, TextField } from "@heroui/react";
 import {
   Search,
   Sun,
+  Moon,
   Grid3x3,
   Bell,
   User,
@@ -29,6 +30,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { NavbarProps } from "@/types/navber";
+import { useTheme } from "@/lib/theme-provider";
 
 const projectRoutes = [
   { label: "Projects", href: "/projects", icon: FolderKanban, color: "text-indigo-600 bg-indigo-50" },
@@ -51,6 +53,7 @@ const Navbar = ({
   hasNotification = true,
   onSearch,
 }: NavbarProps) => {
+  const { theme, toggleTheme } = useTheme();
   return (
     <div className="flex items-center justify-between w-full h-[76px] px-8 bg-white/80 backdrop-blur-xl border-b border-gray-100 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
       {/* Middle: Search */}
@@ -121,9 +124,15 @@ const Navbar = ({
         <Button
           isIconOnly
           variant="ghost"
-          className="rounded-full text-gray-500 hover:bg-gray-100 hover:text-gray-800 transition-colors"
+          onClick={toggleTheme}
+          aria-label="Toggle light or dark theme"
+          className="rounded-full text-gray-500 hover:bg-gray-100 hover:text-gray-800 transition-colors cursor-pointer"
         >
-          <Sun className="w-5 h-5" />
+          {theme === "dark" ? (
+            <Sun className="w-5 h-5 text-amber-500" />
+          ) : (
+            <Moon className="w-5 h-5 text-slate-600" />
+          )}
         </Button>
 
         <Button
