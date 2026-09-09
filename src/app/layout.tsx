@@ -1,3 +1,5 @@
+
+
 import Navbar from "@/components/Navber";
 import Sidebar from "@/components/Sidebar";
 import "./globals.css";
