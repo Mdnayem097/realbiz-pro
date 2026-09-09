@@ -1,10 +1,10 @@
 {
-  "/about/page": "/about",
+  "/_not-found/page": "/_not-found",
   "/contact/page": "/contact",
-  "/login/page": "/login",
+  "/about/page": "/about",
   "/page": "/",
   "/properties/page": "/properties",
-  "/dashboard/[...slug]/page": "/dashboard/[...slug]",
+  "/login/page": "/login",
   "/dashboard/page": "/dashboard",
-  "/_not-found/page": "/_not-found"
+  "/dashboard/[...slug]/page": "/dashboard/[...slug]"
 }
