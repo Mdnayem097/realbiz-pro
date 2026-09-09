@@ -37,28 +37,28 @@ const COLOR_MAP = {
     bg: "bg-cyan-50 dark:bg-cyan-950/40",
     text: "text-cyan-600 dark:text-cyan-400",
     border: "border-cyan-200/70 dark:border-cyan-800/40",
-    badge: "bg-cyan-100 text-cyan-700 dark:bg-cyan-900/60 dark:text-cyan-300",
+    badge: "bg-cyan-50 text-cyan-700 border border-cyan-200/80 dark:bg-cyan-900/60 dark:text-cyan-300 dark:border-cyan-700/60",
     icon: Compass,
   },
   emerald: {
     bg: "bg-emerald-50 dark:bg-emerald-950/40",
     text: "text-emerald-600 dark:text-emerald-400",
     border: "border-emerald-200/70 dark:border-emerald-800/40",
-    badge: "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/60 dark:text-emerald-300",
+    badge: "bg-emerald-50 text-emerald-700 border border-emerald-200/80 dark:bg-emerald-900/60 dark:text-emerald-300 dark:border-emerald-700/60",
     icon: MapPin,
   },
   amber: {
     bg: "bg-amber-50 dark:bg-amber-950/40",
     text: "text-amber-600 dark:text-amber-400",
     border: "border-amber-200/70 dark:border-amber-800/40",
-    badge: "bg-amber-100 text-amber-700 dark:bg-amber-900/60 dark:text-amber-300",
+    badge: "bg-amber-50 text-amber-800 border border-amber-200/80 dark:bg-amber-900/60 dark:text-amber-300 dark:border-amber-700/60",
     icon: Handshake,
   },
   indigo: {
     bg: "bg-indigo-50 dark:bg-indigo-950/40",
     text: "text-indigo-600 dark:text-indigo-400",
     border: "border-indigo-200/70 dark:border-indigo-800/40",
-    badge: "bg-indigo-100 text-indigo-700 dark:bg-indigo-900/60 dark:text-indigo-300",
+    badge: "bg-indigo-50 text-indigo-700 border border-indigo-200/80 dark:bg-indigo-900/60 dark:text-indigo-300 dark:border-indigo-700/60",
     icon: FileCheck,
   },
 };
@@ -75,35 +75,41 @@ export function LamsMetrics({ showInsights }: LamsMetricsProps) {
           return (
             <div
               key={kpi.id}
-              className={`bg-white dark:bg-slate-900 rounded-2xl p-5 border ${config.border} shadow-sm hover:shadow-md transition-all relative overflow-hidden`}
+              className={`bg-white dark:bg-slate-900 rounded-2xl p-5 border ${config.border} shadow-sm hover:shadow-md transition-all relative overflow-hidden flex flex-col justify-between`}
             >
               {/* Background ambient glow */}
               <div
                 className={`absolute -right-6 -bottom-6 w-24 h-24 rounded-full opacity-15 blur-2xl ${config.bg}`}
               />
 
-              <div className="flex items-start justify-between">
-                <div>
-                  <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+              <div className="flex items-start justify-between gap-3">
+                <div className="space-y-1">
+                  <p className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                     {kpi.title}
                   </p>
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mt-1.5 tracking-tight font-display">
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight font-display">
                     {kpi.value}
                   </h3>
                 </div>
-                <div className={`p-3 rounded-xl ${config.bg} ${config.text}`}>
+                <div className={`p-3 rounded-2xl ${config.bg} ${config.text} border ${config.border} shrink-0 shadow-xs`}>
                   <Icon className="w-5 h-5" />
                 </div>
               </div>
 
-              <div className="flex items-center justify-between mt-3 pt-3 border-t border-slate-100 dark:border-slate-800/60 text-xs">
-                <span className={`inline-flex items-center gap-1 font-semibold ${config.badge} px-2 py-0.5 rounded-md`}>
-                  <TrendingUp className="w-3 h-3" />
-                  {kpi.change}
-                </span>
-                <span className="text-slate-400 dark:text-slate-500 truncate max-w-[130px]" title={kpi.description}>
+              {/* Spaced footer with concise badge and clear subtitle */}
+              <div className="mt-4 pt-3.5 border-t border-slate-100 dark:border-slate-800/80 flex flex-col gap-2">
+                <div className="flex items-center justify-between gap-2">
+                  <span className={`inline-flex items-center gap-1.5 font-bold ${config.badge} px-2.5 py-1 rounded-lg text-[11px] whitespace-nowrap shadow-2xs`}>
+                    <TrendingUp className="w-3 h-3 shrink-0" />
+                    {kpi.change}
+                  </span>
+                  <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider shrink-0">
+                    Active Status
+                  </span>
+                </div>
+                <p className="text-xs font-medium text-slate-600 dark:text-slate-400 leading-relaxed">
                   {kpi.description}
-                </span>
+                </p>
               </div>
             </div>
           );

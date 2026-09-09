@@ -30,10 +30,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${poppins.variable} h-full`}
+      className={`${inter.variable} ${poppins.variable} h-full light`}
       suppressHydrationWarning
     >
-      <body className="min-h-full bg-canvas text-ink antialiased">
+      <body className="min-h-full bg-slate-50 text-slate-900 antialiased">
         <ThemeProvider>
           <LayoutShell>{children}</LayoutShell>
         </ThemeProvider>
