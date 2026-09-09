@@ -6,30 +6,20 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
+    "/loading": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/loading.js"
+    ],
     "/not-found": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/not-found.js"
     ],
-    "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
-    ],
-    "/login/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/login/page.js"
-    ],
     "/dashboard/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/dashboard/layout.js"
-    ],
-    "/dashboard/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/page.js"
     ],
     "/dashboard/[...slug]/page": [
       "static/chunks/webpack.js",
@@ -41,15 +31,10 @@
       "static/chunks/main-app.js",
       "static/chunks/app/dashboard/project/projects/project-type/page.js"
     ],
-    "/dashboard/project/projects/site/page": [
+    "/dashboard/project/projects/project/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/project/projects/site/page.js"
-    ],
-    "/dashboard/project/contract/customer-accounts/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/project/contract/customer-accounts/page.js"
+      "static/chunks/app/dashboard/project/projects/project/page.js"
     ],
     "/_not-found/page": [
       "static/chunks/webpack.js",

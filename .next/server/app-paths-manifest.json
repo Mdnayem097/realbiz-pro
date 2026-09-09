@@ -1,9 +1,6 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/login/page": "app/login/page.js",
-  "/dashboard/project/projects/project-type/page": "app/dashboard/project/projects/project-type/page.js",
-  "/dashboard/project/contract/customer-accounts/page": "app/dashboard/project/contract/customer-accounts/page.js",
   "/dashboard/[...slug]/page": "app/dashboard/[...slug]/page.js",
-  "/dashboard/project/projects/site/page": "app/dashboard/project/projects/site/page.js",
-  "/dashboard/page": "app/dashboard/page.js"
+  "/dashboard/project/projects/project/page": "app/dashboard/project/projects/project/page.js",
+  "/dashboard/project/projects/project-type/page": "app/dashboard/project/projects/project-type/page.js"
 }

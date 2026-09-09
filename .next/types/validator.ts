@@ -66,10 +66,112 @@ type LayoutConfig<Route extends LayoutRoutes = LayoutRoutes> = {
   handler satisfies AppPageConfig<"/dashboard/[...slug]">
 }
 
+// Validate ..\..\src\app\dashboard\inventory\adjustment\stock-transfer\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\inventory\\adjustment\\stock-transfer\\page.js")
+  handler satisfies AppPageConfig<"/dashboard/inventory/adjustment/stock-transfer">
+}
+
+// Validate ..\..\src\app\dashboard\inventory\contracts\supplier-accounts\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\inventory\\contracts\\supplier-accounts\\page.js")
+  handler satisfies AppPageConfig<"/dashboard/inventory/contracts/supplier-accounts">
+}
+
+// Validate ..\..\src\app\dashboard\inventory\material-requisition\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\inventory\\material-requisition\\page.js")
+  handler satisfies AppPageConfig<"/dashboard/inventory/material-requisition">
+}
+
+// Validate ..\..\src\app\dashboard\inventory\products\brands\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\inventory\\products\\brands\\page.js")
+  handler satisfies AppPageConfig<"/dashboard/inventory/products/brands">
+}
+
+// Validate ..\..\src\app\dashboard\inventory\products\categories\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\inventory\\products\\categories\\page.js")
+  handler satisfies AppPageConfig<"/dashboard/inventory/products/categories">
+}
+
+// Validate ..\..\src\app\dashboard\inventory\products\item-entry\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\inventory\\products\\item-entry\\page.js")
+  handler satisfies AppPageConfig<"/dashboard/inventory/products/item-entry">
+}
+
+// Validate ..\..\src\app\dashboard\inventory\products\sub-categories\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\inventory\\products\\sub-categories\\page.js")
+  handler satisfies AppPageConfig<"/dashboard/inventory/products/sub-categories">
+}
+
+// Validate ..\..\src\app\dashboard\inventory\products\units\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\inventory\\products\\units\\page.js")
+  handler satisfies AppPageConfig<"/dashboard/inventory/products/units">
+}
+
+// Validate ..\..\src\app\dashboard\inventory\purchase\purchase-list\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\inventory\\purchase\\purchase-list\\page.js")
+  handler satisfies AppPageConfig<"/dashboard/inventory/purchase/purchase-list">
+}
+
+// Validate ..\..\src\app\dashboard\inventory\reports\item-history-report\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\inventory\\reports\\item-history-report\\page.js")
+  handler satisfies AppPageConfig<"/dashboard/inventory/reports/item-history-report">
+}
+
+// Validate ..\..\src\app\dashboard\inventory\reports\item-wise-supplier-ledger\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\inventory\\reports\\item-wise-supplier-ledger\\page.js")
+  handler satisfies AppPageConfig<"/dashboard/inventory/reports/item-wise-supplier-ledger">
+}
+
+// Validate ..\..\src\app\dashboard\inventory\reports\material-comparison-report\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\inventory\\reports\\material-comparison-report\\page.js")
+  handler satisfies AppPageConfig<"/dashboard/inventory/reports/material-comparison-report">
+}
+
+// Validate ..\..\src\app\dashboard\inventory\reports\material-usage-report\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\inventory\\reports\\material-usage-report\\page.js")
+  handler satisfies AppPageConfig<"/dashboard/inventory/reports/material-usage-report">
+}
+
+// Validate ..\..\src\app\dashboard\inventory\reports\purchase-details\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\inventory\\reports\\purchase-details\\page.js")
+  handler satisfies AppPageConfig<"/dashboard/inventory/reports/purchase-details">
+}
+
+// Validate ..\..\src\app\dashboard\inventory\reports\purchase-order-receive-details\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\inventory\\reports\\purchase-order-receive-details\\page.js")
+  handler satisfies AppPageConfig<"/dashboard/inventory/reports/purchase-order-receive-details">
+}
+
+// Validate ..\..\src\app\dashboard\inventory\sales\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\inventory\\sales\\page.js")
+  handler satisfies AppPageConfig<"/dashboard/inventory/sales">
+}
+
 // Validate ..\..\src\app\dashboard\page.tsx
 {
   const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\page.js")
   handler satisfies AppPageConfig<"/dashboard">
+}
+
+// Validate ..\..\src\app\dashboard\project\contract\contractor\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\project\\contract\\contractor\\page.js")
+  handler satisfies AppPageConfig<"/dashboard/project/contract/contractor">
 }
 
 // Validate ..\..\src\app\dashboard\project\contract\customer-accounts\page.tsx
@@ -78,10 +180,76 @@ type LayoutConfig<Route extends LayoutRoutes = LayoutRoutes> = {
   handler satisfies AppPageConfig<"/dashboard/project/contract/customer-accounts">
 }
 
+// Validate ..\..\src\app\dashboard\project\contract\labour-work-bank\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\project\\contract\\labour-work-bank\\page.js")
+  handler satisfies AppPageConfig<"/dashboard/project/contract/labour-work-bank">
+}
+
+// Validate ..\..\src\app\dashboard\project\contract\report\at-a-glance\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\project\\contract\\report\\at-a-glance\\page.js")
+  handler satisfies AppPageConfig<"/dashboard/project/contract/report/at-a-glance">
+}
+
+// Validate ..\..\src\app\dashboard\project\contract\report\project-summary-report\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\project\\contract\\report\\project-summary-report\\page.js")
+  handler satisfies AppPageConfig<"/dashboard/project/contract/report/project-summary-report">
+}
+
+// Validate ..\..\src\app\dashboard\project\contract\supplier-accounts\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\project\\contract\\supplier-accounts\\page.js")
+  handler satisfies AppPageConfig<"/dashboard/project/contract/supplier-accounts">
+}
+
+// Validate ..\..\src\app\dashboard\project\investments\configuration\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\project\\investments\\configuration\\page.js")
+  handler satisfies AppPageConfig<"/dashboard/project/investments/configuration">
+}
+
+// Validate ..\..\src\app\dashboard\project\investments\investor\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\project\\investments\\investor\\page.js")
+  handler satisfies AppPageConfig<"/dashboard/project/investments/investor">
+}
+
+// Validate ..\..\src\app\dashboard\project\investments\report\project-financial-report\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\project\\investments\\report\\project-financial-report\\page.js")
+  handler satisfies AppPageConfig<"/dashboard/project/investments/report/project-financial-report">
+}
+
+// Validate ..\..\src\app\dashboard\project\investments\report\project-progress-report\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\project\\investments\\report\\project-progress-report\\page.js")
+  handler satisfies AppPageConfig<"/dashboard/project/investments/report/project-progress-report">
+}
+
 // Validate ..\..\src\app\dashboard\project\projects\project-type\page.tsx
 {
   const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\project\\projects\\project-type\\page.js")
   handler satisfies AppPageConfig<"/dashboard/project/projects/project-type">
+}
+
+// Validate ..\..\src\app\dashboard\project\projects\project\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\project\\projects\\project\\page.js")
+  handler satisfies AppPageConfig<"/dashboard/project/projects/project">
+}
+
+// Validate ..\..\src\app\dashboard\project\projects\report\project-details\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\project\\projects\\report\\project-details\\page.js")
+  handler satisfies AppPageConfig<"/dashboard/project/projects/report/project-details">
+}
+
+// Validate ..\..\src\app\dashboard\project\projects\report\project-summary\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\project\\projects\\report\\project-summary\\page.js")
+  handler satisfies AppPageConfig<"/dashboard/project/projects/report/project-summary">
 }
 
 // Validate ..\..\src\app\dashboard\project\projects\site\page.tsx
