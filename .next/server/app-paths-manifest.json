@@ -1,0 +1,8 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/dashboard/inventory/products/sub-categories/page": "app/dashboard/inventory/products/sub-categories/page.js",
+  "/dashboard/inventory/material-requisition/page": "app/dashboard/inventory/material-requisition/page.js",
+  "/dashboard/inventory/contracts/supplier-accounts/page": "app/dashboard/inventory/contracts/supplier-accounts/page.js",
+  "/dashboard/inventory/products/categories/page": "app/dashboard/inventory/products/categories/page.js",
+  "/dashboard/[...slug]/page": "app/dashboard/[...slug]/page.js"
+}

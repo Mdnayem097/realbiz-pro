@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/lib/theme-provider";
+import { ThemeProvider } from "@/lib/theme";
 import { LayoutShell } from "@/components/layout-shell";
 
 const inter = Inter({
@@ -33,7 +33,7 @@ export default function RootLayout({
       className={`${inter.variable} ${poppins.variable} h-full light`}
       suppressHydrationWarning
     >
-      <body className="min-h-full bg-slate-50 text-slate-900 antialiased">
+      <body className="min-h-full antialiased" suppressHydrationWarning>
         <ThemeProvider>
           <LayoutShell>{children}</LayoutShell>
         </ThemeProvider>

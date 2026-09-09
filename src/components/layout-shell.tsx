@@ -6,8 +6,15 @@ import Sidebar from "@/components/Sidebar";
 
 export function LayoutShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  // Pages like CRM module that provide their own full-page layout and sidebar
-  const isStandalone = pathname?.startsWith("/crm-module");
+  // Pages that provide their own full-page layout, site nav, or dashboard shell
+  const isStandalone =
+    pathname === "/" ||
+    pathname?.startsWith("/crm-module") ||
+    pathname?.startsWith("/dashboard") ||
+    pathname?.startsWith("/login") ||
+    pathname?.startsWith("/properties") ||
+    pathname?.startsWith("/about") ||
+    pathname?.startsWith("/contact");
 
   if (isStandalone) {
     return <>{children}</>;

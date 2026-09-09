@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Avatar, Badge, Button, InputGroup, TextField } from "@heroui/react";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import {
   Search,
   Sun,
@@ -58,26 +58,19 @@ const Navbar = ({
     <div className="flex items-center justify-between w-full h-[76px] px-8 bg-white/80 backdrop-blur-xl border-b border-gray-100 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
       {/* Middle: Search */}
       <div className="flex-1 max-w-xl">
-        <TextField
-          aria-label="Search"
-          onChange={(value) => onSearch?.(value)}
-          className="w-full"
-        >
-          <InputGroup className="bg-gray-50/70 border border-gray-200/80 shadow-none rounded-2xl h-11 transition-colors data-[hovered=true]:bg-gray-50 data-[focus-within=true]:bg-white data-[focus-within=true]:border-gray-300">
-            <InputGroup.Prefix>
-              <Search className="w-4 h-4 text-gray-400" />
-            </InputGroup.Prefix>
-            <InputGroup.Input
-              placeholder="Search modules, projects, contacts..."
-              className="text-sm placeholder:text-gray-400"
-            />
-            <InputGroup.Suffix>
-              <kbd className="px-2 py-1 text-[10px] font-medium text-gray-400 bg-white border border-gray-200 rounded-md shadow-sm">
-                Ctrl + K
-              </kbd>
-            </InputGroup.Suffix>
-          </InputGroup>
-        </TextField>
+        <div className="relative flex items-center">
+          <Search className="absolute left-3.5 w-4 h-4 text-gray-400 pointer-events-none" />
+          <input
+            type="text"
+            aria-label="Search"
+            placeholder="Search modules, projects, contacts..."
+            onChange={(e) => onSearch?.(e.target.value)}
+            className="w-full h-11 pl-10 pr-20 bg-gray-50/70 hover:bg-gray-50 focus:bg-white border border-gray-200/80 focus:border-gray-300 rounded-2xl text-sm placeholder:text-gray-400 outline-none transition-colors"
+          />
+          <kbd className="absolute right-3 px-2 py-1 text-[10px] font-medium text-gray-400 bg-white border border-gray-200 rounded-md shadow-sm pointer-events-none">
+            Ctrl + K
+          </kbd>
+        </div>
       </div>
 
       {/* Right: Icons + Profile */}
@@ -121,38 +114,35 @@ const Navbar = ({
         </DropdownMenu>
 
         {/* Dark/Light mode toggle */}
-        <Button
-          isIconOnly
-          variant="ghost"
+        <button
+          type="button"
           onClick={toggleTheme}
           aria-label="Toggle light or dark theme"
-          className="rounded-full text-gray-500 hover:bg-gray-100 hover:text-gray-800 transition-colors cursor-pointer"
+          className="p-2 rounded-full text-gray-500 hover:bg-gray-100 hover:text-gray-800 transition-colors cursor-pointer"
         >
           {theme === "dark" ? (
             <Sun className="w-5 h-5 text-amber-500" />
           ) : (
             <Moon className="w-5 h-5 text-slate-600" />
           )}
-        </Button>
+        </button>
 
-        <Button
-          isIconOnly
-          variant="ghost"
-          className="rounded-full text-gray-500 hover:bg-gray-100 hover:text-gray-800 transition-colors"
+        <button
+          type="button"
+          className="p-2 rounded-full text-gray-500 hover:bg-gray-100 hover:text-gray-800 transition-colors"
         >
           <Grid3x3 className="w-5 h-5" />
-        </Button>
+        </button>
 
         <div className="relative flex items-center">
-          <Button
-            isIconOnly
-            variant="ghost"
-            className="rounded-full text-gray-500 hover:bg-gray-100 hover:text-gray-800 transition-colors"
+          <button
+            type="button"
+            className="p-2 rounded-full text-gray-500 hover:bg-gray-100 hover:text-gray-800 transition-colors"
           >
             <Bell className="w-5 h-5" />
-          </Button>
+          </button>
           {hasNotification && (
-            <Badge color="danger" className="border-white" />
+            <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-red-500 ring-2 ring-white" />
           )}
         </div>
 
@@ -162,7 +152,8 @@ const Navbar = ({
         <DropdownMenu>
           <DropdownMenuTrigger className="flex items-center gap-2.5 pl-1 pr-2.5 py-1.5 rounded-2xl hover:bg-gray-100 transition-colors outline-none cursor-pointer">
             <Avatar className="w-9 h-9 ring-2 ring-white shadow-sm">
-              <Avatar.Image src={user.avatarUrl} alt={user.name} />
+              <AvatarImage src={user.avatarUrl} alt={user.name} />
+              <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
             </Avatar>
         
             <ChevronDown className="w-4 h-4 text-gray-400 ml-1" />
@@ -171,8 +162,8 @@ const Navbar = ({
           <DropdownMenuContent align="end" className="w-56 rounded-2xl p-1.5 shadow-xl border border-gray-100 bg-white z-50">
             <div className="flex items-center gap-3 px-3 py-3 mb-1 border-b border-gray-100">
               <Avatar className="w-10 h-10">
-                <Avatar.Image src={user.avatarUrl} alt={user.name} />
-                <Avatar.Fallback>{user.name.charAt(0)}</Avatar.Fallback>
+                <AvatarImage src={user.avatarUrl} alt={user.name} />
+                <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
               </Avatar>
               <div className="flex flex-col leading-tight">
                 <span className="text-sm font-semibold text-gray-900">
