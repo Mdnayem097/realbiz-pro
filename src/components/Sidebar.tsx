@@ -35,10 +35,11 @@ const navItems: NavItem[] = [
     icon: FolderOpenDot,
     gradient: "from-blue-500 to-cyan-500",
     children: [
-      { label: "Project Type", href: "/project/project-type" },
-      { label: "Project", href: "/project/project" },
-      { label: "Site", href: "/project/site" },
-      { label: "Reports", href: "/project/reports" },
+      { label: "Project Type", href: "/dashboard/project/projects/project-type" },
+      { label: "Project", href: "/dashboard/project/projects/project" },
+      { label: "Site", href: "/dashboard/project/projects/site" },
+      { label: "Project Summary", href: "/dashboard/project/projects/report/project-summary" },
+      { label: "Project Details", href: "/dashboard/project/projects/report/project-details" },
     ],
   },
   {
@@ -46,9 +47,12 @@ const navItems: NavItem[] = [
     icon: Contact2,
     gradient: "from-emerald-500 to-teal-500",
     children: [
-      { label: "Customer-Accounts", href: "/contact/customer-accounts" },
-      { label: "Supplier Accounts", href: "/contact/supplier-accounts" },
-      { label: "Labour/Workers/Contractor", href: "/contact/groups" },
+      { label: "Customer Accounts", href: "/dashboard/project/contract/customer-accounts" },
+      { label: "Supplier Accounts", href: "/dashboard/project/contract/supplier-accounts" },
+      { label: "Labour Work Bank", href: "/dashboard/project/contract/labour-work-bank" },
+      { label: "Contractor", href: "/dashboard/project/contract/contractor" },
+      { label: "At A Glance", href: "/dashboard/project/contract/report/at-a-glance" },
+      { label: "Project Summary Report", href: "/dashboard/project/contract/report/project-summary-report" },
     ],
   },
   {
@@ -56,9 +60,10 @@ const navItems: NavItem[] = [
     icon: Wallet,
     gradient: "from-amber-500 to-orange-500",
     children: [
-      { label: "Investors", href: "/investment/investors" },
-      { label: "Investment Plans", href: "/investment/plans" },
-      { label: "Returns", href: "/investment/returns" },
+      { label: "Investor", href: "/dashboard/project/investments/investor" },
+      { label: "Configuration", href: "/dashboard/project/investments/configuration" },
+      { label: "Project Financial Report", href: "/dashboard/project/investments/report/project-financial-report" },
+      { label: "Project Progress Report", href: "/dashboard/project/investments/report/project-progress-report" },
     ],
   },
   {
@@ -66,8 +71,14 @@ const navItems: NavItem[] = [
     icon: Share2,
     gradient: "from-fuchsia-500 to-pink-500",
     children: [
-      { label: "Shared With Me", href: "/share-project/shared" },
-      { label: "Share Settings", href: "/share-project/settings" },
+      { label: "Assign Share", href: "/dashboard/project/share-project/assign-share" },
+      { label: "Share Report", href: "/dashboard/project/share-project/share-report" },
+      { label: "Share Collection Report", href: "/dashboard/project/share-project/share-collection-report" },
+      { label: "Penalty Report", href: "/dashboard/project/share-project/penalty-report" },
+      { label: "Share Holders Point Report", href: "/dashboard/project/share-project/share-holders-point-report" },
+      { label: "Project Share Configuration", href: "/dashboard/project/share-project/project-share-configuration" },
+      { label: "Project Wise Income Statement", href: "/dashboard/project/share-project/report/project-wise-income-statement" },
+      { label: "Site Wise Income Statement", href: "/dashboard/project/share-project/report/site-wise-income-statement" },
     ],
   },
   {
@@ -75,9 +86,10 @@ const navItems: NavItem[] = [
     icon: ClipboardList,
     gradient: "from-rose-500 to-red-500",
     children: [
-      { label: "All Requisitions", href: "/requisition" },
-      { label: "New Requisition", href: "/requisition/new" },
-      { label: "Approvals", href: "/requisition/approvals" },
+      { label: "Material Requisition", href: "/dashboard/project/requisition/material-requisition" },
+      { label: "Service Work Requisition", href: "/dashboard/project/requisition/service-work-requisition" },
+      { label: "Fund Requisition", href: "/dashboard/project/requisition/fund-requisition" },
+      { label: "Fund Requisition Report", href: "/dashboard/project/requisition/fund-requisition-report" },
     ],
   },
   {
@@ -85,9 +97,20 @@ const navItems: NavItem[] = [
     icon: Receipt,
     gradient: "from-sky-500 to-blue-600",
     children: [
-      { label: "Invoices", href: "/billing/invoices" },
-      { label: "Payments", href: "/billing/payments" },
-      { label: "Billing Settings", href: "/billing/settings" },
+      { label: "Category", href: "/dashboard/project/billing/configuration/category" },
+      { label: "Sub Category", href: "/dashboard/project/billing/configuration/sub-category" },
+      { label: "Bill Item", href: "/dashboard/project/billing/configuration/bill-item" },
+      { label: "Service Work Name", href: "/dashboard/project/billing/configuration/service-work-name" },
+      { label: "BOQ Title", href: "/dashboard/project/billing/configuration/boq-title" },
+      { label: "Bill Invoice", href: "/dashboard/project/billing/bill-invoice" },
+      { label: "Contractor Bill", href: "/dashboard/project/billing/contractor-bill" },
+      { label: "Labour Work Bill", href: "/dashboard/project/billing/labour-work-bill" },
+      { label: "Work Order", href: "/dashboard/project/billing/work-order" },
+      { label: "Contractor Work Order", href: "/dashboard/project/billing/contractor-work-order" },
+      { label: "Period Billing", href: "/dashboard/project/billing/period-billing" },
+      { label: "Adjustment Billing", href: "/dashboard/project/billing/adjustment-billing" },
+      { label: "Quote", href: "/dashboard/project/billing/quote" },
+      { label: "Labour Work Bill Report", href: "/dashboard/project/billing/labour-work-bill-report" },
     ],
   },
   {
@@ -95,9 +118,18 @@ const navItems: NavItem[] = [
     icon: Building2,
     gradient: "from-lime-500 to-green-600",
     children: [
-      { label: "Flats", href: "/flat-land/flats" },
-      { label: "Land", href: "/flat-land/land" },
-      { label: "Bookings", href: "/flat-land/bookings" },
+      { label: "Flat", href: "/dashboard/project/flat-land/flat" },
+      { label: "Road", href: "/dashboard/project/flat-land/land/road" },
+      { label: "Block", href: "/dashboard/project/flat-land/land/block" },
+      { label: "Land Details", href: "/dashboard/project/flat-land/land/land-details" },
+      { label: "Booking", href: "/dashboard/project/flat-land/booking" },
+      { label: "Sale Offer", href: "/dashboard/project/flat-land/sale-offer" },
+      { label: "Flat Land Sale", href: "/dashboard/project/flat-land/flat-land-sale" },
+      { label: "Flat Land Sale Report", href: "/dashboard/project/flat-land/flat-land-sale-report" },
+      { label: "Sale Collection Report", href: "/dashboard/project/flat-land/sale-collection-report" },
+      { label: "Plot Distribution Report", href: "/dashboard/project/flat-land/plot-distribution-report" },
+      { label: "Aging Report", href: "/dashboard/project/flat-land/aging-report" },
+      { label: "Installment Report", href: "/dashboard/project/flat-land/installment-report" },
     ],
   },
   {
@@ -105,14 +137,12 @@ const navItems: NavItem[] = [
     icon: FileText,
     gradient: "from-purple-500 to-indigo-600",
     children: [
-      { label: "All Documents", href: "/document" },
-      { label: "Upload Document", href: "/document/upload" },
-      { label: "Templates", href: "/document/templates" },
+      { label: "Document", href: "/dashboard/project/document" },
     ],
   },
 ];
 
-const Sidebar = () => {
+const Sidebar = ({ open, onClose }: { open?: boolean; onClose?: () => void }) => {
   const pathname = usePathname();
   const [openMenu, setOpenMenu] = useState<string | null>("Project");
 
@@ -121,10 +151,23 @@ const Sidebar = () => {
   };
 
   const isChildActive = (children?: SubItem[]) =>
-    children?.some((c) => pathname?.startsWith(c.href));
+    children?.some((c) => pathname === c.href || pathname?.startsWith(c.href + "/"));
 
   return (
-    <aside className="relative flex flex-col h-screen w-[280px] bg-gradient-to-b from-white to-slate-50 text-slate-500 overflow-hidden border-r border-slate-200/70">
+    <>
+      {open && (
+        <div
+          className="fixed inset-0 z-40 bg-slate-900/30 backdrop-blur-xs lg:hidden"
+          onClick={onClose}
+        />
+      )}
+      <aside
+        className={`flex flex-col h-screen w-[280px] shrink-0 bg-gradient-to-b from-white to-slate-50 text-slate-500 overflow-hidden border-r border-slate-200/70 ${
+          open
+            ? "fixed inset-y-0 left-0 z-50 translate-x-0 shadow-2xl"
+            : "relative"
+        }`}
+      >
       {/* ambient glow accents */}
       <div className="pointer-events-none absolute -top-24 -left-20 w-72 h-72 bg-indigo-200/40 rounded-full blur-3xl" />
       <div className="pointer-events-none absolute bottom-0 -right-16 w-64 h-64 bg-violet-200/30 rounded-full blur-3xl" />
@@ -234,8 +277,8 @@ const Sidebar = () => {
           </p>
           <p className="text-[10px] text-slate-400">v1.0.0</p>
         </div>
-      </div>
-    </aside>
+      </aside>
+    </>
   );
 };
 
