@@ -1,0 +1,10 @@
+{
+  "/about/page": "/about",
+  "/contact/page": "/contact",
+  "/login/page": "/login",
+  "/page": "/",
+  "/properties/page": "/properties",
+  "/dashboard/[...slug]/page": "/dashboard/[...slug]",
+  "/dashboard/page": "/dashboard",
+  "/_not-found/page": "/_not-found"
+}
