@@ -138,9 +138,7 @@ const Sidebar = () => {
           <span className="font-bold text-[15px] text-slate-800 tracking-tight">
             RealEstate Pro
           </span>
-          <span className="text-[11px] text-slate-400 font-medium">
-            Build Better Tomorrow
-          </span>
+          <span className="text-[11px] text-slate-400 font-medium">Build Better Tomorrow</span>
         </div>
       </div>
 
@@ -148,8 +146,7 @@ const Sidebar = () => {
       <nav className="relative flex-1 overflow-y-auto px-3 py-5 space-y-1.5 scrollbar-thin scrollbar-thumb-slate-200 scrollbar-track-transparent">
         {navItems.map((item) => {
           const Icon = item.icon;
-          const active =
-            openMenu === item.label || isChildActive(item.children);
+          const active = openMenu === item.label || isChildActive(item.children);
           const isOpen = openMenu === item.label;
 
           return (
@@ -191,9 +188,7 @@ const Sidebar = () => {
               {item.children && (
                 <div
                   className={`grid transition-all duration-300 ease-in-out ${
-                    isOpen
-                      ? "grid-rows-[1fr] opacity-100 mt-1"
-                      : "grid-rows-[0fr] opacity-0"
+                    isOpen ? "grid-rows-[1fr] opacity-100 mt-1" : "grid-rows-[0fr] opacity-0"
                   }`}
                 >
                   <div className="overflow-hidden">
@@ -229,9 +224,7 @@ const Sidebar = () => {
       {/* Footer */}
       <div className="relative px-6 py-5 border-t border-slate-200/70">
         <div className="flex flex-col items-center gap-2 text-center">
-          <p className="text-[11px] text-slate-400 font-medium">
-            Real Estate Management System
-          </p>
+          <p className="text-[11px] text-slate-400 font-medium">Real Estate Management System</p>
           <p className="text-[10px] text-slate-400">v1.0.0</p>
         </div>
       </div>

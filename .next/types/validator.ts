@@ -48,10 +48,28 @@ type LayoutConfig<Route extends LayoutRoutes = LayoutRoutes> = {
   handler satisfies AppPageConfig<"/contact">
 }
 
+// Validate ..\..\src\app\cr\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\cr\\page.js")
+  handler satisfies AppPageConfig<"/cr">
+}
+
+// Validate ..\..\src\app\crm-module\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\crm-module\\page.js")
+  handler satisfies AppPageConfig<"/crm-module">
+}
+
 // Validate ..\..\src\app\dashboard\[...slug]\page.tsx
 {
   const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\[...slug]\\page.js")
   handler satisfies AppPageConfig<"/dashboard/[...slug]">
+}
+
+// Validate ..\..\src\app\dashboard\inventory\adjustment\material-usage\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\dashboard\\inventory\\adjustment\\material-usage\\page.js")
+  handler satisfies AppPageConfig<"/dashboard/inventory/adjustment/material-usage">
 }
 
 // Validate ..\..\src\app\dashboard\inventory\adjustment\stock-transfer\page.tsx
@@ -166,6 +184,12 @@ type LayoutConfig<Route extends LayoutRoutes = LayoutRoutes> = {
 {
   const handler = {} as typeof import("..\\..\\src\\app\\page.js")
   handler satisfies AppPageConfig<"/">
+}
+
+// Validate ..\..\src\app\projects\page.tsx
+{
+  const handler = {} as typeof import("..\\..\\src\\app\\projects\\page.js")
+  handler satisfies AppPageConfig<"/projects">
 }
 
 // Validate ..\..\src\app\properties\page.tsx

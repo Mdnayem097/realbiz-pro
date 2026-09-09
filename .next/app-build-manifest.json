@@ -1,140 +1,295 @@
 {
   "pages": {
-    "/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/layout.css",
-      "static/chunks/app/layout.js"
+    "/_not-found/page": [
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/app/_not-found/page-506f5efd59d454ff.js"
     ],
     "/not-found": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/not-found.js"
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/3443-75badb041774b779.js",
+      "static/chunks/app/not-found-acb0fb7ae37ed75e.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/css/c70d8a72f8e4b57c.css",
+      "static/chunks/app/layout-7e895f666609bc90.js"
+    ],
+    "/about/page": [
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/3443-75badb041774b779.js",
+      "static/chunks/7082-86cac361c57c2487.js",
+      "static/chunks/app/about/page-f31ecad6e3d2e241.js"
+    ],
+    "/contact/page": [
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/3443-75badb041774b779.js",
+      "static/chunks/7082-86cac361c57c2487.js",
+      "static/chunks/app/contact/page-19acbad5abe2ffa2.js"
+    ],
+    "/crm-module/page": [
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/e9619662-824eedcdaf99e30c.js",
+      "static/chunks/3443-75badb041774b779.js",
+      "static/chunks/7082-86cac361c57c2487.js",
+      "static/chunks/7974-839fac4c09f4248e.js",
+      "static/chunks/8551-6edc80e14e412ce0.js",
+      "static/chunks/2060-8f0918762b28e11c.js",
+      "static/chunks/app/crm-module/page-4227c93374d15f5d.js"
+    ],
+    "/cr/page": [
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/app/cr/page-f8ccb0037f5832c3.js"
     ],
     "/login/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/login/page.js"
-    ],
-    "/dashboard/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/layout.js"
-    ],
-    "/dashboard/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/page.js"
-    ],
-    "/dashboard/[...slug]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/[...slug]/page.js"
-    ],
-    "/_not-found/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
-    ],
-    "/dashboard/inventory/contracts/supplier-accounts/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/contracts/supplier-accounts/page.js"
-    ],
-    "/dashboard/inventory/products/categories/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/products/categories/page.js"
-    ],
-    "/dashboard/inventory/products/sub-categories/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/products/sub-categories/page.js"
-    ],
-    "/dashboard/inventory/products/brands/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/products/brands/page.js"
-    ],
-    "/dashboard/inventory/products/units/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/products/units/page.js"
-    ],
-    "/dashboard/inventory/products/item-entry/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/products/item-entry/page.js"
-    ],
-    "/dashboard/inventory/purchase/add-purchase/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/purchase/add-purchase/page.js"
-    ],
-    "/dashboard/inventory/purchase/purchase-list/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/purchase/purchase-list/page.js"
-    ],
-    "/dashboard/inventory/sales/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/sales/page.js"
-    ],
-    "/dashboard/inventory/adjustment/material-usage/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/adjustment/material-usage/page.js"
-    ],
-    "/dashboard/inventory/adjustment/stock-transfer/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/adjustment/stock-transfer/page.js"
-    ],
-    "/dashboard/inventory/material-requisition/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/material-requisition/page.js"
-    ],
-    "/dashboard/inventory/reports/purchase-details/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/reports/purchase-details/page.js"
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/3443-75badb041774b779.js",
+      "static/chunks/7082-86cac361c57c2487.js",
+      "static/chunks/app/login/page-62dfe77d8f17b63d.js"
     ],
     "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/3443-75badb041774b779.js",
+      "static/chunks/7082-86cac361c57c2487.js",
+      "static/chunks/app/page-562a03d91a0fa173.js"
     ],
-    "/dashboard/inventory/reports/purchase-order-receive-details/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/reports/purchase-order-receive-details/page.js"
+    "/projects/page": [
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/7974-839fac4c09f4248e.js",
+      "static/chunks/8551-6edc80e14e412ce0.js",
+      "static/chunks/6960-1be0e6aebb6f3b86.js",
+      "static/chunks/app/projects/page-c6f2cb116fe757af.js"
     ],
-    "/dashboard/inventory/reports/stock-report/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/reports/stock-report/page.js"
+    "/procurement/page": [
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/7974-839fac4c09f4248e.js",
+      "static/chunks/app/procurement/page-5e79e6e8026081c8.js"
+    ],
+    "/properties/page": [
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/3443-75badb041774b779.js",
+      "static/chunks/7082-86cac361c57c2487.js",
+      "static/chunks/app/properties/page-212ee0a9e82ec172.js"
+    ],
+    "/dashboard/layout": [
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/3443-75badb041774b779.js",
+      "static/chunks/7082-86cac361c57c2487.js",
+      "static/chunks/6934-ac889aae4c0d66e9.js",
+      "static/chunks/app/dashboard/layout-125632c038ae6450.js"
+    ],
+    "/dashboard/[...slug]/page": [
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/3443-75badb041774b779.js",
+      "static/chunks/4507-9b910a94055eb6ab.js",
+      "static/chunks/app/dashboard/[...slug]/page-9e05a0b4771925d8.js"
+    ],
+    "/dashboard/inventory/adjustment/material-usage/page": [
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/da6d8e69-eeef42ae042a9e78.js",
+      "static/chunks/3443-75badb041774b779.js",
+      "static/chunks/app/dashboard/inventory/adjustment/material-usage/page-64cc0189a8888188.js"
+    ],
+    "/dashboard/inventory/adjustment/stock-transfer/page": [
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/da6d8e69-eeef42ae042a9e78.js",
+      "static/chunks/3443-75badb041774b779.js",
+      "static/chunks/app/dashboard/inventory/adjustment/stock-transfer/page-7fa3d63c73cf145f.js"
+    ],
+    "/dashboard/inventory/products/brands/page": [
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/da6d8e69-eeef42ae042a9e78.js",
+      "static/chunks/3443-75badb041774b779.js",
+      "static/chunks/app/dashboard/inventory/products/brands/page-4d4d9cf547958a0c.js"
+    ],
+    "/dashboard/inventory/contracts/supplier-accounts/page": [
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/da6d8e69-eeef42ae042a9e78.js",
+      "static/chunks/3443-75badb041774b779.js",
+      "static/chunks/app/dashboard/inventory/contracts/supplier-accounts/page-247edbe81902a760.js"
+    ],
+    "/dashboard/inventory/material-requisition/page": [
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/da6d8e69-eeef42ae042a9e78.js",
+      "static/chunks/3443-75badb041774b779.js",
+      "static/chunks/app/dashboard/inventory/material-requisition/page-251e5dc41e5fa35c.js"
+    ],
+    "/dashboard/inventory/products/categories/page": [
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/da6d8e69-eeef42ae042a9e78.js",
+      "static/chunks/3443-75badb041774b779.js",
+      "static/chunks/app/dashboard/inventory/products/categories/page-3a46a11434269afc.js"
+    ],
+    "/dashboard/inventory/products/sub-categories/page": [
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/da6d8e69-eeef42ae042a9e78.js",
+      "static/chunks/3443-75badb041774b779.js",
+      "static/chunks/app/dashboard/inventory/products/sub-categories/page-d7ae674769958582.js"
+    ],
+    "/dashboard/inventory/products/item-entry/page": [
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/da6d8e69-eeef42ae042a9e78.js",
+      "static/chunks/3443-75badb041774b779.js",
+      "static/chunks/app/dashboard/inventory/products/item-entry/page-89f1ecf7944a0399.js"
+    ],
+    "/dashboard/inventory/products/units/page": [
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/da6d8e69-eeef42ae042a9e78.js",
+      "static/chunks/3443-75badb041774b779.js",
+      "static/chunks/app/dashboard/inventory/products/units/page-05a4324c89b7f785.js"
+    ],
+    "/dashboard/inventory/purchase/add-purchase/page": [
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/da6d8e69-eeef42ae042a9e78.js",
+      "static/chunks/3443-75badb041774b779.js",
+      "static/chunks/app/dashboard/inventory/purchase/add-purchase/page-c4b48f16a91116f0.js"
+    ],
+    "/dashboard/inventory/purchase/purchase-list/page": [
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/da6d8e69-eeef42ae042a9e78.js",
+      "static/chunks/3443-75badb041774b779.js",
+      "static/chunks/app/dashboard/inventory/purchase/purchase-list/page-6712c20172b1afdc.js"
     ],
     "/dashboard/inventory/reports/item-history-report/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/reports/item-history-report/page.js"
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/app/dashboard/inventory/reports/item-history-report/page-506f5efd59d454ff.js"
     ],
     "/dashboard/inventory/reports/item-wise-supplier-ledger/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/reports/item-wise-supplier-ledger/page.js"
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/app/dashboard/inventory/reports/item-wise-supplier-ledger/page-506f5efd59d454ff.js"
     ],
     "/dashboard/inventory/reports/material-usage-report/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/reports/material-usage-report/page.js"
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/app/dashboard/inventory/reports/material-usage-report/page-506f5efd59d454ff.js"
+    ],
+    "/dashboard/inventory/reports/purchase-details/page": [
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/da6d8e69-eeef42ae042a9e78.js",
+      "static/chunks/app/dashboard/inventory/reports/purchase-details/page-8f0614eaca4a9ff9.js"
     ],
     "/dashboard/inventory/reports/material-comparison-report/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/reports/material-comparison-report/page.js"
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/app/dashboard/inventory/reports/material-comparison-report/page-506f5efd59d454ff.js"
+    ],
+    "/dashboard/inventory/reports/purchase-order-receive-details/page": [
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/da6d8e69-eeef42ae042a9e78.js",
+      "static/chunks/app/dashboard/inventory/reports/purchase-order-receive-details/page-c6fd5aea6d8c0e06.js"
+    ],
+    "/dashboard/page": [
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/app/dashboard/page-506f5efd59d454ff.js"
+    ],
+    "/dashboard/inventory/sales/page": [
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/da6d8e69-eeef42ae042a9e78.js",
+      "static/chunks/3443-75badb041774b779.js",
+      "static/chunks/app/dashboard/inventory/sales/page-4bef662a1b2fe522.js"
+    ],
+    "/dashboard/inventory/reports/stock-report/page": [
+      "static/chunks/webpack-930138512d59e2ea.js",
+      "static/chunks/6dab5207-4fa5ffcfbe921dec.js",
+      "static/chunks/7175-2e3917d4f9da7b0b.js",
+      "static/chunks/main-app-057ed774c2c66a12.js",
+      "static/chunks/app/dashboard/inventory/reports/stock-report/page-506f5efd59d454ff.js"
     ]
   }
 }

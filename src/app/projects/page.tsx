@@ -15,13 +15,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import {
-  FolderKanban,
-  ListChecks,
-  ShieldCheck,
-  AlertTriangle,
-  TrendingUp,
-} from "lucide-react";
+import { FolderKanban, ListChecks, ShieldCheck, AlertTriangle, TrendingUp } from "lucide-react";
 
 interface Project {
   id: number;
@@ -154,9 +148,7 @@ const DashboardPage = () => {
       {/* Header */}
       <div className="mb-8 flex flex-col justify-between gap-2 sm:flex-row sm:items-end">
         <div>
-          <h1 className="text-3xl font-extrabold tracking-tight text-gray-900">
-            Dashboard
-          </h1>
+          <h1 className="text-3xl font-extrabold tracking-tight text-gray-900">Dashboard</h1>
           <p className="mt-1 text-sm font-medium text-gray-500">
             Welcome back! Here&apos;s what&apos;s happening with your projects.
           </p>
@@ -181,15 +173,11 @@ const DashboardPage = () => {
               />
               <div className="relative flex items-start justify-between">
                 <div>
-                  <p className="text-sm font-semibold text-gray-500">
-                    {item.title}
-                  </p>
+                  <p className="text-sm font-semibold text-gray-500">{item.title}</p>
                   <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-gray-900">
                     {item.value}
                   </h2>
-                  <p className="mt-2 text-xs font-medium text-gray-400">
-                    {item.description}
-                  </p>
+                  <p className="mt-2 text-xs font-medium text-gray-400">{item.description}</p>
                 </div>
                 <div
                   className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${item.accent} shadow-md`}
@@ -208,12 +196,8 @@ const DashboardPage = () => {
         <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm lg:col-span-2">
           <div className="mb-5 flex items-center justify-between">
             <div>
-              <h2 className="text-base font-bold text-gray-900">
-                Project Overview
-              </h2>
-              <p className="text-sm text-gray-500">
-                Running progress across active projects
-              </p>
+              <h2 className="text-base font-bold text-gray-900">Project Overview</h2>
+              <p className="text-sm text-gray-500">Running progress across active projects</p>
             </div>
           </div>
 
@@ -237,11 +221,7 @@ const DashboardPage = () => {
                   axisLine={{ stroke: "#e5e7eb" }}
                   tickLine={false}
                 />
-                <YAxis
-                  tick={{ fill: "#6b7280", fontSize: 12 }}
-                  axisLine={false}
-                  tickLine={false}
-                />
+                <YAxis tick={{ fill: "#6b7280", fontSize: 12 }} axisLine={false} tickLine={false} />
                 <Tooltip content={<CustomTooltip />} />
                 <Area
                   type="monotone"
@@ -259,12 +239,8 @@ const DashboardPage = () => {
 
         {/* Pie Chart */}
         <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
-          <h2 className="text-base font-bold text-gray-900">
-            Project Status
-          </h2>
-          <p className="text-sm text-gray-500">
-            Current project distribution
-          </p>
+          <h2 className="text-base font-bold text-gray-900">Project Status</h2>
+          <p className="text-sm text-gray-500">Current project distribution</p>
 
           <div className="relative mt-2 h-[240px]">
             <ResponsiveContainer width="100%" height="100%">
@@ -289,9 +265,7 @@ const DashboardPage = () => {
               </PieChart>
             </ResponsiveContainer>
             <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center">
-              <span className="text-2xl font-extrabold text-gray-900">
-                {data.totalProjects}
-              </span>
+              <span className="text-2xl font-extrabold text-gray-900">{data.totalProjects}</span>
               <span className="text-[11px] font-medium text-gray-400">Total</span>
             </div>
           </div>
@@ -316,12 +290,8 @@ const DashboardPage = () => {
       {/* Bar Chart */}
       <div className="mt-6 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
         <div className="mb-5">
-          <h2 className="text-base font-bold text-gray-900">
-            Working &amp; Financial Progress
-          </h2>
-          <p className="text-sm text-gray-500">
-            Financial progress by project
-          </p>
+          <h2 className="text-base font-bold text-gray-900">Working &amp; Financial Progress</h2>
+          <p className="text-sm text-gray-500">Financial progress by project</p>
         </div>
 
         <div className="h-[320px]">
@@ -355,12 +325,8 @@ const DashboardPage = () => {
       {/* Recent Projects */}
       <div className="mt-6 overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
         <div className="border-b border-gray-100 p-6">
-          <h2 className="text-base font-bold text-gray-900">
-            Recent Projects
-          </h2>
-          <p className="text-sm text-gray-500">
-            Latest projects added to the system
-          </p>
+          <h2 className="text-base font-bold text-gray-900">Recent Projects</h2>
+          <p className="text-sm text-gray-500">Latest projects added to the system</p>
         </div>
 
         <div className="overflow-x-auto">
@@ -388,9 +354,7 @@ const DashboardPage = () => {
                   key={project.id}
                   className="border-t border-gray-50 transition-colors hover:bg-gray-50/60"
                 >
-                  <td className="px-6 py-4 text-sm font-semibold text-gray-900">
-                    {project.name}
-                  </td>
+                  <td className="px-6 py-4 text-sm font-semibold text-gray-900">{project.name}</td>
                   <td className="px-6 py-4">
                     <span
                       className={`rounded-full px-3 py-1 text-xs font-semibold ${statusBadgeStyles[project.status]}`}
@@ -411,9 +375,7 @@ const DashboardPage = () => {
                       </span>
                     </div>
                   </td>
-                  <td className="px-6 py-4 text-sm font-medium text-gray-500">
-                    {project.date}
-                  </td>
+                  <td className="px-6 py-4 text-sm font-medium text-gray-500">{project.date}</td>
                 </tr>
               ))}
             </tbody>

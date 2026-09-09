@@ -58,7 +58,6 @@ export function DayActivityModal({
 
   useEffect(() => {
     if (!dateISO) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setData(null);
       return;
     }
@@ -102,9 +101,7 @@ export function DayActivityModal({
             <div className="flex items-center justify-between gap-3 bg-accent px-5 py-4">
               <div className="flex items-center gap-2 text-white">
                 <CalendarDays size={16} />
-                <h2 className="font-display text-[15px] font-semibold">
-                  Today&apos;s Activities
-                </h2>
+                <h2 className="font-display text-[15px] font-semibold">Today&apos;s Activities</h2>
               </div>
               <button
                 onClick={onClose}
@@ -122,8 +119,7 @@ export function DayActivityModal({
                 <>
                   <div className="rounded-lg border border-border bg-canvas px-4 py-3.5 space-y-2">
                     <p className="text-[13px] text-ink">
-                      <span className="font-semibold">Date:</span>{" "}
-                      {formatLongDate(data.date)}
+                      <span className="font-semibold">Date:</span> {formatLongDate(data.date)}
                     </p>
                     <p className="flex items-center gap-1.5 text-[13px] text-ink">
                       <MapPinned size={13} className="text-ink-muted" />

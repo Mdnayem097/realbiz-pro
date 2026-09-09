@@ -10,7 +10,12 @@ import { LiveFeed } from "@/components/crm/live-feed";
 import { CalendarPanel, RANGES } from "@/components/crm/calender-panel";
 import { ActivityChart } from "@/components/crm/activity-chart";
 import { PropertyStatusChart } from "@/components/crm/property-status-chart";
-import { fetchStatCards, fetchTodoSummary, type StatCardData, type TodoSummaryItem } from "@/lib/api";
+import {
+  fetchStatCards,
+  fetchTodoSummary,
+  type StatCardData,
+  type TodoSummaryItem,
+} from "@/lib/api";
 
 export default function CrmModulePage() {
   const [stats, setStats] = useState<StatCardData[]>([]);
@@ -36,9 +41,7 @@ export default function CrmModulePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.25 }}
           >
-            <h1 className="font-display text-[19px] font-semibold text-ink">
-              Overview
-            </h1>
+            <h1 className="font-display text-[19px] font-semibold text-ink">Overview</h1>
             <p className="text-[13px] text-ink-muted mt-0.5">
               Lead activity and pipeline status across all agents.
             </p>

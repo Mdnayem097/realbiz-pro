@@ -1,9 +1,4 @@
-export type ProcurementPeriod =
-  | "today"
-  | "weekly"
-  | "monthly"
-  | "yearly"
-  | "all";
+export type ProcurementPeriod = "today" | "weekly" | "monthly" | "yearly" | "all";
 
 export interface ProcurementStat {
   id: string;

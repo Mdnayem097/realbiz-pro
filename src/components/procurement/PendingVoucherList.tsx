@@ -11,24 +11,17 @@ export default function PendingVoucherList() {
           </div>
 
           <div>
-            <h3 className="font-bold text-slate-800">
-              Pending Voucher/Invoice
-            </h3>
+            <h3 className="font-bold text-slate-800">Pending Voucher/Invoice</h3>
 
             <p className="text-xs text-slate-500">Awaiting approval</p>
           </div>
         </div>
 
-        <button className="text-sm font-semibold text-blue-600 hover:underline">
-          View All
-        </button>
+        <button className="text-sm font-semibold text-blue-600 hover:underline">View All</button>
       </div>
 
       <div className="relative mb-4">
-        <Search
-          size={17}
-          className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
-        />
+        <Search size={17} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
 
         <input
           type="text"
@@ -44,9 +37,7 @@ export default function PendingVoucherList() {
             className="rounded-xl border border-slate-200 p-4 transition hover:border-blue-200 hover:shadow-sm"
           >
             <div className="mb-2 flex items-center justify-between">
-              <span className="text-xs font-semibold text-slate-500">
-                Reference
-              </span>
+              <span className="text-xs font-semibold text-slate-500">Reference</span>
 
               <span className="rounded-md bg-orange-100 px-2.5 py-1 text-xs font-bold text-orange-600">
                 Offer
@@ -56,8 +47,7 @@ export default function PendingVoucherList() {
             <div className="flex items-start justify-between gap-3">
               <div className="space-y-1 text-sm">
                 <p className="font-semibold text-slate-800">
-                  Project:{" "}
-                  <span className="font-normal">{voucher.project}</span>
+                  Project: <span className="font-normal">{voucher.project}</span>
                 </p>
 
                 <p className="text-slate-600">Contact: {voucher.contact}</p>
@@ -66,9 +56,7 @@ export default function PendingVoucherList() {
 
                 <p className="text-slate-500">{voucher.date}</p>
 
-                <p className="font-semibold text-blue-600">
-                  {voucher.saleOffer}
-                </p>
+                <p className="font-semibold text-blue-600">{voucher.saleOffer}</p>
               </div>
 
               <button className="rounded-lg bg-blue-600 p-2 text-white hover:bg-blue-700">
@@ -76,9 +64,7 @@ export default function PendingVoucherList() {
               </button>
             </div>
 
-            <p className="mt-3 text-xs font-semibold text-red-500">
-              {voucher.status}
-            </p>
+            <p className="mt-3 text-xs font-semibold text-red-500">{voucher.status}</p>
           </div>
         ))}
       </div>

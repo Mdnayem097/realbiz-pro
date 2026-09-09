@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  ClipboardList,
-  FileText,
-  ShoppingCart,
-  Package,
-  Truck,
-  Receipt,
-} from "lucide-react";
+import { ClipboardList, FileText, ShoppingCart, Package, Truck, Receipt } from "lucide-react";
 
 import { AreaChart, Area, ResponsiveContainer } from "recharts";
 
@@ -138,13 +131,9 @@ export default function ProcurementStats() {
 
             {/* Change */}
             <div className="mt-1.75 flex items-center gap-[5px]">
-              <span className="text-[12px] font-semibold text-[#16a34a]">
-                ↑ {item.change}%
-              </span>
+              <span className="text-[12px] font-semibold text-[#16a34a]">↑ {item.change}%</span>
 
-              <span className="text-[11px] text-[#71809c]">
-                {item.changeLabel}
-              </span>
+              <span className="text-[11px] text-[#71809c]">{item.changeLabel}</span>
             </div>
 
             {/* Bottom chart */}
@@ -167,17 +156,9 @@ export default function ProcurementStats() {
                       x2="0"
                       y2="1"
                     >
-                      <stop
-                        offset="0%"
-                        stopColor={colors.fill}
-                        stopOpacity={0.16}
-                      />
+                      <stop offset="0%" stopColor={colors.fill} stopOpacity={0.16} />
 
-                      <stop
-                        offset="100%"
-                        stopColor={colors.fill}
-                        stopOpacity={0.01}
-                      />
+                      <stop offset="100%" stopColor={colors.fill} stopOpacity={0.01} />
                     </linearGradient>
                   </defs>
 

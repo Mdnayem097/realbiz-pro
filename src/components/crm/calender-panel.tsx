@@ -90,9 +90,7 @@ export function CalendarPanel({
       </div>
 
       <div className="flex items-center justify-between mb-3">
-        <h3 className="font-display text-[14px] font-semibold text-ink">
-          {monthLabel}
-        </h3>
+        <h3 className="font-display text-[14px] font-semibold text-ink">{monthLabel}</h3>
         <div className="flex gap-1">
           <button
             onClick={() => setCursor(new Date(cursor.getFullYear(), cursor.getMonth() - 1, 1))}

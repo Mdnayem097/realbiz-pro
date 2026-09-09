@@ -29,20 +29,12 @@ function ChartTooltip({ active, payload, label }: TooltipContentProps<ValueType,
     <div className="rounded-md border border-border bg-surface px-3 py-2 shadow-sm shadow-black/6">
       <p className="text-[11px] font-medium text-ink-muted mb-1">{label}</p>
       {payload.map((entry) => (
-        <div
-          key={entry.dataKey as string}
-          className="flex items-center gap-1.5 text-[12px]"
-        >
-          <span
-            className="h-1.5 w-1.5 rounded-full"
-            style={{ background: entry.color }}
-          />
+        <div key={entry.dataKey as string} className="flex items-center gap-1.5 text-[12px]">
+          <span className="h-1.5 w-1.5 rounded-full" style={{ background: entry.color }} />
           <span className="text-ink-muted capitalize">
             {entry.dataKey === "followUps" ? "Follow-ups" : "Leads"}
           </span>
-          <span className="font-semibold text-ink ml-auto tabular-nums">
-            {entry.value}
-          </span>
+          <span className="font-semibold text-ink ml-auto tabular-nums">{entry.value}</span>
         </div>
       ))}
     </div>
@@ -61,9 +53,7 @@ export function ActivityChart({ range }: { range: string }) {
       <div className="flex items-center justify-between mb-1">
         <div className="flex items-center gap-2">
           <TrendingUp size={14} className="text-ink-muted" />
-          <h3 className="font-display text-[13.5px] font-semibold text-ink">
-            Activity
-          </h3>
+          <h3 className="font-display text-[13.5px] font-semibold text-ink">Activity</h3>
         </div>
         <div className="flex items-center gap-3 text-[11px] text-ink-muted">
           <span className="flex items-center gap-1.5">
@@ -90,11 +80,7 @@ export function ActivityChart({ range }: { range: string }) {
                 </linearGradient>
               </defs>
 
-              <CartesianGrid
-                vertical={false}
-                stroke="var(--color-border)"
-                strokeDasharray="3 3"
-              />
+              <CartesianGrid vertical={false} stroke="var(--color-border)" strokeDasharray="3 3" />
               <XAxis
                 dataKey="label"
                 axisLine={false}

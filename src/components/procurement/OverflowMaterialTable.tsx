@@ -11,13 +11,9 @@ export default function OverflowMaterialTable() {
     <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
       <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4">
         <div>
-          <h3 className="text-lg font-bold text-slate-800">
-            Overflow Material
-          </h3>
+          <h3 className="text-lg font-bold text-slate-800">Overflow Material</h3>
 
-          <p className="text-sm text-slate-500">
-            Material budget and issue overview
-          </p>
+          <p className="text-sm text-slate-500">Material budget and issue overview</p>
         </div>
       </div>
 
@@ -40,21 +36,15 @@ export default function OverflowMaterialTable() {
               <tr key={item.id} className="transition hover:bg-slate-50">
                 <td className="px-5 py-4">{index + 1}</td>
 
-                <td className="px-5 py-4 font-semibold text-slate-700">
-                  {item.description}
-                </td>
+                <td className="px-5 py-4 font-semibold text-slate-700">{item.description}</td>
 
                 <td className="px-5 py-4">{item.budgetQty.toLocaleString()}</td>
 
-                <td className="px-5 py-4">
-                  ৳ {item.budgetAmount.toLocaleString()}
-                </td>
+                <td className="px-5 py-4">৳ {item.budgetAmount.toLocaleString()}</td>
 
                 <td className="px-5 py-4">{item.issueQty.toLocaleString()}</td>
 
-                <td className="px-5 py-4">
-                  ৳ {item.issueAmount.toLocaleString()}
-                </td>
+                <td className="px-5 py-4">৳ {item.issueAmount.toLocaleString()}</td>
 
                 <td className="px-5 py-4">
                   <span

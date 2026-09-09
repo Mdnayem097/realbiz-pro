@@ -48,10 +48,18 @@ const SETTINGS_ITEMS = [
   { label: "SMS Setting", href: "/crm-module/settings/sms", icon: MessageSquare },
   { label: "Email Setting", href: "/crm-module/settings/email", icon: Mail },
   { label: "User Activity", href: "/crm-module/settings/user-activity", icon: Activity },
-  { label: "Company Setting", href: "/crm-module/settings/company-setting", icon: SlidersHorizontal },
+  {
+    label: "Company Setting",
+    href: "/crm-module/settings/company-setting",
+    icon: SlidersHorizontal,
+  },
   { label: "Facebook Api Setting", href: "/crm-module/settings/facebook-api", icon: FaFacebook },
   { label: "Add-ons", href: "/crm-module/settings/add-ons", icon: Puzzle },
-  { label: "Bulk Push Notification", href: "/crm-module/settings/bulk-push-notification", icon: BellRing },
+  {
+    label: "Bulk Push Notification",
+    href: "/crm-module/settings/bulk-push-notification",
+    icon: BellRing,
+  },
   { label: "Cheque Template", href: "/crm-module/settings/cheque-template", icon: ScrollText },
 ] as const;
 
@@ -85,16 +93,12 @@ export function Topbar() {
     };
   }, [openMenu]);
 
-  const toggleMenu = (menu: MenuId) =>
-    setOpenMenu((prev) => (prev === menu ? null : menu));
+  const toggleMenu = (menu: MenuId) => setOpenMenu((prev) => (prev === menu ? null : menu));
 
   return (
     <header className="sticky top-0 z-30 h-16 flex items-center gap-4 border-b border-border bg-surface/90 backdrop-blur px-4 md:px-6">
       <div className="relative flex-1 max-w-md">
-        <Search
-          size={15}
-          className="absolute left-3 top-1/2 -translate-y-1/2 text-ink-faint"
-        />
+        <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-ink-faint" />
         <input
           type="text"
           placeholder="Search modules..."

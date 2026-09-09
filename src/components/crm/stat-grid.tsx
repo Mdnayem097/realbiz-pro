@@ -34,19 +34,10 @@ export function StatGrid({ stats }: { stats: StatCardData[] }) {
           )}
         >
           <div className="flex items-center gap-1.5 mb-2">
-            <Circle
-              size={7}
-              strokeWidth={0}
-              fill="currentColor"
-              className={TONE_DOT[stat.tone]}
-            />
-            <span className="text-[12px] text-ink-muted truncate">
-              {stat.label}
-            </span>
+            <Circle size={7} strokeWidth={0} fill="currentColor" className={TONE_DOT[stat.tone]} />
+            <span className="text-[12px] text-ink-muted truncate">{stat.label}</span>
           </div>
-          <p className="font-display text-2xl font-semibold text-ink tabular-nums">
-            {stat.value}
-          </p>
+          <p className="font-display text-2xl font-semibold text-ink tabular-nums">{stat.value}</p>
         </Link>
       ))}
     </div>

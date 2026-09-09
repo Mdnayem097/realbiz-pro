@@ -1,8 +1,4 @@
-import {
-  ProcurementStat,
-  OverflowMaterial,
-  PendingVoucher,
-} from "@/types/procurement";
+import { ProcurementStat, OverflowMaterial, PendingVoucher } from "@/types/procurement";
 
 export const procurementStats: ProcurementStat[] = [
   {
@@ -11,8 +7,8 @@ export const procurementStats: ProcurementStat[] = [
     value: 0,
     icon: "clipboard",
     type: "pending",
-    color: "red",        // ✅ যোগ করুন
-    change: 0,           // ✅ যোগ করুন
+    color: "red", // ✅ যোগ করুন
+    change: 0, // ✅ যোগ করুন
     changeLabel: "vs last month", // ✅ যোগ করুন
     chart: [10, 15, 12, 18, 14, 20, 17, 22], // ✅ যোগ করুন
   },
@@ -22,8 +18,8 @@ export const procurementStats: ProcurementStat[] = [
     value: 3,
     icon: "file",
     type: "total",
-    color: "blue",       // ✅ যোগ করুন
-    change: 5.2,         // ✅ যোগ করুন
+    color: "blue", // ✅ যোগ করুন
+    change: 5.2, // ✅ যোগ করুন
     changeLabel: "vs last month",
     chart: [20, 24, 18, 27, 22, 31, 26, 35],
   },
@@ -33,7 +29,7 @@ export const procurementStats: ProcurementStat[] = [
     value: 0,
     icon: "shopping-cart",
     type: "pending",
-    color: "green",      // ✅ যোগ করুন
+    color: "green", // ✅ যোগ করুন
     change: 0,
     changeLabel: "vs last month",
     chart: [8, 12, 10, 15, 11, 13, 9, 14],
@@ -44,7 +40,7 @@ export const procurementStats: ProcurementStat[] = [
     value: 3,
     icon: "package",
     type: "total",
-    color: "purple",     // ✅ যোগ করুন
+    color: "purple", // ✅ যোগ করুন
     change: 3.8,
     changeLabel: "vs last month",
     chart: [25, 22, 28, 24, 30, 26, 29, 27],
@@ -55,7 +51,7 @@ export const procurementStats: ProcurementStat[] = [
     value: 0,
     icon: "truck",
     type: "pending",
-    color: "orange",     // ✅ যোগ করুন
+    color: "orange", // ✅ যোগ করুন
     change: 0,
     changeLabel: "vs last month",
     chart: [5, 8, 6, 10, 7, 9, 11, 8],
@@ -66,7 +62,7 @@ export const procurementStats: ProcurementStat[] = [
     value: 0,
     icon: "receipt",
     type: "pending",
-    color: "cyan",       
+    color: "cyan",
     change: 0,
     changeLabel: "vs last month",
     chart: [12, 15, 10, 13, 11, 14, 9, 12],
