@@ -1,6 +1,11 @@
+
+
 import { SiteShell } from "@/components/site/SiteNav";
 import { PropertyCard, PROPERTIES } from "@/components/site/PropertyCard";
 import Link from "next/link";
+import DashboardPage from "@/components/dashboard/ProjectsDashboard";
+import ProjectTypePage from "@/components/project-type";
+
 
 const STATS = [
   { v: "1.42M", l: "sq ft under management" },
@@ -11,7 +16,9 @@ const STATS = [
 
 export default function HomePage() {
   return (
-    <SiteShell>
+   <div> 
+    {/* <DashboardPage/>  */}
+     <SiteShell>
       <section className="relative overflow-hidden">
         <div className="pointer-events-none absolute -right-24 top-0 h-[140%] w-[55%] -skew-x-12 bg-primary" />
         <div className="pointer-events-none absolute right-[42%] top-0 hidden h-[140%] w-20 -skew-x-12 bg-accent md:block" />
@@ -75,5 +82,13 @@ export default function HomePage() {
         </div>
       </section>
     </SiteShell>
+    
+   </div>
   );
+
 }
+
+   
+  
+
+<ProjectTypePage></ProjectTypePage>

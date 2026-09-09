@@ -1,4 +1,4 @@
-// File: D:\realbiz\realbiz-unified-hub\src\app\dashboard\[...slug]\page.tsx
+// File: D:\Internship_all_projects\neuro-real-biz-frontend\src\app\dashboard\[...slug]\page.tsx
 import * as entry from '../../../../../src/app/dashboard/[...slug]/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

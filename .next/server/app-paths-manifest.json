@@ -1,8 +1,6 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/dashboard/inventory/products/sub-categories/page": "app/dashboard/inventory/products/sub-categories/page.js",
-  "/dashboard/inventory/material-requisition/page": "app/dashboard/inventory/material-requisition/page.js",
-  "/dashboard/inventory/contracts/supplier-accounts/page": "app/dashboard/inventory/contracts/supplier-accounts/page.js",
-  "/dashboard/inventory/products/categories/page": "app/dashboard/inventory/products/categories/page.js",
-  "/dashboard/[...slug]/page": "app/dashboard/[...slug]/page.js"
+  "/dashboard/[...slug]/page": "app/dashboard/[...slug]/page.js",
+  "/dashboard/project/projects/project/page": "app/dashboard/project/projects/project/page.js",
+  "/dashboard/project/projects/project-type/page": "app/dashboard/project/projects/project-type/page.js"
 }

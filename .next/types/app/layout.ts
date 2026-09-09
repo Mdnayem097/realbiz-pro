@@ -1,4 +1,4 @@
-// File: D:\realbiz\realbiz-unified-hub\src\app\layout.tsx
+// File: D:\Internship_all_projects\neuro-real-biz-frontend\src\app\layout.tsx
 import * as entry from '../../../src/app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

@@ -6,135 +6,40 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
+    "/loading": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/loading.js"
+    ],
     "/not-found": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/not-found.js"
-    ],
-    "/login/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/login/page.js"
     ],
     "/dashboard/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/dashboard/layout.js"
     ],
-    "/dashboard/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/page.js"
-    ],
     "/dashboard/[...slug]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/dashboard/[...slug]/page.js"
     ],
+    "/dashboard/project/projects/project-type/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/dashboard/project/projects/project-type/page.js"
+    ],
+    "/dashboard/project/projects/project/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/dashboard/project/projects/project/page.js"
+    ],
     "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/_not-found/page.js"
-    ],
-    "/dashboard/inventory/contracts/supplier-accounts/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/contracts/supplier-accounts/page.js"
-    ],
-    "/dashboard/inventory/products/categories/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/products/categories/page.js"
-    ],
-    "/dashboard/inventory/products/sub-categories/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/products/sub-categories/page.js"
-    ],
-    "/dashboard/inventory/products/brands/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/products/brands/page.js"
-    ],
-    "/dashboard/inventory/products/units/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/products/units/page.js"
-    ],
-    "/dashboard/inventory/products/item-entry/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/products/item-entry/page.js"
-    ],
-    "/dashboard/inventory/purchase/add-purchase/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/purchase/add-purchase/page.js"
-    ],
-    "/dashboard/inventory/purchase/purchase-list/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/purchase/purchase-list/page.js"
-    ],
-    "/dashboard/inventory/sales/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/sales/page.js"
-    ],
-    "/dashboard/inventory/adjustment/material-usage/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/adjustment/material-usage/page.js"
-    ],
-    "/dashboard/inventory/adjustment/stock-transfer/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/adjustment/stock-transfer/page.js"
-    ],
-    "/dashboard/inventory/material-requisition/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/material-requisition/page.js"
-    ],
-    "/dashboard/inventory/reports/purchase-details/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/reports/purchase-details/page.js"
-    ],
-    "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
-    ],
-    "/dashboard/inventory/reports/purchase-order-receive-details/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/reports/purchase-order-receive-details/page.js"
-    ],
-    "/dashboard/inventory/reports/stock-report/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/reports/stock-report/page.js"
-    ],
-    "/dashboard/inventory/reports/item-history-report/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/reports/item-history-report/page.js"
-    ],
-    "/dashboard/inventory/reports/item-wise-supplier-ledger/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/reports/item-wise-supplier-ledger/page.js"
-    ],
-    "/dashboard/inventory/reports/material-usage-report/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/reports/material-usage-report/page.js"
-    ],
-    "/dashboard/inventory/reports/material-comparison-report/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/dashboard/inventory/reports/material-comparison-report/page.js"
     ]
   }
 }
