@@ -1,0 +1,7 @@
+{
+  "/dashboard/inventory/adjustment/material-usage/page": "app/dashboard/inventory/adjustment/material-usage/page.js",
+  "/dashboard/inventory/adjustment/stock-transfer/page": "app/dashboard/inventory/adjustment/stock-transfer/page.js",
+  "/dashboard/inventory/material-requisition/page": "app/dashboard/inventory/material-requisition/page.js",
+  "/dashboard/inventory/reports/purchase-details/page": "app/dashboard/inventory/reports/purchase-details/page.js",
+  "/dashboard/inventory/reports/purchase-order-receive-details/page": "app/dashboard/inventory/reports/purchase-order-receive-details/page.js"
+}

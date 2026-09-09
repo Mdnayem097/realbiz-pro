@@ -5,9 +5,14 @@ import { createContext, useContext, useEffect, useState, type ReactNode } from "
 type Theme = "light" | "dark";
 const KEY = "realbiz-theme";
 
-const ThemeContext = createContext<{ theme: Theme; toggle: () => void }>({
+const ThemeContext = createContext<{
+  theme: Theme;
+  toggle: () => void;
+  toggleTheme: () => void;
+}>({
   theme: "light",
   toggle: () => {},
+  toggleTheme: () => {},
 });
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
@@ -24,9 +29,11 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     window.localStorage.setItem(KEY, theme);
   }, [theme]);
 
+  const toggle = () => setTheme((t) => (t === "light" ? "dark" : "light"));
+
   return (
     <ThemeContext.Provider
-      value={{ theme, toggle: () => setTheme((t) => (t === "light" ? "dark" : "light")) }}
+      value={{ theme, toggle, toggleTheme: toggle }}
     >
       {children}
     </ThemeContext.Provider>

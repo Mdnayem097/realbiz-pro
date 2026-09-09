@@ -77,6 +77,14 @@ const statusClass: Record<string, string> = {
 };
 
 export function ModulePage({ module, path }: { module: ModuleKey; path: string }) {
+  if (module === "lams") {
+    return (
+      <div className="mx-auto max-w-[1600px] px-5 py-6 sm:px-8">
+        <LamsDashboard path={path} />
+      </div>
+    );
+  }
+
   const node = path ? findNode(module, path) : undefined;
 
   const crumbs = path.split("/").filter(Boolean);
@@ -115,9 +123,6 @@ export function ModulePage({ module, path }: { module: ModuleKey; path: string }
 
       case "cr":
         return <CrDashboard />;
-
-      case "lams":
-        return <LamsDashboard />;
 
       case "procurement":
         return <ProcurementDashboard />;

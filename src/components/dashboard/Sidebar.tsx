@@ -2,10 +2,28 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { ChevronRight, X } from "lucide-react";
+import {
+  ChevronRight,
+  X,
+  LayoutDashboard,
+  Users,
+  Compass,
+  Handshake,
+  FileCheck2,
+  CalendarCheck2,
+} from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { MENUS, MODULES, type MenuNode, type ModuleKey } from "@/lib/menus";
 import { cn } from "@/lib/utils";
+
+const LAMS_ICONS: Record<string, React.ElementType> = {
+  dashboard: LayoutDashboard,
+  "land-owners": Users,
+  "acquisition-leads": Compass,
+  "negotiation-process": Handshake,
+  "legal-documents": FileCheck2,
+  "follow-up": CalendarCheck2,
+};
 
 type Props = {
   module: ModuleKey;
@@ -64,9 +82,13 @@ export function Sidebar({ module, activePath, open, onClose, filter }: Props) {
   const renderNodes = (nodes: MenuNode[], depth = 0) => (
     <ul className={cn("space-y-0.5", depth > 0 && "ml-3 border-l border-border pl-2")}>
       {nodes.map((n) => {
-        const isActive = n.path === activePath;
+        const isActive =
+          n.path === activePath ||
+          (!activePath && (n.slug === "dashboard" || n.path === "dashboard"));
         const isAncestor = activePath.startsWith(n.path + "/");
         const isOpen = !!q || expanded.has(n.path);
+        const Icon = module === "lams" ? LAMS_ICONS[n.slug] : null;
+
         if (n.children?.length) {
           return (
             <li key={n.path}>
@@ -101,14 +123,25 @@ export function Sidebar({ module, activePath, open, onClose, filter }: Props) {
               href={n.path ? `/dashboard/${module}/${n.path}` : `/dashboard/${module}`}
               onClick={onClose}
               className={cn(
-                "flex items-center gap-1.5 rounded-md px-2 py-1.5 text-sm transition",
+                "group flex items-center justify-between rounded-md px-2.5 py-1.5 text-sm transition",
                 isActive
-                  ? "bg-accent/15 font-semibold text-foreground ring-1 ring-accent/40"
+                  ? "bg-accent/15 font-semibold text-foreground ring-1 ring-accent/40 shadow-xs"
                   : "text-foreground/70 hover:bg-foreground/5 hover:text-foreground",
               )}
             >
-              {isActive ? <span className="h-3.5 w-1 rounded bg-accent" /> : null}
-              {n.label}
+              <div className="flex items-center gap-2 truncate">
+                {Icon ? (
+                  <Icon
+                    className={cn(
+                      "h-4 w-4 shrink-0 transition-colors",
+                      isActive ? "text-accent" : "text-muted-foreground group-hover:text-foreground",
+                    )}
+                  />
+                ) : (
+                  isActive ? <span className="h-3.5 w-1 rounded bg-accent" /> : null
+                )}
+                <span className="truncate">{n.label}</span>
+              </div>
             </Link>
           </li>
         );

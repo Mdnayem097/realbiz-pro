@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 "use client";
 
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
@@ -45,3 +46,6 @@ export function useTheme() {
   if (!ctx) throw new Error("useTheme must be used within ThemeProvider");
   return ctx;
 }
+=======
+export { ThemeProvider, useTheme } from "./theme";
+>>>>>>> d787c21efbdea32481c9ad8c6d6ba76865860d2f
