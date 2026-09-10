@@ -19,7 +19,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { NavbarProps } from "@/types/navbar";
+import { NavbarProps } from "../types/navbar";
+
 
 const Navbar = ({
   user = {
@@ -39,7 +40,7 @@ const Navbar = ({
       <div className="flex-1 max-w-xl mx-8">
         <TextField
           aria-label="Search"
-          onChange={(value) => onSearch?.(value)}
+          onChange={(value: string) => onSearch?.(value)}
           className="w-full"
         >
           <InputGroup className="bg-gray-50/70 border border-gray-200/80 shadow-none rounded-2xl h-11 transition-colors data-[hovered=true]:bg-gray-50 data-[focus-within=true]:bg-white data-[focus-within=true]:border-gray-300">
@@ -94,7 +95,7 @@ const Navbar = ({
 
         {/* Profile Dropdown - shadcn */}
         <DropdownMenu>
-          <DropdownMenuTrigger asChil>
+          <DropdownMenuTrigger asChild>
             <button className="flex items-center gap-2.5 pl-1 pr-2.5 py-1.5 rounded-2xl hover:bg-gray-100 transition-colors outline-none">
               <Avatar className="w-9 h-9 ring-2 ring-white shadow-sm">
                 <Avatar.Image src={user.avatarUrl} alt={user.name} />
