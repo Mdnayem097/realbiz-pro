@@ -122,8 +122,8 @@ export default function LamsDashboard({ path = "" }: { path?: string }) {
               ...f,
               status: f.status === "Completed" ? "Pending" : "Completed",
             }
-          : f
-      )
+          : f,
+      ),
     );
   };
 

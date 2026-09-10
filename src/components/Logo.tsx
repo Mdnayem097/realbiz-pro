@@ -1,7 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import logo from "@/assets/realbiz-logo.png";
-
 export function Logo({
   to = "/",
   compact = false,
@@ -12,17 +10,12 @@ export function Logo({
   return (
     <Link href={to} className="flex items-center" aria-label="RealBiz home">
       <Image
-        src={logo}
+        src="/assets/image.png"
         alt="RealBiz logo"
-        width={512}
-        height={512}
-        className="h-20 w-20 object-contain"
+        width={100}
+        height={100}
+        className=" h-20 w-40 object-contain transition-all duration-300 dark:brightness-0 dark:invert "
       />
-      {/* {!compact && (
-        <span className="font-display text-xl font-bold tracking-tight text-foreground">
-          RealBiz
-        </span>
-      )} */}
     </Link>
   );
 }

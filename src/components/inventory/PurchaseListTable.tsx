@@ -1,6 +1,6 @@
 "use client";
 
-import type { PurchaseListItem } from "@/app/dashboard/inventory/purchase/purchase-list/page";
+import type { PurchaseListItem } from "@/app/(admin-dashbord)/dashboard/inventory/purchase/purchase-list/page";
 import React, { useState, useMemo } from "react";
 import {
   FiEdit,
@@ -64,8 +64,12 @@ interface PurchaseListTableProps {
   onView?: (item: PurchaseListItem) => void;
 }
 
-export default function PurchaseListTable({ onEdit, onView }: PurchaseListTableProps) {
-  const [purchases, setPurchases] = useState<PurchaseListItem[]>(DEFAULT_PURCHASES);
+export default function PurchaseListTable({
+  onEdit,
+  onView,
+}: PurchaseListTableProps) {
+  const [purchases, setPurchases] =
+    useState<PurchaseListItem[]>(DEFAULT_PURCHASES);
   const [searchQuery, setSearchQuery] = useState("");
   const [entriesPerPage, setEntriesPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
@@ -108,7 +112,9 @@ export default function PurchaseListTable({ onEdit, onView }: PurchaseListTableP
           </div>
 
           <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
-            <span className="text-xs text-muted-foreground whitespace-nowrap">Search:</span>
+            <span className="text-xs text-muted-foreground whitespace-nowrap">
+              Search:
+            </span>
             <div className="relative w-full sm:w-64">
               <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-muted-foreground">
                 <FiSearch size={14} />
@@ -150,7 +156,9 @@ export default function PurchaseListTable({ onEdit, onView }: PurchaseListTableP
                   className="hover:bg-muted/50 transition-colors align-top whitespace-nowrap"
                 >
                   <td className="py-3 px-3 font-medium">{item.id}</td>
-                  <td className="py-3 px-3 text-muted-foreground">{item.projectType}</td>
+                  <td className="py-3 px-3 text-muted-foreground">
+                    {item.projectType}
+                  </td>
                   <td className="py-3 px-3 font-medium">{item.project}</td>
                   <td className="py-3 px-3 font-medium">{item.supplierName}</td>
                   <td className="py-3 px-3 font-mono">{item.code}</td>
@@ -163,7 +171,9 @@ export default function PurchaseListTable({ onEdit, onView }: PurchaseListTableP
                   <td className="py-3 px-3 text-center">
                     <div className="flex flex-col items-center gap-1">
                       <button
-                        onClick={() => alert(`Material Usages for ${item.code}`)}
+                        onClick={() =>
+                          alert(`Material Usages for ${item.code}`)
+                        }
                         className="flex items-center gap-1 bg-[#00bcd4] text-white px-2 py-1 rounded text-[10px] font-medium w-full justify-center"
                       >
                         <FiLayers size={10} /> Material Usages

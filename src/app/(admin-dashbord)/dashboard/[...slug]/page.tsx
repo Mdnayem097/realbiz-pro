@@ -13,7 +13,6 @@ export default async function DashboardSlugPage({
   const moduleKey = isModuleKey(first) ? first : "project";
   return (
     <>
-      {moduleKey !== "lams" && <RouteBreadcrumb />}
       <ModulePage module={moduleKey} path={rest.join("/")} />
     </>
   );

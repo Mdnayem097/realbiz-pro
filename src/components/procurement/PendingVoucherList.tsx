@@ -5,52 +5,31 @@ import { pendingVouchers } from "@/data/procurement/procurement.mock";
 
 export default function PendingVoucherList() {
   return (
-<<<<<<< HEAD
-    <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-      <div className="mb-4 flex items-center justify-between">
+    <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+      <div className="mb-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="rounded-lg bg-cyan-100 p-2 text-cyan-600">
             <FileCheck2 size={20} />
           </div>
 
           <div>
-            <h3 className="font-bold text-slate-800">Pending Voucher/Invoice</h3>
-
+            <h3 className="font-bold text-slate-800">
+              Pending Voucher/Invoice
+            </h3>
             <p className="text-xs text-slate-500">Awaiting approval</p>
           </div>
         </div>
 
-        <button className="text-sm font-semibold text-blue-600 hover:underline">View All</button>
+        <button className="text-sm font-semibold text-blue-600 hover:underline">
+          View All
+        </button>
       </div>
 
-      <div className="relative mb-4">
-        <Search size={17} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
-=======
-    <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-      {/* Header */}
-      <div className="mb-3 flex items-center gap-3">
-        <div className="rounded-lg bg-cyan-100 p-2 text-cyan-600">
-          <FileCheck2 size={20} />
-        </div>
-
-        <div>
-          <h3 className="font-bold text-slate-800">
-            Pending Voucher/Invoice
-          </h3>
-
-          <p className="text-xs text-slate-500">
-            Awaiting approval
-          </p>
-        </div>
-      </div>
-
-      {/* Search */}
       <div className="relative mb-3">
         <Search
           size={17}
           className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
         />
->>>>>>> d787c21efbdea32481c9ad8c6d6ba76865860d2f
 
         <input
           type="text"
@@ -68,7 +47,9 @@ export default function PendingVoucherList() {
           >
             {/* Reference + Type */}
             <div className="mb-2 flex items-center justify-between">
-              <span className="text-xs font-semibold text-slate-500">Reference</span>
+              <span className="text-xs font-semibold text-slate-500">
+                Reference
+              </span>
 
               <span className="rounded-md bg-orange-100 px-2.5 py-1 text-xs font-bold text-orange-600">
                 Offer
@@ -79,29 +60,19 @@ export default function PendingVoucherList() {
             <div className="flex items-start justify-between gap-3">
               <div className="min-w-0 space-y-0.5 text-sm">
                 <p className="font-semibold text-slate-800">
-<<<<<<< HEAD
-                  Project: <span className="font-normal">{voucher.project}</span>
-=======
                   Project:{" "}
-                  <span className="font-normal">
-                    {voucher.project}
-                  </span>
->>>>>>> d787c21efbdea32481c9ad8c6d6ba76865860d2f
+                  <span className="font-normal">{voucher.project}</span>
                 </p>
 
-                <p className="text-slate-600">
-                  Contact: {voucher.contact}
-                </p>
+                <p className="text-slate-600">Contact: {voucher.contact}</p>
 
-                <p className="text-slate-600">
-                  Added By: {voucher.addedBy}
-                </p>
+                <p className="text-slate-600">Added By: {voucher.addedBy}</p>
 
-                <p className="text-slate-500">
-                  {voucher.date}
-                </p>
+                <p className="text-slate-500">{voucher.date}</p>
 
-                <p className="font-semibold text-blue-600">{voucher.saleOffer}</p>
+                <p className="font-semibold text-blue-600">
+                  {voucher.saleOffer}
+                </p>
               </div>
 
               {/* View Button */}
@@ -113,14 +84,9 @@ export default function PendingVoucherList() {
               </button>
             </div>
 
-<<<<<<< HEAD
-            <p className="mt-3 text-xs font-semibold text-red-500">{voucher.status}</p>
-=======
-            {/* Status */}
-            <p className="mt-2 text-xs font-semibold text-red-500">
+            <p className="mt-3 text-xs font-semibold text-red-500">
               {voucher.status}
             </p>
->>>>>>> d787c21efbdea32481c9ad8c6d6ba76865860d2f
           </div>
         ))}
       </div>

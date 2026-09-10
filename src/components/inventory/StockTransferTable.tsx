@@ -1,6 +1,6 @@
 "use client";
 
-import type { StockTransferItem } from "@/app/dashboard/inventory/adjustment/stock-transfer/page";
+import type { StockTransferItem } from "@/app/(admin-dashbord)/dashboard/inventory/adjustment/stock-transfer/page";
 import React, { useState, useEffect, useMemo } from "react";
 import { FiEdit, FiTrash2, FiEye, FiSearch } from "react-icons/fi";
 
@@ -37,7 +37,10 @@ interface StockTransferTableProps {
   onView?: (item: StockTransferItem) => void;
 }
 
-export default function StockTransferTable({ onEdit, onView }: StockTransferTableProps) {
+export default function StockTransferTable({
+  onEdit,
+  onView,
+}: StockTransferTableProps) {
   const [transfers, setTransfers] = useState<StockTransferItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
@@ -60,7 +63,10 @@ export default function StockTransferTable({ onEdit, onView }: StockTransferTabl
           setTransfers(data);
         }
       } catch (error) {
-        console.warn("API unavailable, loading default stock transfer data...", error);
+        console.warn(
+          "API unavailable, loading default stock transfer data...",
+          error,
+        );
         setTransfers(DEFAULT_STOCK_TRANSFERS);
       } finally {
         setLoading(false);
@@ -72,7 +78,9 @@ export default function StockTransferTable({ onEdit, onView }: StockTransferTabl
 
   // Delete handler
   const handleDelete = (id: number) => {
-    if (confirm("Are you sure you want to delete this stock transfer record?")) {
+    if (
+      confirm("Are you sure you want to delete this stock transfer record?")
+    ) {
       setTransfers(transfers.filter((item) => item.id !== id));
     }
   };
@@ -120,7 +128,9 @@ export default function StockTransferTable({ onEdit, onView }: StockTransferTabl
           </div>
 
           <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
-            <span className="text-xs text-muted-foreground whitespace-nowrap">Search:</span>
+            <span className="text-xs text-muted-foreground whitespace-nowrap">
+              Search:
+            </span>
             <div className="relative w-full sm:w-64">
               <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-muted-foreground">
                 <FiSearch size={14} />
@@ -162,7 +172,10 @@ export default function StockTransferTable({ onEdit, onView }: StockTransferTabl
             <tbody className="divide-y divide-border">
               {loading ? (
                 <tr>
-                  <td colSpan={11} className="text-center py-8 text-muted-foreground">
+                  <td
+                    colSpan={11}
+                    className="text-center py-8 text-muted-foreground"
+                  >
                     Loading data...
                   </td>
                 </tr>
@@ -174,14 +187,28 @@ export default function StockTransferTable({ onEdit, onView }: StockTransferTabl
                   >
                     <td className="py-3 px-3 font-medium">{item.id}</td>
                     <td className="py-3 px-3 font-mono">{item.code}</td>
-                    <td className="py-3 px-3 text-muted-foreground">{item.date}</td>
-                    <td className="py-3 px-3 font-medium">{item.fromProject}</td>
-                    <td className="py-3 px-3 text-muted-foreground">{item.fromSite}</td>
-                    <td className="py-3 px-3 text-muted-foreground">{item.fromTask}</td>
+                    <td className="py-3 px-3 text-muted-foreground">
+                      {item.date}
+                    </td>
+                    <td className="py-3 px-3 font-medium">
+                      {item.fromProject}
+                    </td>
+                    <td className="py-3 px-3 text-muted-foreground">
+                      {item.fromSite}
+                    </td>
+                    <td className="py-3 px-3 text-muted-foreground">
+                      {item.fromTask}
+                    </td>
                     <td className="py-3 px-3 font-medium">{item.toProject}</td>
-                    <td className="py-3 px-3 text-muted-foreground">{item.toSite}</td>
-                    <td className="py-3 px-3 text-muted-foreground">{item.toTask}</td>
-                    <td className="py-3 px-3 text-muted-foreground">{item.contact}</td>
+                    <td className="py-3 px-3 text-muted-foreground">
+                      {item.toSite}
+                    </td>
+                    <td className="py-3 px-3 text-muted-foreground">
+                      {item.toTask}
+                    </td>
+                    <td className="py-3 px-3 text-muted-foreground">
+                      {item.contact}
+                    </td>
                     <td className="py-3 px-3 text-center">
                       <div className="flex items-center justify-center gap-1">
                         {/* View Button */}
@@ -214,7 +241,10 @@ export default function StockTransferTable({ onEdit, onView }: StockTransferTabl
                 ))
               ) : (
                 <tr>
-                  <td colSpan={11} className="text-center py-8 text-muted-foreground">
+                  <td
+                    colSpan={11}
+                    className="text-center py-8 text-muted-foreground"
+                  >
                     No data available in table
                   </td>
                 </tr>
@@ -226,9 +256,13 @@ export default function StockTransferTable({ onEdit, onView }: StockTransferTabl
         {/* Pagination Footer */}
         <div className="flex flex-col sm:flex-row items-center justify-between p-4 border-t border-border gap-4 text-xs text-muted-foreground">
           <div>
-            Showing {filteredTransfers.length > 0 ? (currentPage - 1) * entriesPerPage + 1 : 0} to{" "}
-            {Math.min(currentPage * entriesPerPage, filteredTransfers.length)} of{" "}
-            {filteredTransfers.length} entries
+            Showing{" "}
+            {filteredTransfers.length > 0
+              ? (currentPage - 1) * entriesPerPage + 1
+              : 0}{" "}
+            to{" "}
+            {Math.min(currentPage * entriesPerPage, filteredTransfers.length)}{" "}
+            of {filteredTransfers.length} entries
           </div>
 
           <div className="flex items-center gap-1">
@@ -243,7 +277,9 @@ export default function StockTransferTable({ onEdit, onView }: StockTransferTabl
               {currentPage}
             </span>
             <button
-              onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+              onClick={() =>
+                setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+              }
               disabled={currentPage === totalPages || totalPages === 0}
               className="px-3 py-1.5 rounded border border-border bg-card hover:bg-muted disabled:opacity-50 transition-colors"
             >

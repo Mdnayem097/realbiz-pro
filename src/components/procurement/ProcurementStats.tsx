@@ -1,6 +1,13 @@
 "use client";
 
-import { ClipboardList, FileText, ShoppingCart, Package, Truck, Receipt } from "lucide-react";
+import {
+  ClipboardList,
+  FileText,
+  ShoppingCart,
+  Package,
+  Truck,
+  Receipt,
+} from "lucide-react";
 
 import { AreaChart, Area, ResponsiveContainer } from "recharts";
 import { procurementStats } from "@/data/procurement/procurement.mock";
@@ -71,12 +78,9 @@ export default function ProcurementStats() {
       {procurementStats.map((item, index) => {
         const Icon = iconMap[item.icon as keyof typeof iconMap];
 
-        const colors =
-          cardStyles[item.color as keyof typeof cardStyles];
+        const colors = cardStyles[item.color as keyof typeof cardStyles];
 
-        const chart = item.chart ?? [
-          20, 24, 18, 27, 22, 31, 26, 35,
-        ];
+        const chart = item.chart ?? [20, 24, 18, 27, 22, 31, 26, 35];
 
         const chartData = chart.map((value, chartIndex) => ({
           index: chartIndex,
@@ -137,13 +141,6 @@ export default function ProcurementStats() {
                 {item.value.toLocaleString()}
               </p>
 
-<<<<<<< HEAD
-            {/* Change */}
-            <div className="mt-1.75 flex items-center gap-[5px]">
-              <span className="text-[12px] font-semibold text-[#16a34a]">↑ {item.change}%</span>
-
-              <span className="text-[11px] text-[#71809c]">{item.changeLabel}</span>
-=======
               {/* Change */}
               <div className="mt-1.75 flex min-w-0 items-center gap-[5px]">
                 <span className="shrink-0 text-[12px] font-semibold text-[#16a34a]">
@@ -154,7 +151,6 @@ export default function ProcurementStats() {
                   {item.changeLabel}
                 </span>
               </div>
->>>>>>> d787c21efbdea32481c9ad8c6d6ba76865860d2f
             </div>
 
             {/* Bottom Chart */}
@@ -177,9 +173,17 @@ export default function ProcurementStats() {
                       x2="0"
                       y2="1"
                     >
-                      <stop offset="0%" stopColor={colors.fill} stopOpacity={0.16} />
+                      <stop
+                        offset="0%"
+                        stopColor={colors.fill}
+                        stopOpacity={0.16}
+                      />
 
-                      <stop offset="100%" stopColor={colors.fill} stopOpacity={0.01} />
+                      <stop
+                        offset="100%"
+                        stopColor={colors.fill}
+                        stopOpacity={0.01}
+                      />
                     </linearGradient>
                   </defs>
 

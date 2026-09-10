@@ -1,6 +1,6 @@
 "use client";
 
-import type { SaleListItem } from "@/app/dashboard/inventory/sales/page";
+import type { SaleListItem } from "@/app/(admin-dashbord)/dashboard/inventory/sales/page";
 import React, { useState, useEffect, useMemo } from "react";
 import { FiEdit, FiTrash2, FiEye, FiSearch } from "react-icons/fi";
 
@@ -69,7 +69,10 @@ export default function SaleListTable({ onEdit, onView }: SaleListTableProps) {
           setSales(data);
         }
       } catch (error) {
-        console.warn("API error or endpoint not found. Loading default data...", error);
+        console.warn(
+          "API error or endpoint not found. Loading default data...",
+          error,
+        );
         // Fallback to default data if API fails
         setSales(DEFAULT_SALES);
       } finally {
@@ -130,7 +133,9 @@ export default function SaleListTable({ onEdit, onView }: SaleListTableProps) {
           </div>
 
           <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
-            <span className="text-xs text-muted-foreground whitespace-nowrap">Search:</span>
+            <span className="text-xs text-muted-foreground whitespace-nowrap">
+              Search:
+            </span>
             <div className="relative w-full sm:w-64">
               <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-muted-foreground">
                 <FiSearch size={14} />
@@ -174,7 +179,10 @@ export default function SaleListTable({ onEdit, onView }: SaleListTableProps) {
             <tbody className="divide-y divide-border">
               {loading ? (
                 <tr>
-                  <td colSpan={13} className="text-center py-8 text-muted-foreground">
+                  <td
+                    colSpan={13}
+                    className="text-center py-8 text-muted-foreground"
+                  >
                     Loading data...
                   </td>
                 </tr>
@@ -185,17 +193,31 @@ export default function SaleListTable({ onEdit, onView }: SaleListTableProps) {
                     className="hover:bg-muted/50 transition-colors align-middle whitespace-nowrap"
                   >
                     <td className="py-3 px-3 font-medium">{item.id}</td>
-                    <td className="py-3 px-3 text-muted-foreground">{item.projectType}</td>
+                    <td className="py-3 px-3 text-muted-foreground">
+                      {item.projectType}
+                    </td>
                     <td className="py-3 px-3 font-medium">{item.project}</td>
-                    <td className="py-3 px-3 text-muted-foreground">{item.titleOfWork}</td>
-                    <td className="py-3 px-3 font-medium">{item.customerName}</td>
+                    <td className="py-3 px-3 text-muted-foreground">
+                      {item.titleOfWork}
+                    </td>
+                    <td className="py-3 px-3 font-medium">
+                      {item.customerName}
+                    </td>
                     <td className="py-3 px-3 font-mono">{item.code}</td>
-                    <td className="py-3 px-3 text-muted-foreground">{item.ref}</td>
-                    <td className="py-3 px-3 text-muted-foreground">{item.date}</td>
+                    <td className="py-3 px-3 text-muted-foreground">
+                      {item.ref}
+                    </td>
+                    <td className="py-3 px-3 text-muted-foreground">
+                      {item.date}
+                    </td>
                     <td className="py-3 px-3 font-medium">{item.grandTotal}</td>
                     <td className="py-3 px-3">{item.addedBy}</td>
-                    <td className="py-3 px-3 text-muted-foreground">{item.attachment}</td>
-                    <td className="py-3 px-3 text-emerald-600 font-medium">✓ {item.approve}</td>
+                    <td className="py-3 px-3 text-muted-foreground">
+                      {item.attachment}
+                    </td>
+                    <td className="py-3 px-3 text-emerald-600 font-medium">
+                      ✓ {item.approve}
+                    </td>
                     <td className="py-3 px-3 text-center">
                       <div className="flex items-center justify-center gap-1">
                         {/* Edit Button */}
@@ -228,7 +250,10 @@ export default function SaleListTable({ onEdit, onView }: SaleListTableProps) {
                 ))
               ) : (
                 <tr>
-                  <td colSpan={13} className="text-center py-8 text-muted-foreground">
+                  <td
+                    colSpan={13}
+                    className="text-center py-8 text-muted-foreground"
+                  >
                     No data available in table
                   </td>
                 </tr>
@@ -240,9 +265,12 @@ export default function SaleListTable({ onEdit, onView }: SaleListTableProps) {
         {/* Pagination Footer */}
         <div className="flex flex-col sm:flex-row items-center justify-between p-4 border-t border-border gap-4 text-xs text-muted-foreground">
           <div>
-            Showing {filteredSales.length > 0 ? (currentPage - 1) * entriesPerPage + 1 : 0} to{" "}
-            {Math.min(currentPage * entriesPerPage, filteredSales.length)} of {filteredSales.length}{" "}
-            entries
+            Showing{" "}
+            {filteredSales.length > 0
+              ? (currentPage - 1) * entriesPerPage + 1
+              : 0}{" "}
+            to {Math.min(currentPage * entriesPerPage, filteredSales.length)} of{" "}
+            {filteredSales.length} entries
           </div>
 
           <div className="flex items-center gap-1">
@@ -257,7 +285,9 @@ export default function SaleListTable({ onEdit, onView }: SaleListTableProps) {
               {currentPage}
             </span>
             <button
-              onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+              onClick={() =>
+                setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+              }
               disabled={currentPage === totalPages || totalPages === 0}
               className="px-3 py-1.5 rounded border border-border bg-card hover:bg-muted disabled:opacity-50 transition-colors"
             >

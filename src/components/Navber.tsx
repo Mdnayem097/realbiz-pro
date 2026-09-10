@@ -39,29 +39,54 @@ const projectRoutes = [
     icon: FolderKanban,
     color: "text-indigo-600 bg-indigo-50",
   },
-  { label: "Inventory", href: "/inventory", icon: Boxes, color: "text-blue-600 bg-blue-50" },
+  {
+    label: "Inventory",
+    href: "/inventory",
+    icon: Boxes,
+    color: "text-blue-600 bg-blue-50",
+  },
   {
     label: "Accounts",
     href: "/accounts",
     icon: Calculator,
     color: "text-emerald-600 bg-emerald-50",
   },
-  { label: "Hrm", href: "/hrm", icon: Users, color: "text-amber-600 bg-amber-50" },
-  { label: "CRM", href: "/crm", icon: Target, color: "text-rose-600 bg-rose-50" },
+  {
+    label: "Hrm",
+    href: "/hrm",
+    icon: Users,
+    color: "text-amber-600 bg-amber-50",
+  },
+  {
+    label: "CRM",
+    href: "/crm",
+    icon: Target,
+    color: "text-rose-600 bg-rose-50",
+  },
   {
     label: "Credit Realization (CR)",
     href: "/cr",
     icon: CreditCard,
     color: "text-violet-600 bg-violet-50",
   },
-  { label: "Lams", href: "/lams", icon: Landmark, color: "text-cyan-600 bg-cyan-50" },
+  {
+    label: "Lams",
+    href: "/lams",
+    icon: Landmark,
+    color: "text-cyan-600 bg-cyan-50",
+  },
   {
     label: "Procurement",
     href: "/procurement",
     icon: ShoppingCart,
     color: "text-orange-600 bg-orange-50",
   },
-  { label: "All", href: "/all", icon: LayoutGrid, color: "text-slate-600 bg-slate-100" },
+  {
+    label: "All",
+    href: "/all",
+    icon: LayoutGrid,
+    color: "text-slate-600 bg-slate-100",
+  },
 ];
 
 const Navbar = ({
@@ -78,24 +103,6 @@ const Navbar = ({
     <div className="flex items-center justify-between w-full h-[76px] px-8 bg-white/80 backdrop-blur-xl border-b border-gray-100 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
       {/* Middle: Search */}
       <div className="flex-1 max-w-xl">
-<<<<<<< HEAD
-        <TextField aria-label="Search" onChange={(value) => onSearch?.(value)} className="w-full">
-          <InputGroup className="bg-gray-50/70 border border-gray-200/80 shadow-none rounded-2xl h-11 transition-colors data-[hovered=true]:bg-gray-50 data-[focus-within=true]:bg-white data-[focus-within=true]:border-gray-300">
-            <InputGroup.Prefix>
-              <Search className="w-4 h-4 text-gray-400" />
-            </InputGroup.Prefix>
-            <InputGroup.Input
-              placeholder="Search modules, projects, contacts..."
-              className="text-sm placeholder:text-gray-400"
-            />
-            <InputGroup.Suffix>
-              <kbd className="px-2 py-1 text-[10px] font-medium text-gray-400 bg-white border border-gray-200 rounded-md shadow-sm">
-                Ctrl + K
-              </kbd>
-            </InputGroup.Suffix>
-          </InputGroup>
-        </TextField>
-=======
         <div className="relative flex items-center">
           <Search className="absolute left-3.5 w-4 h-4 text-gray-400 pointer-events-none" />
           <input
@@ -109,7 +116,6 @@ const Navbar = ({
             Ctrl + K
           </kbd>
         </div>
->>>>>>> d787c21efbdea32481c9ad8c6d6ba76865860d2f
       </div>
 
       {/* Right: Icons + Profile */}
@@ -184,15 +190,10 @@ const Navbar = ({
             className="p-2 rounded-full text-gray-500 hover:bg-gray-100 hover:text-gray-800 transition-colors"
           >
             <Bell className="w-5 h-5" />
-<<<<<<< HEAD
-          </Button>
-          {hasNotification && <Badge color="danger" className="border-white" />}
-=======
           </button>
           {hasNotification && (
             <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-red-500 ring-2 ring-white" />
           )}
->>>>>>> d787c21efbdea32481c9ad8c6d6ba76865860d2f
         </div>
 
         <div className="w-px h-8 bg-gray-200 mx-2" />
@@ -218,7 +219,9 @@ const Navbar = ({
                 <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
               </Avatar>
               <div className="flex flex-col leading-tight">
-                <span className="text-sm font-semibold text-gray-900">{user.name}</span>
+                <span className="text-sm font-semibold text-gray-900">
+                  {user.name}
+                </span>
                 <span className="text-[11px] text-gray-400">{user.role}</span>
               </div>
             </div>

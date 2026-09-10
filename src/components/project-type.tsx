@@ -1,14 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
-import { 
-  Plus, 
-  Search, 
-  Pencil, 
-  Trash2, 
-  ChevronLeft, 
-  ChevronRight, 
-  SlidersHorizontal 
+import {
+  Plus,
+  Search,
+  Pencil,
+  Trash2,
+  ChevronLeft,
+  ChevronRight,
+  SlidersHorizontal,
 } from "lucide-react";
 import { ProjectType } from "@/types/project-type";
 
@@ -27,7 +27,7 @@ export default function ProjectTypePage() {
   const [data, setData] = useState<ProjectType[]>(initialData);
   const [searchQuery, setSearchQuery] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
+
   // Form state for creating a new item
   const [newCode, setNewCode] = useState("");
   const [newName, setNewName] = useState("");
@@ -36,7 +36,7 @@ export default function ProjectTypePage() {
   const filteredData = data.filter(
     (item) =>
       item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.code.toLowerCase().includes(searchQuery.toLowerCase())
+      item.code.toLowerCase().includes(searchQuery.toLowerCase()),
   );
 
   // Handle Add (Ready to hook up with Backend API via POST)
@@ -47,7 +47,7 @@ export default function ProjectTypePage() {
     const newItem: ProjectType = {
       id: Date.now(), // Replace with ID generated from DB/API
       code: newCode,
-      name: setNewName ? newName : "",
+      name: newName,
     };
 
     setData([newItem, ...data]);
@@ -64,14 +64,17 @@ export default function ProjectTypePage() {
   return (
     <div className="min-h-screen bg-white p-8 text-slate-800">
       <div className="mx-auto max-w-6xl space-y-6">
-        
         {/* Breadcrumb & Header Action */}
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
           <div>
             <div className="text-sm text-slate-500">
-              Home <span className="mx-1">/</span> Project <span className="mx-1">/</span> <span className="text-slate-800 font-medium">Project Type</span>
+              Home <span className="mx-1">/</span> Project{" "}
+              <span className="mx-1">/</span>{" "}
+              <span className="text-slate-800 font-medium">Project Type</span>
             </div>
-            <h1 className="text-2xl font-bold tracking-tight text-slate-900 mt-1">Project Types</h1>
+            <h1 className="text-2xl font-bold tracking-tight text-slate-900 mt-1">
+              Project Types
+            </h1>
           </div>
 
           <button
@@ -117,19 +120,28 @@ export default function ProjectTypePage() {
               <tbody className="divide-y divide-slate-100">
                 {filteredData.length > 0 ? (
                   filteredData.map((item) => (
-                    <tr key={item.id} className="hover:bg-slate-50/50 transition-colors">
-                      <td className="py-4 pl-6 pr-4 font-medium text-slate-600">{item.id}</td>
-                      <td className="px-4 py-4 font-mono text-slate-700">{item.code}</td>
-                      <td className="px-4 py-4 font-medium text-slate-900">{item.name}</td>
+                    <tr
+                      key={item.id}
+                      className="hover:bg-slate-50/50 transition-colors"
+                    >
+                      <td className="py-4 pl-6 pr-4 font-medium text-slate-600">
+                        {item.id}
+                      </td>
+                      <td className="px-4 py-4 font-mono text-slate-700">
+                        {item.code}
+                      </td>
+                      <td className="px-4 py-4 font-medium text-slate-900">
+                        {item.name}
+                      </td>
                       <td className="py-4 pl-4 pr-6 text-right">
                         <div className="flex items-center justify-end gap-2">
-                          <button 
+                          <button
                             className="rounded-lg p-2 text-indigo-600 hover:bg-indigo-50 transition"
                             title="Edit"
                           >
                             <Pencil className="h-4 w-4" />
                           </button>
-                          <button 
+                          <button
                             onClick={() => handleDelete(item.id)}
                             className="rounded-lg p-2 text-rose-600 hover:bg-rose-50 transition"
                             title="Delete"
@@ -154,32 +166,42 @@ export default function ProjectTypePage() {
           {/* Pagination Footer */}
           <div className="flex items-center justify-between border-t border-slate-200 bg-white px-6 py-4">
             <span className="text-sm text-slate-500">
-              Showing <span className="font-medium">{filteredData.length}</span> results
+              Showing <span className="font-medium">{filteredData.length}</span>{" "}
+              results
             </span>
             <div className="flex items-center gap-2">
-              <button disabled className="inline-flex items-center gap-1 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-slate-400 cursor-not-allowed">
+              <button
+                disabled
+                className="inline-flex items-center gap-1 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-slate-400 cursor-not-allowed"
+              >
                 <ChevronLeft className="h-4 w-4" /> Previous
               </button>
               <button className="rounded-lg bg-indigo-600 px-3.5 py-1.5 text-sm font-medium text-white shadow-sm">
                 1
               </button>
-              <button disabled className="inline-flex items-center gap-1 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-slate-400 cursor-not-allowed">
+              <button
+                disabled
+                className="inline-flex items-center gap-1 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-slate-400 cursor-not-allowed"
+              >
                 Next <ChevronRight className="h-4 w-4" />
               </button>
             </div>
           </div>
         </div>
-
       </div>
 
       {/* Create Modal Form */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 backdrop-blur-sm p-4">
           <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl border border-slate-100 animate-in fade-in zoom-in-95 duration-200">
-            <h3 className="text-lg font-bold text-slate-900 mb-4">Add New Project Type</h3>
+            <h3 className="text-lg font-bold text-slate-900 mb-4">
+              Add New Project Type
+            </h3>
             <form onSubmit={handleCreate} className="space-y-4">
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1">Code</label>
+                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1">
+                  Code
+                </label>
                 <input
                   type="text"
                   required
@@ -190,7 +212,9 @@ export default function ProjectTypePage() {
                 />
               </div>
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1">Name</label>
+                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1">
+                  Name
+                </label>
                 <input
                   type="text"
                   required

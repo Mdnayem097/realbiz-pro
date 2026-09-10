@@ -21,50 +21,16 @@ export default function OverflowMaterialTable() {
       {/* Header */}
       <div className="flex items-center justify-between border-b border-slate-100 px-4 py-3">
         <div>
-          <h3 className="text-lg font-bold text-slate-800">Overflow Material</h3>
+          <h3 className="text-lg font-bold text-slate-800">
+            Overflow Material
+          </h3>
 
-          <p className="text-sm text-slate-500">Material budget and issue overview</p>
+          <p className="text-sm text-slate-500">
+            Material budget and issue overview
+          </p>
         </div>
       </div>
 
-<<<<<<< HEAD
-      <div className="overflow-x-auto">
-        <table className="w-full min-w-[800px] text-sm">
-          <thead className="bg-slate-50 text-left text-xs uppercase text-slate-500">
-            <tr>
-              <th className="px-5 py-4">SL</th>
-              <th className="px-5 py-4">Description</th>
-              <th className="px-5 py-4">Budget Qty</th>
-              <th className="px-5 py-4">Budget Amount</th>
-              <th className="px-5 py-4">Issue Qty</th>
-              <th className="px-5 py-4">Issue Amount</th>
-              <th className="px-5 py-4">Status</th>
-            </tr>
-          </thead>
-
-          <tbody className="divide-y divide-slate-100">
-            {overflowMaterials.map((item, index) => (
-              <tr key={item.id} className="transition hover:bg-slate-50">
-                <td className="px-5 py-4">{index + 1}</td>
-
-                <td className="px-5 py-4 font-semibold text-slate-700">{item.description}</td>
-
-                <td className="px-5 py-4">{item.budgetQty.toLocaleString()}</td>
-
-                <td className="px-5 py-4">৳ {item.budgetAmount.toLocaleString()}</td>
-
-                <td className="px-5 py-4">{item.issueQty.toLocaleString()}</td>
-
-                <td className="px-5 py-4">৳ {item.issueAmount.toLocaleString()}</td>
-
-                <td className="px-5 py-4">
-                  <span
-                    className={`rounded-full px-3 py-1 text-xs font-semibold ${statusClasses[item.status]}`}
-                  >
-                    {item.status}
-                  </span>
-                </td>
-=======
       {/* =========================
           Mobile Table
       ========================== */}
@@ -80,24 +46,16 @@ export default function OverflowMaterialTable() {
                 <th className="px-5 py-4">Issue Qty</th>
                 <th className="px-5 py-4">Issue Amount</th>
                 <th className="px-5 py-4">Status</th>
->>>>>>> d787c21efbdea32481c9ad8c6d6ba76865860d2f
               </tr>
             </thead>
 
             <tbody className="divide-y divide-slate-100">
               {mobileMaterials.map((item, index) => (
-                <tr
-                  key={item.id}
-                  className="transition hover:bg-slate-50"
-                >
-                  <td className="px-5 py-4">
-                    {index + 1}
-                  </td>
+                <tr key={item.id} className="transition hover:bg-slate-50">
+                  <td className="px-5 py-4">{index + 1}</td>
 
                   <td className="max-w-[180px] px-5 py-4 font-semibold text-slate-700">
-                    <span className="block truncate">
-                      {item.description}
-                    </span>
+                    <span className="block truncate">{item.description}</span>
                   </td>
 
                   <td className="whitespace-nowrap px-5 py-4">
@@ -163,18 +121,11 @@ export default function OverflowMaterialTable() {
 
             <tbody className="divide-y divide-slate-100">
               {overflowMaterials.map((item, index) => (
-                <tr
-                  key={item.id}
-                  className="transition hover:bg-slate-50"
-                >
-                  <td className="px-3 py-4">
-                    {index + 1}
-                  </td>
+                <tr key={item.id} className="transition hover:bg-slate-50">
+                  <td className="px-3 py-4">{index + 1}</td>
 
                   <td className="max-w-[150px] px-3 py-4 font-semibold text-slate-700">
-                    <span className="block truncate">
-                      {item.description}
-                    </span>
+                    <span className="block truncate">{item.description}</span>
                   </td>
 
                   <td className="whitespace-nowrap px-3 py-4">

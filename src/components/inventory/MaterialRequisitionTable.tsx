@@ -1,6 +1,6 @@
 "use client";
 
-import type { MaterialRequisitionItem } from "@/app/dashboard/inventory/material-requisition/page";
+import type { MaterialRequisitionItem } from "@/app/(admin-dashbord)/dashboard/inventory/material-requisition/page";
 import React, { useState, useEffect, useMemo } from "react";
 import {
   FiSearch,
@@ -160,7 +160,9 @@ export default function MaterialRequisitionTable({
   onEdit,
   onView,
 }: MaterialRequisitionTableProps) {
-  const [requisitions, setRequisitions] = useState<MaterialRequisitionItem[]>([]);
+  const [requisitions, setRequisitions] = useState<MaterialRequisitionItem[]>(
+    [],
+  );
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [entriesPerPage, setEntriesPerPage] = useState(10);
@@ -183,7 +185,10 @@ export default function MaterialRequisitionTable({
           setRequisitions(data);
         }
       } catch (error) {
-        console.warn("API unavailable, loading default requisition data...", error);
+        console.warn(
+          "API unavailable, loading default requisition data...",
+          error,
+        );
         setRequisitions(DEFAULT_REQUISITIONS);
       } finally {
         setLoading(false);
@@ -202,7 +207,9 @@ export default function MaterialRequisitionTable({
   // Single select handler
   const handleSelectOne = (id: number, checked: boolean) => {
     setRequisitions(
-      requisitions.map((item) => (item.id === id ? { ...item, select: checked } : item)),
+      requisitions.map((item) =>
+        item.id === id ? { ...item, select: checked } : item,
+      ),
     );
   };
 
@@ -228,7 +235,8 @@ export default function MaterialRequisitionTable({
   }, [requisitions, searchQuery]);
 
   // Pagination logic
-  const totalPages = Math.ceil(filteredRequisitions.length / entriesPerPage) || 1;
+  const totalPages =
+    Math.ceil(filteredRequisitions.length / entriesPerPage) || 1;
   const paginatedRequisitions = useMemo(() => {
     const start = (currentPage - 1) * entriesPerPage;
     return filteredRequisitions.slice(start, start + entriesPerPage);
@@ -257,7 +265,9 @@ export default function MaterialRequisitionTable({
           </div>
 
           <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
-            <span className="text-xs text-muted-foreground whitespace-nowrap">Search:</span>
+            <span className="text-xs text-muted-foreground whitespace-nowrap">
+              Search:
+            </span>
             <div className="relative w-full sm:w-64">
               <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-muted-foreground">
                 <FiSearch size={14} />
@@ -288,7 +298,10 @@ export default function MaterialRequisitionTable({
                   <input
                     type="checkbox"
                     onChange={handleSelectAll}
-                    checked={requisitions.length > 0 && requisitions.every((item) => item.select)}
+                    checked={
+                      requisitions.length > 0 &&
+                      requisitions.every((item) => item.select)
+                    }
                     className="rounded border-input cursor-pointer"
                   />
                 </th>
@@ -308,7 +321,10 @@ export default function MaterialRequisitionTable({
             <tbody className="divide-y divide-border">
               {loading ? (
                 <tr>
-                  <td colSpan={13} className="text-center py-8 text-muted-foreground">
+                  <td
+                    colSpan={13}
+                    className="text-center py-8 text-muted-foreground"
+                  >
                     Loading data...
                   </td>
                 </tr>
@@ -323,17 +339,31 @@ export default function MaterialRequisitionTable({
                       <input
                         type="checkbox"
                         checked={item.select}
-                        onChange={(e) => handleSelectOne(item.id, e.target.checked)}
+                        onChange={(e) =>
+                          handleSelectOne(item.id, e.target.checked)
+                        }
                         className="rounded border-input cursor-pointer"
                       />
                     </td>
-                    <td className="py-3 px-3 text-muted-foreground">{item.projectType}</td>
+                    <td className="py-3 px-3 text-muted-foreground">
+                      {item.projectType}
+                    </td>
                     <td className="py-3 px-3 font-medium">{item.project}</td>
-                    <td className="py-3 px-3 text-muted-foreground">{item.titleOfWork}</td>
-                    <td className="py-3 px-3 font-mono text-muted-foreground">{item.code}</td>
-                    <td className="py-3 px-3 text-muted-foreground">{item.ref}</td>
-                    <td className="py-3 px-3 text-muted-foreground">{item.date}</td>
-                    <td className="py-3 px-3 text-muted-foreground">{item.demandDate}</td>
+                    <td className="py-3 px-3 text-muted-foreground">
+                      {item.titleOfWork}
+                    </td>
+                    <td className="py-3 px-3 font-mono text-muted-foreground">
+                      {item.code}
+                    </td>
+                    <td className="py-3 px-3 text-muted-foreground">
+                      {item.ref}
+                    </td>
+                    <td className="py-3 px-3 text-muted-foreground">
+                      {item.date}
+                    </td>
+                    <td className="py-3 px-3 text-muted-foreground">
+                      {item.demandDate}
+                    </td>
                     <td className="py-3 px-3">{item.addedBy}</td>
                     <td className="py-3 px-3 text-xs leading-relaxed text-emerald-600 font-medium">
                       <div>✓ All Approvals Completed</div>
@@ -343,13 +373,17 @@ export default function MaterialRequisitionTable({
                         </div>
                       )}
                     </td>
-                    <td className="py-3 px-3 text-muted-foreground">{item.attachment}</td>
+                    <td className="py-3 px-3 text-muted-foreground">
+                      {item.attachment}
+                    </td>
                     <td className="py-3 px-3 text-center relative">
                       {/* Action Dropdown Button */}
                       <div className="inline-block relative">
                         <button
                           onClick={() =>
-                            setActiveDropdown(activeDropdown === item.id ? null : item.id)
+                            setActiveDropdown(
+                              activeDropdown === item.id ? null : item.id,
+                            )
                           }
                           className="flex items-center gap-1 bg-[#4f46e5] hover:bg-[#4338ca] text-white px-3 py-1.5 rounded text-xs font-medium shadow-sm transition-colors"
                         >
@@ -384,7 +418,9 @@ export default function MaterialRequisitionTable({
                             {/* Convert To Purchase */}
                             <button
                               onClick={() => {
-                                alert(`Converting Requisition ${item.code} to Purchase...`);
+                                alert(
+                                  `Converting Requisition ${item.code} to Purchase...`,
+                                );
                                 setActiveDropdown(null);
                               }}
                               className="w-full flex items-center justify-center gap-2 px-3 py-2 text-xs font-medium text-white bg-[#06b6d4] hover:bg-[#0891b2] rounded-md transition-colors shadow-sm"
@@ -395,18 +431,23 @@ export default function MaterialRequisitionTable({
                             {/* Convert To Purchase Order */}
                             <button
                               onClick={() => {
-                                alert(`Converting Requisition ${item.code} to Purchase Order...`);
+                                alert(
+                                  `Converting Requisition ${item.code} to Purchase Order...`,
+                                );
                                 setActiveDropdown(null);
                               }}
                               className="w-full flex items-center justify-center gap-2 px-3 py-2 text-xs font-medium text-white bg-[#06b6d4] hover:bg-[#0891b2] rounded-md transition-colors shadow-sm"
                             >
-                              <FiRefreshCw size={14} /> Convert To Purchase Order
+                              <FiRefreshCw size={14} /> Convert To Purchase
+                              Order
                             </button>
 
                             {/* Convert To RFQ */}
                             <button
                               onClick={() => {
-                                alert(`Converting Requisition ${item.code} to RFQ...`);
+                                alert(
+                                  `Converting Requisition ${item.code} to RFQ...`,
+                                );
                                 setActiveDropdown(null);
                               }}
                               className="w-full flex items-center justify-center gap-2 px-3 py-2 text-xs font-medium text-white bg-[#06b6d4] hover:bg-[#0891b2] rounded-md transition-colors shadow-sm"
@@ -429,7 +470,10 @@ export default function MaterialRequisitionTable({
                 ))
               ) : (
                 <tr>
-                  <td colSpan={13} className="text-center py-8 text-muted-foreground">
+                  <td
+                    colSpan={13}
+                    className="text-center py-8 text-muted-foreground"
+                  >
                     No data available in table
                   </td>
                 </tr>
@@ -441,9 +485,16 @@ export default function MaterialRequisitionTable({
         {/* Pagination Footer */}
         <div className="flex flex-col sm:flex-row items-center justify-between p-4 border-t border-border gap-4 text-xs text-muted-foreground">
           <div>
-            Showing {filteredRequisitions.length > 0 ? (currentPage - 1) * entriesPerPage + 1 : 0}{" "}
-            to {Math.min(currentPage * entriesPerPage, filteredRequisitions.length)} of{" "}
-            {filteredRequisitions.length} entries
+            Showing{" "}
+            {filteredRequisitions.length > 0
+              ? (currentPage - 1) * entriesPerPage + 1
+              : 0}{" "}
+            to{" "}
+            {Math.min(
+              currentPage * entriesPerPage,
+              filteredRequisitions.length,
+            )}{" "}
+            of {filteredRequisitions.length} entries
           </div>
 
           <div className="flex items-center gap-1">
@@ -458,7 +509,9 @@ export default function MaterialRequisitionTable({
               {currentPage}
             </span>
             <button
-              onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+              onClick={() =>
+                setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+              }
               disabled={currentPage === totalPages || totalPages === 0}
               className="px-3 py-1.5 rounded border border-border bg-card hover:bg-muted disabled:opacity-50 transition-colors"
             >

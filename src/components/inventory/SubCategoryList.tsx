@@ -1,12 +1,17 @@
 "use client";
 
-import type { SubCategory } from "@/app/dashboard/inventory/products/sub-categories/page";
+import type { SubCategory } from "@/app/(admin-dashbord)/dashboard/inventory/products/sub-categories/page";
 import React, { useState, useEffect, useMemo } from "react";
 import { FiEdit, FiTrash2, FiSearch } from "react-icons/fi";
 
 // Default sub-category items based on the reference image
 const DEFAULT_SUB_CATEGORIES: SubCategory[] = [
-  { id: 1, category: "Global Link City", code: "AA00058", name: "Global Link City" },
+  {
+    id: 1,
+    category: "Global Link City",
+    code: "AA00058",
+    name: "Global Link City",
+  },
   { id: 2, category: "Mega Project", code: "AA00058", name: "Mega Project" },
   { id: 3, category: "Black Marble", code: "SC5155496", name: "Black Marble" },
   { id: 4, category: "White Marble", code: "SC6110881", name: "White Marble" },
@@ -26,7 +31,8 @@ export default function SubCategoryList({
   const [subCategories, setSubCategories] = useState<SubCategory[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
-  const [selectedCategoryFilter, setSelectedCategoryFilter] = useState<string>("");
+  const [selectedCategoryFilter, setSelectedCategoryFilter] =
+    useState<string>("");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [entriesPerPage, setEntriesPerPage] = useState<number>(10);
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -41,7 +47,10 @@ export default function SubCategoryList({
         const data = await response.json();
         setSubCategories(Array.isArray(data) ? data : DEFAULT_SUB_CATEGORIES);
       } catch (error) {
-        console.warn("Using default sub-category data due to fetch error:", error);
+        console.warn(
+          "Using default sub-category data due to fetch error:",
+          error,
+        );
         setSubCategories(DEFAULT_SUB_CATEGORIES);
       } finally {
         setLoading(false);
@@ -74,7 +83,8 @@ export default function SubCategoryList({
   }, [subCategories, selectedCategoryFilter, searchQuery]);
 
   // Pagination calculations
-  const totalPages = Math.ceil(filteredSubCategories.length / entriesPerPage) || 1;
+  const totalPages =
+    Math.ceil(filteredSubCategories.length / entriesPerPage) || 1;
   const paginatedSubCategories = useMemo(() => {
     const start = (currentPage - 1) * entriesPerPage;
     return filteredSubCategories.slice(start, start + entriesPerPage);
@@ -85,7 +95,9 @@ export default function SubCategoryList({
       {/* Filter and Search Bar Section */}
       <div className="bg-card border border-border rounded p-4 shadow-sm space-y-4">
         <div>
-          <label className="block text-xs font-medium text-foreground mb-1">Category</label>
+          <label className="block text-xs font-medium text-foreground mb-1">
+            Category
+          </label>
           <select
             value={selectedCategoryFilter}
             onChange={(e) => {
@@ -122,7 +134,9 @@ export default function SubCategoryList({
           </div>
 
           <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
-            <span className="text-xs text-muted-foreground whitespace-nowrap">Search:</span>
+            <span className="text-xs text-muted-foreground whitespace-nowrap">
+              Search:
+            </span>
             <div className="relative w-full sm:w-64">
               <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-muted-foreground">
                 <FiSearch size={14} />
@@ -158,18 +172,27 @@ export default function SubCategoryList({
             <tbody className="divide-y divide-border">
               {loading ? (
                 <tr>
-                  <td colSpan={5} className="text-center py-8 text-muted-foreground">
+                  <td
+                    colSpan={5}
+                    className="text-center py-8 text-muted-foreground"
+                  >
                     Loading sub categories...
                   </td>
                 </tr>
               ) : paginatedSubCategories.length > 0 ? (
                 paginatedSubCategories.map((subCat, index) => {
-                  const serialNumber = (currentPage - 1) * entriesPerPage + index + 1;
+                  const serialNumber =
+                    (currentPage - 1) * entriesPerPage + index + 1;
                   return (
-                    <tr key={subCat.id || index} className="hover:bg-muted/50 transition-colors">
+                    <tr
+                      key={subCat.id || index}
+                      className="hover:bg-muted/50 transition-colors"
+                    >
                       <td className="py-3 px-4 font-medium">{serialNumber}</td>
                       <td className="py-3 px-4">{subCat.category}</td>
-                      <td className="py-3 px-4 font-mono text-xs">{subCat.code}</td>
+                      <td className="py-3 px-4 font-mono text-xs">
+                        {subCat.code}
+                      </td>
                       <td className="py-3 px-4 font-medium">{subCat.name}</td>
                       <td className="py-3 px-4 text-center">
                         <div className="flex items-center justify-center gap-1.5">
@@ -196,7 +219,10 @@ export default function SubCategoryList({
                 })
               ) : (
                 <tr>
-                  <td colSpan={5} className="text-center py-8 text-muted-foreground">
+                  <td
+                    colSpan={5}
+                    className="text-center py-8 text-muted-foreground"
+                  >
                     No matching sub categories found.
                   </td>
                 </tr>
@@ -208,9 +234,16 @@ export default function SubCategoryList({
         {/* Pagination Footer */}
         <div className="flex flex-col sm:flex-row items-center justify-between p-4 border-t border-border gap-4 text-xs text-muted-foreground">
           <div>
-            Showing {filteredSubCategories.length > 0 ? (currentPage - 1) * entriesPerPage + 1 : 0}{" "}
-            to {Math.min(currentPage * entriesPerPage, filteredSubCategories.length)} of{" "}
-            {filteredSubCategories.length} entries
+            Showing{" "}
+            {filteredSubCategories.length > 0
+              ? (currentPage - 1) * entriesPerPage + 1
+              : 0}{" "}
+            to{" "}
+            {Math.min(
+              currentPage * entriesPerPage,
+              filteredSubCategories.length,
+            )}{" "}
+            of {filteredSubCategories.length} entries
           </div>
 
           {/* Page Number Buttons */}
@@ -224,38 +257,45 @@ export default function SubCategoryList({
             </button>
 
             <div className="flex items-center gap-1 mx-1">
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
-                if (
-                  page === 1 ||
-                  page === totalPages ||
-                  (page >= currentPage - 1 && page <= currentPage + 1)
-                ) {
-                  return (
-                    <button
-                      key={page}
-                      onClick={() => setCurrentPage(page)}
-                      className={`px-3 py-1.5 rounded text-xs font-medium transition-colors ${
-                        currentPage === page
-                          ? "bg-[var(--sidebar-foreground)] text-white"
-                          : "border border-border bg-card hover:bg-muted text-foreground"
-                      }`}
-                    >
-                      {page}
-                    </button>
-                  );
-                } else if (page === currentPage - 2 || page === currentPage + 2) {
-                  return (
-                    <span key={page} className="px-1 text-muted-foreground">
-                      ...
-                    </span>
-                  );
-                }
-                return null;
-              })}
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                (page) => {
+                  if (
+                    page === 1 ||
+                    page === totalPages ||
+                    (page >= currentPage - 1 && page <= currentPage + 1)
+                  ) {
+                    return (
+                      <button
+                        key={page}
+                        onClick={() => setCurrentPage(page)}
+                        className={`px-3 py-1.5 rounded text-xs font-medium transition-colors ${
+                          currentPage === page
+                            ? "bg-[var(--sidebar-foreground)] text-white"
+                            : "border border-border bg-card hover:bg-muted text-foreground"
+                        }`}
+                      >
+                        {page}
+                      </button>
+                    );
+                  } else if (
+                    page === currentPage - 2 ||
+                    page === currentPage + 2
+                  ) {
+                    return (
+                      <span key={page} className="px-1 text-muted-foreground">
+                        ...
+                      </span>
+                    );
+                  }
+                  return null;
+                },
+              )}
             </div>
 
             <button
-              onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+              onClick={() =>
+                setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+              }
               disabled={currentPage === totalPages || totalPages === 0}
               className="flex items-center gap-1 px-3 py-1.5 rounded border border-border bg-card hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >

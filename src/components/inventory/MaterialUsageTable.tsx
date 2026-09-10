@@ -1,6 +1,6 @@
 "use client";
 
-import type { MaterialUsageItem } from "@/app/dashboard/inventory/adjustment/material-usage/page";
+import type { MaterialUsageItem } from "@/app/(admin-dashbord)/dashboard/inventory/adjustment/material-usage/page";
 import React, { useState, useEffect, useMemo } from "react";
 import { FiEdit, FiTrash2, FiEye, FiSearch } from "react-icons/fi";
 
@@ -132,7 +132,10 @@ interface MaterialUsageTableProps {
   onView?: (item: MaterialUsageItem) => void;
 }
 
-export default function MaterialUsageTable({ onEdit, onView }: MaterialUsageTableProps) {
+export default function MaterialUsageTable({
+  onEdit,
+  onView,
+}: MaterialUsageTableProps) {
   const [usages, setUsages] = useState<MaterialUsageItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
@@ -155,7 +158,10 @@ export default function MaterialUsageTable({ onEdit, onView }: MaterialUsageTabl
           setUsages(data);
         }
       } catch (error) {
-        console.warn("API unavailable, loading default material usage data...", error);
+        console.warn(
+          "API unavailable, loading default material usage data...",
+          error,
+        );
         setUsages(DEFAULT_MATERIAL_USAGES);
       } finally {
         setLoading(false);
@@ -186,8 +192,14 @@ export default function MaterialUsageTable({ onEdit, onView }: MaterialUsageTabl
   }, [usages, searchQuery]);
 
   // Totals calculation
-  const totalSubTotal = filteredUsages.reduce((acc, curr) => acc + curr.subTotal, 0);
-  const totalGrandTotal = filteredUsages.reduce((acc, curr) => acc + curr.grandTotal, 0);
+  const totalSubTotal = filteredUsages.reduce(
+    (acc, curr) => acc + curr.subTotal,
+    0,
+  );
+  const totalGrandTotal = filteredUsages.reduce(
+    (acc, curr) => acc + curr.grandTotal,
+    0,
+  );
 
   // Pagination logic
   const totalPages = Math.ceil(filteredUsages.length / entriesPerPage) || 1;
@@ -219,7 +231,9 @@ export default function MaterialUsageTable({ onEdit, onView }: MaterialUsageTabl
           </div>
 
           <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
-            <span className="text-xs text-muted-foreground whitespace-nowrap">Search:</span>
+            <span className="text-xs text-muted-foreground whitespace-nowrap">
+              Search:
+            </span>
             <div className="relative w-full sm:w-64">
               <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-muted-foreground">
                 <FiSearch size={14} />
@@ -265,7 +279,10 @@ export default function MaterialUsageTable({ onEdit, onView }: MaterialUsageTabl
             <tbody className="divide-y divide-border">
               {loading ? (
                 <tr>
-                  <td colSpan={15} className="text-center py-8 text-muted-foreground">
+                  <td
+                    colSpan={15}
+                    className="text-center py-8 text-muted-foreground"
+                  >
                     Loading data...
                   </td>
                 </tr>
@@ -276,20 +293,34 @@ export default function MaterialUsageTable({ onEdit, onView }: MaterialUsageTabl
                     className="hover:bg-muted/50 transition-colors align-top whitespace-nowrap"
                   >
                     <td className="py-3 px-3 font-medium">{item.id}</td>
-                    <td className="py-3 px-3 text-muted-foreground">{item.projectType}</td>
+                    <td className="py-3 px-3 text-muted-foreground">
+                      {item.projectType}
+                    </td>
                     <td className="py-3 px-3 font-medium">{item.project}</td>
-                    <td className="py-3 px-3 text-muted-foreground">{item.titleOfWork}</td>
-                    <td className="py-3 px-3 text-muted-foreground">{item.task}</td>
-                    <td className="py-3 px-3 text-muted-foreground">{item.workerStaffName}</td>
+                    <td className="py-3 px-3 text-muted-foreground">
+                      {item.titleOfWork}
+                    </td>
+                    <td className="py-3 px-3 text-muted-foreground">
+                      {item.task}
+                    </td>
+                    <td className="py-3 px-3 text-muted-foreground">
+                      {item.workerStaffName}
+                    </td>
                     <td className="py-3 px-3 font-mono">{item.code}</td>
                     <td className="py-3 px-3 font-mono text-muted-foreground">
                       {item.purchaseGrn}
                     </td>
-                    <td className="py-3 px-3 text-muted-foreground">{item.date}</td>
+                    <td className="py-3 px-3 text-muted-foreground">
+                      {item.date}
+                    </td>
                     <td className="py-3 px-3">{item.subTotal.toFixed(2)}</td>
-                    <td className="py-3 px-3 font-medium">{item.grandTotal.toFixed(2)}</td>
+                    <td className="py-3 px-3 font-medium">
+                      {item.grandTotal.toFixed(2)}
+                    </td>
                     <td className="py-3 px-3">{item.addedBy}</td>
-                    <td className="py-3 px-3 text-muted-foreground">{item.attachment}</td>
+                    <td className="py-3 px-3 text-muted-foreground">
+                      {item.attachment}
+                    </td>
                     <td className="py-3 px-3 text-xs leading-relaxed text-emerald-600 font-medium">
                       <div>✓ All Approvals Completed</div>
                       <div className="text-muted-foreground">
@@ -328,7 +359,10 @@ export default function MaterialUsageTable({ onEdit, onView }: MaterialUsageTabl
                 ))
               ) : (
                 <tr>
-                  <td colSpan={15} className="text-center py-8 text-muted-foreground">
+                  <td
+                    colSpan={15}
+                    className="text-center py-8 text-muted-foreground"
+                  >
                     No data available in table
                   </td>
                 </tr>
@@ -352,9 +386,12 @@ export default function MaterialUsageTable({ onEdit, onView }: MaterialUsageTabl
         {/* Pagination Footer */}
         <div className="flex flex-col sm:flex-row items-center justify-between p-4 border-t border-border gap-4 text-xs text-muted-foreground">
           <div>
-            Showing {filteredUsages.length > 0 ? (currentPage - 1) * entriesPerPage + 1 : 0} to{" "}
-            {Math.min(currentPage * entriesPerPage, filteredUsages.length)} of{" "}
-            {filteredUsages.length} entries
+            Showing{" "}
+            {filteredUsages.length > 0
+              ? (currentPage - 1) * entriesPerPage + 1
+              : 0}{" "}
+            to {Math.min(currentPage * entriesPerPage, filteredUsages.length)}{" "}
+            of {filteredUsages.length} entries
           </div>
 
           <div className="flex items-center gap-1">
@@ -369,7 +406,9 @@ export default function MaterialUsageTable({ onEdit, onView }: MaterialUsageTabl
               {currentPage}
             </span>
             <button
-              onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+              onClick={() =>
+                setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+              }
               disabled={currentPage === totalPages || totalPages === 0}
               className="px-3 py-1.5 rounded border border-border bg-card hover:bg-muted disabled:opacity-50 transition-colors"
             >

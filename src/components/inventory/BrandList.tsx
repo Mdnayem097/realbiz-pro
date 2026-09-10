@@ -1,6 +1,6 @@
 "use client";
 
-import type { Brand } from "@/app/dashboard/inventory/products/brands/page";
+import type { Brand } from "@/app/(admin-dashbord)/dashboard/inventory/products/brands/page";
 import React, { useState, useEffect, useMemo } from "react";
 import { FiEdit, FiTrash2, FiSearch } from "react-icons/fi";
 
@@ -26,7 +26,11 @@ interface BrandListProps {
   onView?: (brand: Brand) => void;
 }
 
-export default function BrandList({ apiEndpoint = "/api/brands", onEdit, onView }: BrandListProps) {
+export default function BrandList({
+  apiEndpoint = "/api/brands",
+  onEdit,
+  onView,
+}: BrandListProps) {
   const [brands, setBrands] = useState<Brand[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -102,7 +106,9 @@ export default function BrandList({ apiEndpoint = "/api/brands", onEdit, onView 
           </div>
 
           <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
-            <span className="text-xs text-muted-foreground whitespace-nowrap">Search:</span>
+            <span className="text-xs text-muted-foreground whitespace-nowrap">
+              Search:
+            </span>
             <div className="relative w-full sm:w-64">
               <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-muted-foreground">
                 <FiSearch size={14} />
@@ -137,18 +143,29 @@ export default function BrandList({ apiEndpoint = "/api/brands", onEdit, onView 
             <tbody className="divide-y divide-border">
               {loading ? (
                 <tr>
-                  <td colSpan={4} className="text-center py-8 text-muted-foreground">
+                  <td
+                    colSpan={4}
+                    className="text-center py-8 text-muted-foreground"
+                  >
                     Loading brands...
                   </td>
                 </tr>
               ) : paginatedBrands.length > 0 ? (
                 paginatedBrands.map((brand, index) => {
-                  const serialNumber = (currentPage - 1) * entriesPerPage + index + 1;
+                  const serialNumber =
+                    (currentPage - 1) * entriesPerPage + index + 1;
                   return (
-                    <tr key={brand.id || index} className="hover:bg-muted/50 transition-colors">
+                    <tr
+                      key={brand.id || index}
+                      className="hover:bg-muted/50 transition-colors"
+                    >
                       <td className="py-3 px-4 font-medium">{serialNumber}</td>
-                      <td className="py-3 px-4 font-mono text-xs">{brand.code || "-"}</td>
-                      <td className="py-3 px-4 font-medium">{brand.name || "-"}</td>
+                      <td className="py-3 px-4 font-mono text-xs">
+                        {brand.code || "-"}
+                      </td>
+                      <td className="py-3 px-4 font-medium">
+                        {brand.name || "-"}
+                      </td>
                       <td className="py-3 px-4 text-center">
                         <div className="flex items-center justify-center gap-1.5">
                           {/* Edit Button */}
@@ -174,7 +191,10 @@ export default function BrandList({ apiEndpoint = "/api/brands", onEdit, onView 
                 })
               ) : (
                 <tr>
-                  <td colSpan={4} className="text-center py-8 text-muted-foreground">
+                  <td
+                    colSpan={4}
+                    className="text-center py-8 text-muted-foreground"
+                  >
                     No matching brands found.
                   </td>
                 </tr>
@@ -186,9 +206,12 @@ export default function BrandList({ apiEndpoint = "/api/brands", onEdit, onView 
         {/* Pagination Footer */}
         <div className="flex flex-col sm:flex-row items-center justify-between p-4 border-t border-border gap-4 text-xs text-muted-foreground">
           <div>
-            Showing {filteredBrands.length > 0 ? (currentPage - 1) * entriesPerPage + 1 : 0} to{" "}
-            {Math.min(currentPage * entriesPerPage, filteredBrands.length)} of{" "}
-            {filteredBrands.length} entries
+            Showing{" "}
+            {filteredBrands.length > 0
+              ? (currentPage - 1) * entriesPerPage + 1
+              : 0}{" "}
+            to {Math.min(currentPage * entriesPerPage, filteredBrands.length)}{" "}
+            of {filteredBrands.length} entries
           </div>
 
           {/* Page Number Buttons */}
@@ -202,38 +225,45 @@ export default function BrandList({ apiEndpoint = "/api/brands", onEdit, onView 
             </button>
 
             <div className="flex items-center gap-1 mx-1">
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
-                if (
-                  page === 1 ||
-                  page === totalPages ||
-                  (page >= currentPage - 1 && page <= currentPage + 1)
-                ) {
-                  return (
-                    <button
-                      key={page}
-                      onClick={() => setCurrentPage(page)}
-                      className={`px-3 py-1.5 rounded text-xs font-medium transition-colors ${
-                        currentPage === page
-                          ? "bg-[var(--sidebar-foreground)] text-white"
-                          : "border border-border bg-card hover:bg-muted text-foreground"
-                      }`}
-                    >
-                      {page}
-                    </button>
-                  );
-                } else if (page === currentPage - 2 || page === currentPage + 2) {
-                  return (
-                    <span key={page} className="px-1 text-muted-foreground">
-                      ...
-                    </span>
-                  );
-                }
-                return null;
-              })}
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                (page) => {
+                  if (
+                    page === 1 ||
+                    page === totalPages ||
+                    (page >= currentPage - 1 && page <= currentPage + 1)
+                  ) {
+                    return (
+                      <button
+                        key={page}
+                        onClick={() => setCurrentPage(page)}
+                        className={`px-3 py-1.5 rounded text-xs font-medium transition-colors ${
+                          currentPage === page
+                            ? "bg-[var(--sidebar-foreground)] text-white"
+                            : "border border-border bg-card hover:bg-muted text-foreground"
+                        }`}
+                      >
+                        {page}
+                      </button>
+                    );
+                  } else if (
+                    page === currentPage - 2 ||
+                    page === currentPage + 2
+                  ) {
+                    return (
+                      <span key={page} className="px-1 text-muted-foreground">
+                        ...
+                      </span>
+                    );
+                  }
+                  return null;
+                },
+              )}
             </div>
 
             <button
-              onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+              onClick={() =>
+                setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+              }
               disabled={currentPage === totalPages || totalPages === 0}
               className="flex items-center gap-1 px-3 py-1.5 rounded border border-border bg-card hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >

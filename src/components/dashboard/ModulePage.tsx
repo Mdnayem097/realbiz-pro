@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 
-import { findNode, moduleLabel, type MenuNode, type ModuleKey } from "@/lib/menus";
+import { findNode, type MenuNode, type ModuleKey } from "@/lib/menus";
 
 import AccountsDashboard from "./AccountsDashboard";
 import AllDashboard from "./AllDashboard";
@@ -76,7 +76,13 @@ const statusClass: Record<string, string> = {
   Planning: "bg-foreground/10 text-foreground/70",
 };
 
-export function ModulePage({ module, path }: { module: ModuleKey; path: string }) {
+export function ModulePage({
+  module,
+  path,
+}: {
+  module: ModuleKey;
+  path: string;
+}) {
   if (module === "lams") {
     return (
       <div className="mx-auto max-w-[1600px] px-5 py-6 sm:px-8">
@@ -150,7 +156,7 @@ export function ModulePage({ module, path }: { module: ModuleKey; path: string }
            CHILD MENU
         ========================================== */
 
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className=" grid gap-4 sm:grid-cols-2 mt-6 lg:grid-cols-3">
           {node.children.map((c: MenuNode) => (
             <Link
               key={c.path}
@@ -161,7 +167,9 @@ export function ModulePage({ module, path }: { module: ModuleKey; path: string }
                 hover:-translate-y-0.5 hover:shadow-lg
               "
             >
-              <div className="font-display text-lg font-semibold">{c.label}</div>
+              <div className="font-display text-lg font-semibold">
+                {c.label}
+              </div>
 
               <div className="mt-1 text-sm text-muted-foreground">
                 {c.children?.length ? `${c.children.length} sections` : "Open"}
@@ -220,7 +228,9 @@ export function ModulePage({ module, path }: { module: ModuleKey; path: string }
                     {k.note}
                   </div>
                 ) : (
-                  <div className="mt-1 text-xs font-medium text-muted-foreground">{k.note}</div>
+                  <div className="mt-1 text-xs font-medium text-muted-foreground">
+                    {k.note}
+                  </div>
                 )}
               </div>
             ))}
@@ -232,7 +242,9 @@ export function ModulePage({ module, path }: { module: ModuleKey; path: string }
                 {isOverview ? "Projects" : `${title} list`}
               </h2>
 
-              <span className="text-xs font-semibold text-muted-foreground">Updated 2 min ago</span>
+              <span className="text-xs font-semibold text-muted-foreground">
+                Updated 2 min ago
+              </span>
             </div>
 
             <div className="overflow-x-auto">
@@ -247,7 +259,9 @@ export function ModulePage({ module, path }: { module: ModuleKey; path: string }
 
                     <th className="px-5 py-3 font-semibold">Status</th>
 
-                    <th className="px-5 py-3 text-right font-semibold">Budget</th>
+                    <th className="px-5 py-3 text-right font-semibold">
+                      Budget
+                    </th>
                   </tr>
                 </thead>
 
@@ -256,7 +270,9 @@ export function ModulePage({ module, path }: { module: ModuleKey; path: string }
                     <tr key={r.name} className="hover:bg-foreground/[0.03]">
                       <td className="px-5 py-3.5 font-semibold">{r.name}</td>
 
-                      <td className="px-5 py-3.5 text-muted-foreground">{r.type}</td>
+                      <td className="px-5 py-3.5 text-muted-foreground">
+                        {r.type}
+                      </td>
 
                       <td className="px-5 py-3.5">
                         <div className="flex items-center gap-2">
@@ -269,7 +285,9 @@ export function ModulePage({ module, path }: { module: ModuleKey; path: string }
                             />
                           </div>
 
-                          <span className="font-mono text-xs text-muted-foreground">{r.pct}%</span>
+                          <span className="font-mono text-xs text-muted-foreground">
+                            {r.pct}%
+                          </span>
                         </div>
                       </td>
 
@@ -283,7 +301,9 @@ export function ModulePage({ module, path }: { module: ModuleKey; path: string }
                         </span>
                       </td>
 
-                      <td className="px-5 py-3.5 text-right font-mono">{r.budget}</td>
+                      <td className="px-5 py-3.5 text-right font-mono">
+                        {r.budget}
+                      </td>
                     </tr>
                   ))}
                 </tbody>

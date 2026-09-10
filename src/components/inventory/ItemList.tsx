@@ -1,6 +1,6 @@
 "use client";
 
-import type { Item } from "@/app/dashboard/inventory/products/item-entry/page";
+import type { Item } from "@/app/(admin-dashbord)/dashboard/inventory/products/item-entry/page";
 import React, { useState, useEffect, useMemo } from "react";
 import { FiEdit, FiTrash2, FiSearch } from "react-icons/fi";
 
@@ -124,7 +124,11 @@ interface ItemListProps {
   onView?: (item: Item) => void;
 }
 
-export default function ItemList({ apiEndpoint = "/api/items", onEdit, onView }: ItemListProps) {
+export default function ItemList({
+  apiEndpoint = "/api/items",
+  onEdit,
+  onView,
+}: ItemListProps) {
   const [items, setItems] = useState<Item[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -203,7 +207,9 @@ export default function ItemList({ apiEndpoint = "/api/items", onEdit, onView }:
           </div>
 
           <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
-            <span className="text-xs text-muted-foreground whitespace-nowrap">Search:</span>
+            <span className="text-xs text-muted-foreground whitespace-nowrap">
+              Search:
+            </span>
             <div className="relative w-full sm:w-64">
               <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-muted-foreground">
                 <FiSearch size={14} />
@@ -243,22 +249,40 @@ export default function ItemList({ apiEndpoint = "/api/items", onEdit, onView }:
             <tbody className="divide-y divide-border">
               {loading ? (
                 <tr>
-                  <td colSpan={9} className="text-center py-8 text-muted-foreground">
+                  <td
+                    colSpan={9}
+                    className="text-center py-8 text-muted-foreground"
+                  >
                     Loading items...
                   </td>
                 </tr>
               ) : paginatedItems.length > 0 ? (
                 paginatedItems.map((item, index) => {
                   return (
-                    <tr key={item.id || index} className="hover:bg-muted/50 transition-colors">
+                    <tr
+                      key={item.id || index}
+                      className="hover:bg-muted/50 transition-colors"
+                    >
                       <td className="py-3 px-4 font-medium">{item.id}</td>
-                      <td className="py-3 px-4 font-mono text-xs">{item.code}</td>
+                      <td className="py-3 px-4 font-mono text-xs">
+                        {item.code}
+                      </td>
                       <td className="py-3 px-4 font-medium">{item.name}</td>
-                      <td className="py-3 px-4 text-muted-foreground">{item.category}</td>
-                      <td className="py-3 px-4 text-muted-foreground">{item.unit}</td>
-                      <td className="py-3 px-4 text-muted-foreground">{item.brand || "-"}</td>
-                      <td className="py-3 px-4 text-muted-foreground">{item.purchasePrice}</td>
-                      <td className="py-3 px-4 text-muted-foreground">{item.salePrice}</td>
+                      <td className="py-3 px-4 text-muted-foreground">
+                        {item.category}
+                      </td>
+                      <td className="py-3 px-4 text-muted-foreground">
+                        {item.unit}
+                      </td>
+                      <td className="py-3 px-4 text-muted-foreground">
+                        {item.brand || "-"}
+                      </td>
+                      <td className="py-3 px-4 text-muted-foreground">
+                        {item.purchasePrice}
+                      </td>
+                      <td className="py-3 px-4 text-muted-foreground">
+                        {item.salePrice}
+                      </td>
                       <td className="py-3 px-4 text-center">
                         <div className="flex items-center justify-center gap-1.5">
                           {/* Edit Button */}
@@ -284,7 +308,10 @@ export default function ItemList({ apiEndpoint = "/api/items", onEdit, onView }:
                 })
               ) : (
                 <tr>
-                  <td colSpan={9} className="text-center py-8 text-muted-foreground">
+                  <td
+                    colSpan={9}
+                    className="text-center py-8 text-muted-foreground"
+                  >
                     No matching items found.
                   </td>
                 </tr>
@@ -296,9 +323,12 @@ export default function ItemList({ apiEndpoint = "/api/items", onEdit, onView }:
         {/* Pagination Footer */}
         <div className="flex flex-col sm:flex-row items-center justify-between p-4 border-t border-border gap-4 text-xs text-muted-foreground">
           <div>
-            Showing {filteredItems.length > 0 ? (currentPage - 1) * entriesPerPage + 1 : 0} to{" "}
-            {Math.min(currentPage * entriesPerPage, filteredItems.length)} of {filteredItems.length}{" "}
-            entries
+            Showing{" "}
+            {filteredItems.length > 0
+              ? (currentPage - 1) * entriesPerPage + 1
+              : 0}{" "}
+            to {Math.min(currentPage * entriesPerPage, filteredItems.length)} of{" "}
+            {filteredItems.length} entries
           </div>
 
           {/* Page Number Buttons */}
@@ -312,38 +342,45 @@ export default function ItemList({ apiEndpoint = "/api/items", onEdit, onView }:
             </button>
 
             <div className="flex items-center gap-1 mx-1">
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
-                if (
-                  page === 1 ||
-                  page === totalPages ||
-                  (page >= currentPage - 1 && page <= currentPage + 1)
-                ) {
-                  return (
-                    <button
-                      key={page}
-                      onClick={() => setCurrentPage(page)}
-                      className={`px-3 py-1.5 rounded text-xs font-medium transition-colors ${
-                        currentPage === page
-                          ? "bg-[var(--sidebar-foreground)] text-white"
-                          : "border border-border bg-card hover:bg-muted text-foreground"
-                      }`}
-                    >
-                      {page}
-                    </button>
-                  );
-                } else if (page === currentPage - 2 || page === currentPage + 2) {
-                  return (
-                    <span key={page} className="px-1 text-muted-foreground">
-                      ...
-                    </span>
-                  );
-                }
-                return null;
-              })}
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                (page) => {
+                  if (
+                    page === 1 ||
+                    page === totalPages ||
+                    (page >= currentPage - 1 && page <= currentPage + 1)
+                  ) {
+                    return (
+                      <button
+                        key={page}
+                        onClick={() => setCurrentPage(page)}
+                        className={`px-3 py-1.5 rounded text-xs font-medium transition-colors ${
+                          currentPage === page
+                            ? "bg-[var(--sidebar-foreground)] text-white"
+                            : "border border-border bg-card hover:bg-muted text-foreground"
+                        }`}
+                      >
+                        {page}
+                      </button>
+                    );
+                  } else if (
+                    page === currentPage - 2 ||
+                    page === currentPage + 2
+                  ) {
+                    return (
+                      <span key={page} className="px-1 text-muted-foreground">
+                        ...
+                      </span>
+                    );
+                  }
+                  return null;
+                },
+              )}
             </div>
 
             <button
-              onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+              onClick={() =>
+                setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+              }
               disabled={currentPage === totalPages || totalPages === 0}
               className="flex items-center gap-1 px-3 py-1.5 rounded border border-border bg-card hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >

@@ -1,4 +1,8 @@
-import { ProcurementStat, OverflowMaterial, PendingVoucher } from "@/types/procurement";
+import {
+  ProcurementStat,
+  OverflowMaterial,
+  PendingVoucher,
+} from "@/types/procurement";
 
 export const procurementStats: ProcurementStat[] = [
   {
@@ -7,18 +11,11 @@ export const procurementStats: ProcurementStat[] = [
     value: 0,
     icon: "clipboard",
     type: "pending",
-<<<<<<< HEAD
-    color: "red", // ✅ যোগ করুন
-    change: 0, // ✅ যোগ করুন
-    changeLabel: "vs last month", // ✅ যোগ করুন
-    chart: [10, 15, 12, 18, 14, 20, 17, 22], // ✅ যোগ করুন
-=======
     color: "red",
-    change: 0, 
+    change: 0,
     changeLabel: "vs last month",
-    chart: [10, 15, 12, 18, 14, 20, 17, 22], 
+    chart: [10, 15, 12, 18, 14, 20, 17, 22],
     route: "/procurement/purchase-orders",
->>>>>>> d787c21efbdea32481c9ad8c6d6ba76865860d2f
   },
   {
     id: "requisition",
@@ -26,13 +23,8 @@ export const procurementStats: ProcurementStat[] = [
     value: 3,
     icon: "file",
     type: "total",
-<<<<<<< HEAD
-    color: "blue", // ✅ যোগ করুন
-    change: 5.2, // ✅ যোগ করুন
-=======
-    color: "blue",   
+    color: "blue",
     change: 5.2,
->>>>>>> d787c21efbdea32481c9ad8c6d6ba76865860d2f
     changeLabel: "vs last month",
     chart: [20, 24, 18, 27, 22, 31, 26, 35],
     route: "/procurement/purchase-orders",
@@ -43,11 +35,7 @@ export const procurementStats: ProcurementStat[] = [
     value: 0,
     icon: "shopping-cart",
     type: "pending",
-<<<<<<< HEAD
-    color: "green", // ✅ যোগ করুন
-=======
-    color: "green",  
->>>>>>> d787c21efbdea32481c9ad8c6d6ba76865860d2f
+    color: "green",
     change: 0,
     changeLabel: "vs last month",
     chart: [8, 12, 10, 15, 11, 13, 9, 14],
@@ -59,11 +47,7 @@ export const procurementStats: ProcurementStat[] = [
     value: 3,
     icon: "package",
     type: "total",
-<<<<<<< HEAD
-    color: "purple", // ✅ যোগ করুন
-=======
-    color: "purple",  
->>>>>>> d787c21efbdea32481c9ad8c6d6ba76865860d2f
+    color: "purple",
     change: 3.8,
     changeLabel: "vs last month",
     chart: [25, 22, 28, 24, 30, 26, 29, 27],
@@ -75,11 +59,7 @@ export const procurementStats: ProcurementStat[] = [
     value: 0,
     icon: "truck",
     type: "pending",
-<<<<<<< HEAD
-    color: "orange", // ✅ যোগ করুন
-=======
-    color: "orange",   
->>>>>>> d787c21efbdea32481c9ad8c6d6ba76865860d2f
+    color: "orange",
     change: 0,
     changeLabel: "vs last month",
     chart: [5, 8, 6, 10, 7, 9, 11, 8],

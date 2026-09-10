@@ -1,6 +1,6 @@
 "use client";
 
-import type { Unit } from "@/app/dashboard/inventory/products/units/page";
+import type { Unit } from "@/app/(admin-dashbord)/dashboard/inventory/products/units/page";
 import React, { useState, useEffect, useMemo } from "react";
 import { FiEdit, FiSearch } from "react-icons/fi";
 
@@ -17,7 +17,13 @@ const DEFAULT_UNITS: Unit[] = [
   { id: 81, code: "", name: "Tk.", conversionUnit: "", rate: "" },
   { id: 82, code: "", name: "Goj.", conversionUnit: "", rate: "" },
   { id: 83, code: "UN101", name: "Ton", conversionUnit: "Kg", rate: "1000" },
-  { id: 84, code: "UN102", name: "Meter", conversionUnit: "Feet", rate: "3.28" },
+  {
+    id: 84,
+    code: "UN102",
+    name: "Meter",
+    conversionUnit: "Feet",
+    rate: "3.28",
+  },
 ];
 
 interface UnitListProps {
@@ -26,7 +32,11 @@ interface UnitListProps {
   onView?: (unit: Unit) => void;
 }
 
-export default function UnitList({ apiEndpoint = "/api/units", onEdit, onView }: UnitListProps) {
+export default function UnitList({
+  apiEndpoint = "/api/units",
+  onEdit,
+  onView,
+}: UnitListProps) {
   const [units, setUnits] = useState<Unit[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -96,7 +106,9 @@ export default function UnitList({ apiEndpoint = "/api/units", onEdit, onView }:
           </div>
 
           <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
-            <span className="text-xs text-muted-foreground whitespace-nowrap">Search:</span>
+            <span className="text-xs text-muted-foreground whitespace-nowrap">
+              Search:
+            </span>
             <div className="relative w-full sm:w-64">
               <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-muted-foreground">
                 <FiSearch size={14} />
@@ -133,21 +145,31 @@ export default function UnitList({ apiEndpoint = "/api/units", onEdit, onView }:
             <tbody className="divide-y divide-border">
               {loading ? (
                 <tr>
-                  <td colSpan={6} className="text-center py-8 text-muted-foreground">
+                  <td
+                    colSpan={6}
+                    className="text-center py-8 text-muted-foreground"
+                  >
                     Loading units...
                   </td>
                 </tr>
               ) : paginatedUnits.length > 0 ? (
                 paginatedUnits.map((unit, index) => {
                   return (
-                    <tr key={unit.id || index} className="hover:bg-muted/50 transition-colors">
+                    <tr
+                      key={unit.id || index}
+                      className="hover:bg-muted/50 transition-colors"
+                    >
                       <td className="py-3 px-4 font-medium">{unit.id}</td>
-                      <td className="py-3 px-4 font-mono text-xs">{unit.code || "-"}</td>
+                      <td className="py-3 px-4 font-mono text-xs">
+                        {unit.code || "-"}
+                      </td>
                       <td className="py-3 px-4 font-medium">{unit.name}</td>
                       <td className="py-3 px-4 text-muted-foreground">
                         {unit.conversionUnit || "-"}
                       </td>
-                      <td className="py-3 px-4 text-muted-foreground">{unit.rate || "-"}</td>
+                      <td className="py-3 px-4 text-muted-foreground">
+                        {unit.rate || "-"}
+                      </td>
                       <td className="py-3 px-4 text-center">
                         <div className="flex items-center justify-center gap-1.5">
                           {/* Edit / Update Button (Opens Modal) */}
@@ -165,7 +187,10 @@ export default function UnitList({ apiEndpoint = "/api/units", onEdit, onView }:
                 })
               ) : (
                 <tr>
-                  <td colSpan={6} className="text-center py-8 text-muted-foreground">
+                  <td
+                    colSpan={6}
+                    className="text-center py-8 text-muted-foreground"
+                  >
                     No matching units found.
                   </td>
                 </tr>
@@ -177,9 +202,12 @@ export default function UnitList({ apiEndpoint = "/api/units", onEdit, onView }:
         {/* Pagination Footer */}
         <div className="flex flex-col sm:flex-row items-center justify-between p-4 border-t border-border gap-4 text-xs text-muted-foreground">
           <div>
-            Showing {filteredUnits.length > 0 ? (currentPage - 1) * entriesPerPage + 1 : 0} to{" "}
-            {Math.min(currentPage * entriesPerPage, filteredUnits.length)} of {filteredUnits.length}{" "}
-            entries
+            Showing{" "}
+            {filteredUnits.length > 0
+              ? (currentPage - 1) * entriesPerPage + 1
+              : 0}{" "}
+            to {Math.min(currentPage * entriesPerPage, filteredUnits.length)} of{" "}
+            {filteredUnits.length} entries
           </div>
 
           {/* Page Number Buttons */}
@@ -193,38 +221,45 @@ export default function UnitList({ apiEndpoint = "/api/units", onEdit, onView }:
             </button>
 
             <div className="flex items-center gap-1 mx-1">
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
-                if (
-                  page === 1 ||
-                  page === totalPages ||
-                  (page >= currentPage - 1 && page <= currentPage + 1)
-                ) {
-                  return (
-                    <button
-                      key={page}
-                      onClick={() => setCurrentPage(page)}
-                      className={`px-3 py-1.5 rounded text-xs font-medium transition-colors ${
-                        currentPage === page
-                          ? "bg-[var(--sidebar-foreground)] text-white"
-                          : "border border-border bg-card hover:bg-muted text-foreground"
-                      }`}
-                    >
-                      {page}
-                    </button>
-                  );
-                } else if (page === currentPage - 2 || page === currentPage + 2) {
-                  return (
-                    <span key={page} className="px-1 text-muted-foreground">
-                      ...
-                    </span>
-                  );
-                }
-                return null;
-              })}
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                (page) => {
+                  if (
+                    page === 1 ||
+                    page === totalPages ||
+                    (page >= currentPage - 1 && page <= currentPage + 1)
+                  ) {
+                    return (
+                      <button
+                        key={page}
+                        onClick={() => setCurrentPage(page)}
+                        className={`px-3 py-1.5 rounded text-xs font-medium transition-colors ${
+                          currentPage === page
+                            ? "bg-[var(--sidebar-foreground)] text-white"
+                            : "border border-border bg-card hover:bg-muted text-foreground"
+                        }`}
+                      >
+                        {page}
+                      </button>
+                    );
+                  } else if (
+                    page === currentPage - 2 ||
+                    page === currentPage + 2
+                  ) {
+                    return (
+                      <span key={page} className="px-1 text-muted-foreground">
+                        ...
+                      </span>
+                    );
+                  }
+                  return null;
+                },
+              )}
             </div>
 
             <button
-              onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+              onClick={() =>
+                setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+              }
               disabled={currentPage === totalPages || totalPages === 0}
               className="flex items-center gap-1 px-3 py-1.5 rounded border border-border bg-card hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >

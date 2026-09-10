@@ -27,12 +27,12 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-background">
+    <div className=" min-h-[80vh] overflow-hidden">
       <div className="pointer-events-none absolute -right-24 top-0 hidden h-[140%] w-[45%] -skew-x-12 bg-primary lg:block" />
       <div className="pointer-events-none absolute right-[42%] top-0 hidden h-[140%] w-16 -skew-x-12 bg-accent lg:block" />
       <div className="relative mx-auto flex min-h-screen max-w-7xl items-center px-5 sm:px-8">
         <div className="w-full max-w-md">
-          <Logo />
+          {/* <Logo /> */}
           <h1 className="mt-10 font-display text-4xl font-bold leading-[0.95] tracking-tight">
             Welcome back.
             <br />
