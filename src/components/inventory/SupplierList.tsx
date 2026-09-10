@@ -11,9 +11,10 @@ import {
   FiSearch,
   FiChevronLeft,
   FiChevronRight,
-  FiPlus,
+  FiEye,
 } from "react-icons/fi";
 
+// Default fallback data in case API request fails or returns nothing
 const DEFAULT_SUPPLIERS: Supplier[] = [
   { id: 1, code: "SUP2733131", name: "Riva Steel Mils", under: "Sundry Creditors" },
   {
@@ -115,10 +116,16 @@ const DEFAULT_SUPPLIERS: Supplier[] = [
 ];
 
 interface SupplierListProps {
-  apiEndpoint?: string; // আপনার API URL এখানে দিতে পারেন
+  apiEndpoint?: string;
+  onEdit?: (supplier: Supplier) => void;
+  onView?: (supplier: Supplier) => void;
 }
 
-export default function SupplierList({ apiEndpoint = "/api/suppliers" }: SupplierListProps) {
+export default function SupplierList({
+  apiEndpoint = "/api/suppliers",
+  onEdit,
+  onView,
+}: SupplierListProps) {
   const [suppliers, setSuppliers] = useState<Supplier[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -127,6 +134,7 @@ export default function SupplierList({ apiEndpoint = "/api/suppliers" }: Supplie
   const [entriesPerPage, setEntriesPerPage] = useState<number>(10);
   const [currentPage, setCurrentPage] = useState<number>(1);
 
+  // Fetching data from API with fallback mechanism
   useEffect(() => {
     async function fetchSuppliers() {
       try {
@@ -134,11 +142,10 @@ export default function SupplierList({ apiEndpoint = "/api/suppliers" }: Supplie
         const response = await fetch(apiEndpoint);
         if (!response.ok) throw new Error("API response failed");
         const data = await response.json();
-        // ধরে নিচ্ছি API থেকে ডেটা অ্যারে আকারে আসছে
         setSuppliers(Array.isArray(data) ? data : DEFAULT_SUPPLIERS);
       } catch (error) {
         console.warn("API fetch failed, falling back to default data:", error);
-        setSuppliers(DEFAULT_SUPPLIERS); // ফেইল করলে ডিফল্ট ডেটা লোড হবে
+        setSuppliers(DEFAULT_SUPPLIERS);
       } finally {
         setLoading(false);
       }
@@ -147,6 +154,7 @@ export default function SupplierList({ apiEndpoint = "/api/suppliers" }: Supplie
     fetchSuppliers();
   }, [apiEndpoint]);
 
+  // Filtering suppliers based on search query and selected group
   const filteredSuppliers = useMemo(() => {
     return suppliers.filter((item) => {
       const matchesSearch =
@@ -161,6 +169,7 @@ export default function SupplierList({ apiEndpoint = "/api/suppliers" }: Supplie
     });
   }, [suppliers, searchQuery, selectedGroup]);
 
+  // Pagination calculation logic
   const totalPages = Math.ceil(filteredSuppliers.length / entriesPerPage) || 1;
   const paginatedSuppliers = useMemo(() => {
     const start = (currentPage - 1) * entriesPerPage;
@@ -168,9 +177,9 @@ export default function SupplierList({ apiEndpoint = "/api/suppliers" }: Supplie
   }, [filteredSuppliers, currentPage, entriesPerPage]);
 
   return (
-    <div className="min-h-screen bg-background text-foreground p-4 sm:p-6 font-sans transition-colors duration-200">
-      {/* ফিল্টার এবং অ্যাকশন বার (Excel, PDF, Search) */}
-      <div className="bg-card border border-border rounded-lg p-4 shadow-sm mb-6 space-y-4">
+    <div className="min-h-screen bg-background text-foreground px-4 sm:px-6 font-sans transition-colors duration-200">
+      {/* Filter and Action Bar (Excel, PDF, Search) */}
+      <div className="bg-card border border-border rounded p-4 shadow-sm mb-6 space-y-4">
         {/* Chart Of Group Dropdown */}
         <div className="max-w-xs">
           <label className="block text-xs font-medium text-muted-foreground mb-1">
@@ -189,7 +198,7 @@ export default function SupplierList({ apiEndpoint = "/api/suppliers" }: Supplie
           </select>
         </div>
 
-        {/* এক্সপোর্ট বাটন এবং সার্চ ইনপুট */}
+        {/* Export Buttons and Search Input */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2 border-t border-border">
           <div className="flex items-center gap-2">
             <button className="flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-700 text-white px-3.5 py-1.5 rounded text-xs font-medium shadow-sm transition-colors">
@@ -200,7 +209,7 @@ export default function SupplierList({ apiEndpoint = "/api/suppliers" }: Supplie
             </button>
           </div>
 
-          {/* সার্চ বক্স */}
+          {/* Search Box */}
           <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
             <span className="text-xs text-muted-foreground whitespace-nowrap">Search:</span>
             <div className="relative w-full sm:w-64">
@@ -222,7 +231,7 @@ export default function SupplierList({ apiEndpoint = "/api/suppliers" }: Supplie
         </div>
       </div>
 
-      {/* এন্ট্রি কাউন্ট সিলেক্টর */}
+      {/* Entries Per Page Selector */}
       <div className="flex items-center justify-between mb-3 text-xs text-muted-foreground">
         <div className="flex items-center gap-2">
           <span>Show</span>
@@ -242,12 +251,12 @@ export default function SupplierList({ apiEndpoint = "/api/suppliers" }: Supplie
         </div>
       </div>
 
-      {/* টেবিল সেকশন (রেসপন্সিভ এবং রিডেবল) */}
-      <div className="bg-card border border-border rounded-lg shadow-sm overflow-hidden">
+      {/* Table Section (Responsive & Readable) */}
+      <div className="bg-card border border-border rounded shadow-sm overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse text-xs sm:text-sm">
             <thead>
-              <tr className="bg-[var(--signal)] text-white font-medium select-none">
+              <tr className="bg-[var(--sidebar-foreground)] text-white font-medium select-none">
                 <th className="py-3 px-4 w-16">ID</th>
                 <th className="py-3 px-4">CODE</th>
                 <th className="py-3 px-4">NAME</th>
@@ -268,7 +277,6 @@ export default function SupplierList({ apiEndpoint = "/api/suppliers" }: Supplie
                 </tr>
               ) : paginatedSuppliers.length > 0 ? (
                 paginatedSuppliers.map((supplier, index) => {
-                  // টেবিলের রো সিরিয়াল নাম্বার হিসাব করার জন্য
                   const serialNumber = (currentPage - 1) * entriesPerPage + index + 1;
                   return (
                     <tr key={supplier.id || index} className="hover:bg-muted/50 transition-colors">
@@ -290,25 +298,24 @@ export default function SupplierList({ apiEndpoint = "/api/suppliers" }: Supplie
                       <td className="py-3 px-4 text-muted-foreground">{supplier.under}</td>
                       <td className="py-3 px-4 text-center">
                         <div className="flex items-center justify-center gap-1.5">
-                          {/* এডিট বাটন */}
+                          {/* Edit Button */}
                           <button
+                            onClick={() => onEdit && onEdit(supplier)}
                             title="Edit"
-                            className="bg-cyan-500 hover:bg-cyan-600 text-white p-1.5 rounded transition-colors"
+                            className=" p-1.5 rounded transition-colors"
                           >
                             <FiEdit size={13} />
                           </button>
-                          {/* প্রোফাইল বাটন */}
+                          {/* View Profile Button */}
                           <button
+                            onClick={() => onView && onView(supplier)}
                             title="View"
-                            className="bg-[var(--signal)] hover:opacity-90 text-white p-1.5 rounded transition-colors"
+                            className=" p-1.5 rounded transition-colors"
                           >
-                            <FiUser size={13} />
+                            <FiEye size={13} />
                           </button>
-                          {/* ডিলিট বাটন (শর্ত সাপেক্ষে বা সবকটিতে দিতে পারেন) */}
-                          <button
-                            title="Delete"
-                            className="bg-rose-500 hover:bg-rose-600 text-white p-1.5 rounded transition-colors"
-                          >
+                          {/* Delete Button */}
+                          <button title="Delete" className=" p-1.5 rounded transition-colors">
                             <FiTrash2 size={13} />
                           </button>
                         </div>
@@ -327,7 +334,7 @@ export default function SupplierList({ apiEndpoint = "/api/suppliers" }: Supplie
           </table>
         </div>
 
-        {/* পেজিনেশন ফুটার */}
+        {/* Pagination Footer */}
         <div className="flex flex-col sm:flex-row items-center justify-between p-4 border-t border-border gap-4 text-xs text-muted-foreground">
           <div>
             Showing {filteredSuppliers.length > 0 ? (currentPage - 1) * entriesPerPage + 1 : 0} to{" "}
@@ -335,7 +342,7 @@ export default function SupplierList({ apiEndpoint = "/api/suppliers" }: Supplie
             {filteredSuppliers.length} entries
           </div>
 
-          {/* পেজিনেশন পেজ বাটন */}
+          {/* Pagination Page Buttons */}
           <div className="flex items-center gap-1">
             <button
               onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
@@ -347,7 +354,6 @@ export default function SupplierList({ apiEndpoint = "/api/suppliers" }: Supplie
 
             <div className="flex items-center gap-1 mx-1">
               {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
-                // পেজ সংখ্যা বেশি হলে সব একসাথে না দেখিয়ে কাছাকাছি দেখানোর লজিক যুক্ত করতে পারেন, এখানে সিম্পল রাখা হলো
                 if (
                   page === 1 ||
                   page === totalPages ||

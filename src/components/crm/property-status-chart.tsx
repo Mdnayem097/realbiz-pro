@@ -24,9 +24,7 @@ function ChartTooltip({ active, payload, label }: TooltipContentProps<ValueType,
       <div className="flex items-center gap-1.5 text-[12px]">
         <span className="h-1.5 w-1.5 rounded-full bg-accent" />
         <span className="text-ink-muted">Properties</span>
-        <span className="font-semibold text-ink ml-auto tabular-nums">
-          {entry.value}
-        </span>
+        <span className="font-semibold text-ink ml-auto tabular-nums">{entry.value}</span>
       </div>
     </div>
   );
@@ -43,20 +41,14 @@ export function PropertyStatusChart() {
     <div className="rounded-lg border border-border bg-surface p-4">
       <div className="flex items-center gap-2 mb-1">
         <Building2 size={14} className="text-ink-muted" />
-        <h3 className="font-display text-[13.5px] font-semibold text-ink">
-          Properties by Status
-        </h3>
+        <h3 className="font-display text-[13.5px] font-semibold text-ink">Properties by Status</h3>
       </div>
 
       {data.length > 0 ? (
         <div className="mt-3 -ml-2 h-56">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={data} margin={{ top: 8, right: 8, bottom: 0, left: 0 }}>
-              <CartesianGrid
-                vertical={false}
-                stroke="var(--color-border)"
-                strokeDasharray="3 3"
-              />
+              <CartesianGrid vertical={false} stroke="var(--color-border)" strokeDasharray="3 3" />
               <XAxis
                 dataKey="status"
                 axisLine={false}

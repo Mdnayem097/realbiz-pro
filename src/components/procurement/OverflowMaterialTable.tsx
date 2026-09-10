@@ -51,18 +51,11 @@ export default function OverflowMaterialTable() {
 
             <tbody className="divide-y divide-slate-100">
               {mobileMaterials.map((item, index) => (
-                <tr
-                  key={item.id}
-                  className="transition hover:bg-slate-50"
-                >
-                  <td className="px-5 py-4">
-                    {index + 1}
-                  </td>
+                <tr key={item.id} className="transition hover:bg-slate-50">
+                  <td className="px-5 py-4">{index + 1}</td>
 
                   <td className="max-w-[180px] px-5 py-4 font-semibold text-slate-700">
-                    <span className="block truncate">
-                      {item.description}
-                    </span>
+                    <span className="block truncate">{item.description}</span>
                   </td>
 
                   <td className="whitespace-nowrap px-5 py-4">
@@ -128,18 +121,11 @@ export default function OverflowMaterialTable() {
 
             <tbody className="divide-y divide-slate-100">
               {overflowMaterials.map((item, index) => (
-                <tr
-                  key={item.id}
-                  className="transition hover:bg-slate-50"
-                >
-                  <td className="px-3 py-4">
-                    {index + 1}
-                  </td>
+                <tr key={item.id} className="transition hover:bg-slate-50">
+                  <td className="px-3 py-4">{index + 1}</td>
 
                   <td className="max-w-[150px] px-3 py-4 font-semibold text-slate-700">
-                    <span className="block truncate">
-                      {item.description}
-                    </span>
+                    <span className="block truncate">{item.description}</span>
                   </td>
 
                   <td className="whitespace-nowrap px-3 py-4">

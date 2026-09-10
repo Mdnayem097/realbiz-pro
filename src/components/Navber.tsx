@@ -33,15 +33,60 @@ import { NavbarProps } from "@/types/navber";
 import { useTheme } from "@/lib/theme-provider";
 
 const projectRoutes = [
-  { label: "Projects", href: "/projects", icon: FolderKanban, color: "text-indigo-600 bg-indigo-50" },
-  { label: "Inventory", href: "/inventory", icon: Boxes, color: "text-blue-600 bg-blue-50" },
-  { label: "Accounts", href: "/accounts", icon: Calculator, color: "text-emerald-600 bg-emerald-50" },
-  { label: "Hrm", href: "/hrm", icon: Users, color: "text-amber-600 bg-amber-50" },
-  { label: "CRM", href: "/crm", icon: Target, color: "text-rose-600 bg-rose-50" },
-  { label: "Credit Realization (CR)", href: "/cr", icon: CreditCard, color: "text-violet-600 bg-violet-50" },
-  { label: "Lams", href: "/lams", icon: Landmark, color: "text-cyan-600 bg-cyan-50" },
-  { label: "Procurement", href: "/procurement", icon: ShoppingCart, color: "text-orange-600 bg-orange-50" },
-  { label: "All", href: "/all", icon: LayoutGrid, color: "text-slate-600 bg-slate-100" },
+  {
+    label: "Projects",
+    href: "/projects",
+    icon: FolderKanban,
+    color: "text-indigo-600 bg-indigo-50",
+  },
+  {
+    label: "Inventory",
+    href: "/inventory",
+    icon: Boxes,
+    color: "text-blue-600 bg-blue-50",
+  },
+  {
+    label: "Accounts",
+    href: "/accounts",
+    icon: Calculator,
+    color: "text-emerald-600 bg-emerald-50",
+  },
+  {
+    label: "Hrm",
+    href: "/hrm",
+    icon: Users,
+    color: "text-amber-600 bg-amber-50",
+  },
+  {
+    label: "CRM",
+    href: "/crm",
+    icon: Target,
+    color: "text-rose-600 bg-rose-50",
+  },
+  {
+    label: "Credit Realization (CR)",
+    href: "/cr",
+    icon: CreditCard,
+    color: "text-violet-600 bg-violet-50",
+  },
+  {
+    label: "Lams",
+    href: "/lams",
+    icon: Landmark,
+    color: "text-cyan-600 bg-cyan-50",
+  },
+  {
+    label: "Procurement",
+    href: "/procurement",
+    icon: ShoppingCart,
+    color: "text-orange-600 bg-orange-50",
+  },
+  {
+    label: "All",
+    href: "/all",
+    icon: LayoutGrid,
+    color: "text-slate-600 bg-slate-100",
+  },
 ];
 
 const Navbar = ({
@@ -85,7 +130,10 @@ const Navbar = ({
             <ChevronDown className="w-3.5 h-3.5 text-gray-400" />
           </DropdownMenuTrigger>
 
-          <DropdownMenuContent align="end" className="w-64 rounded-2xl p-1.5 shadow-xl  bg-white z-50">
+          <DropdownMenuContent
+            align="end"
+            className="w-64 rounded-2xl p-1.5 shadow-xl  bg-white z-50"
+          >
             <div className="px-3 py-2 text-[11px] font-semibold uppercase tracking-wider text-gray-400">
               Project Modules
             </div>
@@ -101,7 +149,9 @@ const Navbar = ({
                       href={item.href}
                       className="flex items-center gap-2.5 px-3 py-2 w-full text-sm font-medium text-gray-700 group-hover:text-indigo-600 transition-colors"
                     >
-                      <div className={`flex items-center justify-center w-7 h-7 rounded-lg ${item.color} transition-colors`}>
+                      <div
+                        className={`flex items-center justify-center w-7 h-7 rounded-lg ${item.color} transition-colors`}
+                      >
                         <Icon className="w-4 h-4" />
                       </div>
                       <span>{item.label}</span>
@@ -155,11 +205,14 @@ const Navbar = ({
               <AvatarImage src={user.avatarUrl} alt={user.name} />
               <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
             </Avatar>
-        
+
             <ChevronDown className="w-4 h-4 text-gray-400 ml-1" />
           </DropdownMenuTrigger>
 
-          <DropdownMenuContent align="end" className="w-56 rounded-2xl p-1.5 shadow-xl border border-gray-100 bg-white z-50">
+          <DropdownMenuContent
+            align="end"
+            className="w-56 rounded-2xl p-1.5 shadow-xl border border-gray-100 bg-white z-50"
+          >
             <div className="flex items-center gap-3 px-3 py-3 mb-1 border-b border-gray-100">
               <Avatar className="w-10 h-10">
                 <AvatarImage src={user.avatarUrl} alt={user.name} />
@@ -169,9 +222,7 @@ const Navbar = ({
                 <span className="text-sm font-semibold text-gray-900">
                   {user.name}
                 </span>
-                <span className="text-[11px] text-gray-400">
-                  {user.role}
-                </span>
+                <span className="text-[11px] text-gray-400">{user.role}</span>
               </div>
             </div>
 

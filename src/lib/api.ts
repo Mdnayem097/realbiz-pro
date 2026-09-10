@@ -79,8 +79,20 @@ export async function fetchTodoSummary(): Promise<TodoSummaryItem[]> {
 export async function fetchNewLeads(): Promise<FeedLead[]> {
   await delay(300);
   return [
-    { id: "1", leadId: "L260907-0022", name: "Serena Ahmed", caller: "Admin", timestamp: "10:14 AM" },
-    { id: "2", leadId: "L260906-0020", name: "Sharmin Akter", caller: "Sarna", timestamp: "9:58 AM" },
+    {
+      id: "1",
+      leadId: "L260907-0022",
+      name: "Serena Ahmed",
+      caller: "Admin",
+      timestamp: "10:14 AM",
+    },
+    {
+      id: "2",
+      leadId: "L260906-0020",
+      name: "Sharmin Akter",
+      caller: "Sarna",
+      timestamp: "9:58 AM",
+    },
     { id: "3", leadId: "L260906-0018", name: "Rafiq Islam", caller: "Admin", timestamp: "9:20 AM" },
   ];
 }
@@ -88,8 +100,20 @@ export async function fetchNewLeads(): Promise<FeedLead[]> {
 export async function fetchFollowUps(): Promise<FeedLead[]> {
   await delay(300);
   return [
-    { id: "1", leadId: "L260827-0012", name: "Golam Gaus", caller: "Admin", timestamp: "Yesterday" },
-    { id: "2", leadId: "L260825-0009", name: "Nusrat Jahan", caller: "Sarna", timestamp: "2 days ago" },
+    {
+      id: "1",
+      leadId: "L260827-0012",
+      name: "Golam Gaus",
+      caller: "Admin",
+      timestamp: "Yesterday",
+    },
+    {
+      id: "2",
+      leadId: "L260825-0009",
+      name: "Nusrat Jahan",
+      caller: "Sarna",
+      timestamp: "2 days ago",
+    },
   ];
 }
 

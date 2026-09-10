@@ -24,15 +24,11 @@ function LeadRow({ lead }: { lead: FeedLead }) {
   return (
     <div className="flex items-center justify-between gap-3 py-3 border-b border-border last:border-0">
       <div className="min-w-0">
-        <p className="text-[12px] text-ink-faint font-mono tracking-tight">
-          ID- {lead.leadId}
-        </p>
+        <p className="text-[12px] text-ink-faint font-mono tracking-tight">ID- {lead.leadId}</p>
         <p className="text-[13.5px] font-medium text-ink truncate">{lead.name}</p>
       </div>
       <div className="flex items-center gap-3 shrink-0">
-        <span className="text-[12px] text-accent-strong font-medium">
-          Caller - {lead.caller}
-        </span>
+        <span className="text-[12px] text-accent-strong font-medium">Caller - {lead.caller}</span>
         <button
           aria-label={`Call ${lead.name}`}
           className="h-8 w-8 rounded-full border border-border flex items-center justify-center text-ink-muted hover:text-accent-strong hover:border-accent transition-colors"
@@ -126,10 +122,7 @@ export function LiveFeed() {
               {active === "task-visit" &&
                 (visits.length ? (
                   visits.map((v) => (
-                    <p
-                      key={v.id}
-                      className="py-4 text-[13px] text-ink-muted text-center"
-                    >
+                    <p key={v.id} className="py-4 text-[13px] text-ink-muted text-center">
                       {v.message}
                     </p>
                   ))

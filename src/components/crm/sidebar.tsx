@@ -336,13 +336,7 @@ export function Sidebar() {
               )}
             >
               <div className="flex items-center gap-2.5 min-w-0">
-                {Icon && (
-                  <Icon
-                    size={16}
-                    strokeWidth={2}
-                    className="shrink-0 text-accent-strong"
-                  />
-                )}
+                {Icon && <Icon size={16} strokeWidth={2} className="shrink-0 text-accent-strong" />}
                 {!collapsed && <span className="truncate">{node.label}</span>}
               </div>
 
@@ -404,11 +398,7 @@ export function Sidebar() {
       <div className="flex items-center px-4 h-16 border-b border-border shrink-0">
         {collapsed ? (
           <div className="h-8 w-8 shrink-0 rounded-md bg-accent-soft flex items-center justify-center mx-auto">
-            <Building2
-              size={17}
-              className="text-accent-strong"
-              strokeWidth={2}
-            />
+            <Building2 size={17} className="text-accent-strong" strokeWidth={2} />
           </div>
         ) : (
           <div className="h-8 w-auto max-w-full flex items-center overflow-hidden">
@@ -425,9 +415,7 @@ export function Sidebar() {
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 overflow-y-auto py-3 px-2 space-y-1">
-        {renderTree(NAV_TREE)}
-      </nav>
+      <nav className="flex-1 overflow-y-auto py-3 px-2 space-y-1">{renderTree(NAV_TREE)}</nav>
 
       {/* Collapse Footer Toggle */}
       <div className="p-2 border-t border-border shrink-0">

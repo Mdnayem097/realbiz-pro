@@ -78,12 +78,9 @@ export default function ProcurementStats() {
       {procurementStats.map((item, index) => {
         const Icon = iconMap[item.icon as keyof typeof iconMap];
 
-        const colors =
-          cardStyles[item.color as keyof typeof cardStyles];
+        const colors = cardStyles[item.color as keyof typeof cardStyles];
 
-        const chart = item.chart ?? [
-          20, 24, 18, 27, 22, 31, 26, 35,
-        ];
+        const chart = item.chart ?? [20, 24, 18, 27, 22, 31, 26, 35];
 
         const chartData = chart.map((value, chartIndex) => ({
           index: chartIndex,

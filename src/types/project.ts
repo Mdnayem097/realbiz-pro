@@ -19,3 +19,5 @@ export interface ProjectItem {
   contactPerson: string;
   contactPhone: string;
 }
+
+export * from "./project-type";
