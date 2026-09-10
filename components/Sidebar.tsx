@@ -299,7 +299,7 @@ const navItems: NavItem[] = [
       { label: "Inventory", href: "/inventory" },
       { label: "Accounts", href: "/accounts" },
       { label: "Hrm", href: "/hrm" },
-      { label: "CRM", href: "/crm" },
+      { label: "CRM", href: "/crm-module" },
       { label: "Credit Realization (CR)", href: "/cr" },
       { label: "Lams", href: "/lams" },
       { label: "Procurement", href: "/procurement" },

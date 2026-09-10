@@ -2,8 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
-import { Sidebar } from "@/components/crm/sidebar";
-import { Topbar } from "@/components/crm/topbar";
 import { StatGrid } from "@/components/crm/stat-grid";
 import { TodoStrip } from "@/components/crm/todo-strip";
 import { LiveFeed } from "@/components/crm/live-feed";
@@ -24,10 +22,6 @@ export default function CrmModulePage() {
 
   return (
     <div className="flex min-h-screen bg-canvas">
-      <Sidebar />
-
-      <div className="flex-1 min-w-0 flex flex-col">
-        <Topbar />
 
         <main className="flex-1 px-4 md:px-6 py-5 space-y-5 max-w-350 w-full mx-auto">
           {/* Header Overview */}
@@ -62,7 +56,6 @@ export default function CrmModulePage() {
           {/* 4. Calendar Panel */}
           <CalendarPanel range={range} onRangeChange={setRange} />
         </main>
-      </div>
     </div>
   );
 }

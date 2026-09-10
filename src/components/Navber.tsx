@@ -59,7 +59,7 @@ const projectRoutes = [
   },
   {
     label: "CRM",
-    href: "/crm",
+    href: "/crm-module",
     icon: Target,
     color: "text-rose-600 bg-rose-50",
   },

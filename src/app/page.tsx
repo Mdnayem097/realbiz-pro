@@ -63,7 +63,9 @@ export default function HomePage() {
           <div className="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-primary-foreground/10 px-5 sm:px-8 md:grid-cols-4">
             {STATS.map((s) => (
               <div key={s.l} className="px-6 py-8">
-                <div className="font-mono text-3xl text-accent">{s.v}</div>
+                <div className="font-mono text-3xl text-primary-foreground">
+                  {s.v}
+                </div>
                 <div className="mt-1 text-sm text-primary-foreground/60">
                   {s.l}
                 </div>
