@@ -93,7 +93,7 @@ export default function ProcurementStats() {
         return (
           <Link
             key={item.id}
-            href={item.route}
+            href={"/procurement/purchase-orders/new"}
             className={[
               "group",
               "flex",
