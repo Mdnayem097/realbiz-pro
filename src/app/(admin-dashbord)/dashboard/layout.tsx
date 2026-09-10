@@ -44,7 +44,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           onClose={() => setOpen(false)}
           filter={search}
         />
-        <main className="min-w-0 flex-1">{children}</main>
+        <main className="flex-1 px-4 md:px-6 py-5 max-w-350 w-full mx-auto">{children}</main>
       </div>
     </div>
   );
