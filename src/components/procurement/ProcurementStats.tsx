@@ -24,49 +24,49 @@ const iconMap = {
 
 const cardStyles = {
   red: {
-    background: "bg-[#fff8f8]",
-    border: "border-[#f3dddd]",
-    icon: "bg-[#ffe2e2] text-[#ef4444]",
+    background: "bg-[#fff8f8] dark:bg-red-950/20",
+    border: "border-[#f3dddd] dark:border-red-900/30",
+    icon: "bg-[#ffe2e2] text-[#ef4444] dark:bg-red-900/40 dark:text-red-400",
     line: "#ef4444",
     fill: "#ef4444",
   },
 
   blue: {
-    background: "bg-[#f6f9ff]",
-    border: "border-[#dce7f8]",
-    icon: "bg-[#dceaff] text-[#1677ff]",
+    background: "bg-[#f6f9ff] dark:bg-blue-950/20",
+    border: "border-[#dce7f8] dark:border-blue-900/30",
+    icon: "bg-[#dceaff] text-[#1677ff] dark:bg-blue-900/40 dark:text-blue-400",
     line: "#1677ff",
     fill: "#1677ff",
   },
 
   green: {
-    background: "bg-[#f5fcf8]",
-    border: "border-[#d9eee3]",
-    icon: "bg-[#d8f5e5] text-[#10b981]",
+    background: "bg-[#f5fcf8] dark:bg-emerald-950/20",
+    border: "border-[#d9eee3] dark:border-emerald-900/30",
+    icon: "bg-[#d8f5e5] text-[#10b981] dark:bg-emerald-900/40 dark:text-emerald-400",
     line: "#10b981",
     fill: "#10b981",
   },
 
   purple: {
-    background: "bg-[#faf8ff]",
-    border: "border-[#e7def7]",
-    icon: "bg-[#e9ddff] text-[#7c3aed]",
+    background: "bg-[#faf8ff] dark:bg-purple-950/20",
+    border: "border-[#e7def7] dark:border-purple-900/30",
+    icon: "bg-[#e9ddff] text-[#7c3aed] dark:bg-purple-900/40 dark:text-purple-400",
     line: "#7c3aed",
     fill: "#7c3aed",
   },
 
   orange: {
-    background: "bg-[#fffaf5]",
-    border: "border-[#f3e1cf]",
-    icon: "bg-[#ffe2c6] text-[#f97316]",
+    background: "bg-[#fffaf5] dark:bg-orange-950/20",
+    border: "border-[#f3e1cf] dark:border-orange-900/30",
+    icon: "bg-[#ffe2c6] text-[#f97316] dark:bg-orange-900/40 dark:text-orange-400",
     line: "#f97316",
     fill: "#f97316",
   },
 
   cyan: {
-    background: "bg-[#f4fcfd]",
-    border: "border-[#d6edf1]",
-    icon: "bg-[#d7f3f5] text-[#0891b2]",
+    background: "bg-[#f4fcfd] dark:bg-cyan-950/20",
+    border: "border-[#d6edf1] dark:border-cyan-900/30",
+    icon: "bg-[#d7f3f5] text-[#0891b2] dark:bg-cyan-900/40 dark:text-cyan-400",
     line: "#0891b2",
     fill: "#0891b2",
   },
@@ -104,10 +104,12 @@ export default function ProcurementStats() {
               "pt-[16px]",
               "pb-[8px]",
               "shadow-[0_2px_8px_rgba(15,23,42,0.04)]",
+              "dark:shadow-none",
               "transition-all",
               "duration-200",
               "hover:-translate-y-[1px]",
               "hover:shadow-[0_6px_18px_rgba(15,23,42,0.08)]",
+              "dark:hover:shadow-zinc-900/50",
               "cursor-pointer",
               colors.background,
               colors.border,
@@ -132,22 +134,22 @@ export default function ProcurementStats() {
             {/* Content */}
             <div className="min-w-0">
               {/* Title */}
-              <h3 className="mt-[12px] truncate text-[13px] font-bold leading-[18px] text-[#172554]">
+              <h3 className="mt-[12px] truncate text-[13px] font-bold leading-[18px] text-[#172554] dark:text-zinc-200">
                 {item.title}
               </h3>
 
               {/* Value */}
-              <p className="mt-1.75 text-[26px] font-bold leading-8 tracking-[-0.5px] text-[#10234f]">
+              <p className="mt-1.75 text-[26px] font-bold leading-8 tracking-[-0.5px] text-[#10234f] dark:text-zinc-50">
                 {item.value.toLocaleString()}
               </p>
 
               {/* Change */}
               <div className="mt-1.75 flex min-w-0 items-center gap-[5px]">
-                <span className="shrink-0 text-[12px] font-semibold text-[#16a34a]">
+                <span className="shrink-0 text-[12px] font-semibold text-[#16a34a] dark:text-emerald-400">
                   ↑ {item.change}%
                 </span>
 
-                <span className="truncate text-[11px] text-[#71809c]">
+                <span className="truncate text-[11px] text-[#71809c] dark:text-zinc-400">
                   {item.changeLabel}
                 </span>
               </div>
@@ -176,7 +178,7 @@ export default function ProcurementStats() {
                       <stop
                         offset="0%"
                         stopColor={colors.fill}
-                        stopOpacity={0.16}
+                        stopOpacity={0.25}
                       />
 
                       <stop
