@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/lib/theme";
+import { LanguageProvider } from "@/lib/language";
 import { LayoutShell } from "@/components/layout-shell";
 
 const inter = Inter({
@@ -34,9 +35,11 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full antialiased" suppressHydrationWarning>
-        <ThemeProvider>
-          <LayoutShell>{children}</LayoutShell>
-        </ThemeProvider>
+        <LanguageProvider>
+          <ThemeProvider>
+            <LayoutShell>{children}</LayoutShell>
+          </ThemeProvider>
+        </LanguageProvider>
       </body>
     </html>
   );

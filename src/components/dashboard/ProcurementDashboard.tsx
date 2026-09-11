@@ -1,66 +1,56 @@
+"use client";
+
+import { useState } from "react";
+import { PackageSearch } from "lucide-react";
+
+import { ProcurementPeriod } from "@/types/procurement";
+import ProcurementFilters from "../procurement/ProcurementFilters";
+import ProcurementStats from "../procurement/ProcurementStats";
+import OverflowMaterialTable from "../procurement/OverflowMaterialTable";
+import PendingVoucherList from "../procurement/PendingVoucherList";
+
 export default function ProcurementDashboard() {
-  const cards = [
-    { label: "RFQs", value: "38", tone: "bg-sky-500/10 text-sky-600" },
-    { label: "POs", value: "26", tone: "bg-violet-500/10 text-violet-600" },
-    { label: "GRNs", value: "19", tone: "bg-emerald-500/10 text-emerald-600" },
-    { label: "Bills", value: "14", tone: "bg-orange-500/10 text-orange-600" },
-  ];
+  const [period, setPeriod] = useState<ProcurementPeriod>("today");
 
   return (
-    <div className="space-y-5">
-      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-        {cards.map((card) => (
-          <div key={card.label} className="rounded-xl border border-border bg-card p-4 shadow-sm">
-            <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-              {card.label}
+    <main className="min-h-screen bg-slate-50 p-4 md:p-6 lg:p-8">
+      <div className="mx-auto max-w-[1600px] space-y-6">
+        {/* Header */}
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex items-center gap-4">
+            <div className="rounded-2xl bg-blue-100 p-3 text-blue-600">
+              <PackageSearch size={32} />
             </div>
-            <div className="mt-3 text-2xl font-display font-bold tracking-tight text-foreground">
-              {card.value}
-            </div>
-            <div
-              className={`mt-3 inline-flex rounded-full px-2 py-1 text-[10px] font-semibold ${card.tone}`}
-            >
-              Live status
+
+            <div>
+              <h1 className="text-2xl font-bold text-slate-900 md:text-3xl">
+                Procurement Dashboard
+              </h1>
+
+              <p className="text-sm text-slate-500">
+                Manage requisition, purchase and material workflow
+              </p>
             </div>
           </div>
-        ))}
-      </div>
+        </div>
 
-      <div className="rounded-xl border border-border bg-card p-4 shadow-sm">
-        <div className="mb-4 text-sm font-semibold text-foreground">Procurement pipeline</div>
-        <div className="overflow-x-auto">
-          <table className="w-full min-w-160 text-left text-sm">
-            <thead className="border-b border-border text-[11px] uppercase tracking-wide text-muted-foreground">
-              <tr>
-                <th className="px-3 py-2 font-semibold">Requisition</th>
-                <th className="px-3 py-2 font-semibold">Vendor</th>
-                <th className="px-3 py-2 font-semibold">Stage</th>
-                <th className="px-3 py-2 font-semibold">ETA</th>
-                <th className="px-3 py-2 text-right font-semibold">Value</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-border">
-              {[
-                ["MAT-2048", "Urban Build Supply", "PO approved", "12-Sept-2026", "৳ 4.8M"],
-                ["MAT-2051", "Prime Structural Ltd.", "GRN pending", "15-Sept-2026", "৳ 2.6M"],
-                ["MAT-2057", "Metro Trade Co.", "RFQ in review", "18-Sept-2026", "৳ 1.9M"],
-              ].map(([request, vendor, stage, eta, value]) => (
-                <tr key={request} className="hover:bg-foreground/3">
-                  <td className="px-3 py-3 font-medium text-foreground">{request}</td>
-                  <td className="px-3 py-3 text-muted-foreground">{vendor}</td>
-                  <td className="px-3 py-3">
-                    <span className="rounded px-2 py-0.5 text-xs font-bold bg-accent/20 text-foreground">
-                      {stage}
-                    </span>
-                  </td>
-                  <td className="px-3 py-3 text-muted-foreground">{eta}</td>
-                  <td className="px-3 py-3 text-right font-mono text-foreground">{value}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        {/* Filters */}
+        <ProcurementFilters period={period} setPeriod={setPeriod} />
+
+        {/* Stats */}
+        <ProcurementStats />
+
+        {/* Main Content */}
+        <div className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,2fr)_minmax(350px,1fr)]">
+          <div>
+            <OverflowMaterialTable />
+          </div>
+
+          <div>
+            <PendingVoucherList />
+          </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

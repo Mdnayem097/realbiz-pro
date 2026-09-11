@@ -1,6 +1,6 @@
 
-import Image from "next/image";
-import img from "../assets/realbiz-logo.png";
+// import Image from "next/image";
+// import img from "../assets/realbiz-logo.png";
 
 const Loading = () => {
   return (
@@ -21,14 +21,14 @@ const Loading = () => {
 
         {/* Logo */}
         <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white">
-          <Image
+          {/* <Image
             src={img}
             alt="RealBiz Logo"
             width={55}
             height={55}
             priority 
             sizes="40"
-          />
+          /> */}
         </div>
       </div>
     </main>

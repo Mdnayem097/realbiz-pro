@@ -10,7 +10,7 @@ export function Logo({
   return (
     <Link href={to} className="flex items-center" aria-label="RealBiz home">
       <Image
-        src="/logo.jpeg"
+        src="/logo.svg"
         alt="RealBiz logo"
         width={100}
         height={100}

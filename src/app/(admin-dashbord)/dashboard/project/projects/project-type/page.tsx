@@ -15,7 +15,7 @@ import {
   Check,
   CheckCircle2
 } from "lucide-react";
-import { ProjectType } from "@/types/project";
+import { ProjectType } from "@/types/project-type";
 
 const initialProjects: ProjectType[] = [
   { id: 14, code: "P4773027", name: "Office" },

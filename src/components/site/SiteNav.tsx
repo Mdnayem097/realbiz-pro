@@ -6,18 +6,22 @@ import { Menu, Moon, Sun, X } from "lucide-react";
 import { useState } from "react";
 import { Logo } from "@/components/Logo";
 import { useTheme } from "@/lib/theme";
+import { useLanguage } from "@/lib/language";
+import { SiteFooter } from "@/components/Footer";
 
 const links = [
-  { to: "/", label: "Home" },
-  { to: "/properties", label: "Properties" },
-  { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
+  { to: "/", labelKey: "nav.home" },
+  { to: "/properties", labelKey: "nav.properties" },
+  { to: "/pricing", labelKey: "nav.pricing" }, // Added pricing link
+  { to: "/about", labelKey: "nav.about" },
+  { to: "/contact", labelKey: "nav.contact" },
 ] as const;
 
 export function SiteNav() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const { theme, toggle } = useTheme();
+  const { language, setLanguage, t } = useLanguage();
 
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur">
@@ -25,7 +29,8 @@ export function SiteNav() {
         <Logo />
         <nav className="hidden items-center gap-8 md:flex">
           {links.map((l) => {
-            const active = l.to === "/" ? pathname === "/" : pathname.startsWith(l.to);
+            const active =
+              l.to === "/" ? pathname === "/" : pathname.startsWith(l.to);
             return (
               <Link
                 key={l.to}
@@ -37,24 +42,56 @@ export function SiteNav() {
                   .filter(Boolean)
                   .join(" ")}
               >
-                {l.label}
+                {t(l.labelKey)}
               </Link>
             );
           })}
         </nav>
         <div className="flex items-center gap-2">
+          <div className="flex items-center gap-0.5 rounded-md border border-border p-0.5">
+            <button
+              type="button"
+              onClick={() => setLanguage("en")}
+              aria-label={t("language.english")}
+              className={`h-6 min-w-7 rounded px-1.5 text-[10px] font-semibold transition ${
+                language === "en"
+                  ? "bg-primary text-primary-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              EN
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setLanguage("bn")}
+              aria-label={t("language.bangla")}
+              className={`h-6 min-w-7 rounded px-1.5 text-[10px] font-semibold transition ${
+                language === "bn"
+                  ? "bg-primary text-primary-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              BN
+            </button>
+          </div>
+
           <button
             onClick={toggle}
-            aria-label="Toggle theme"
+            aria-label={theme === "light" ? t("theme.dark") : t("theme.light")}
             className="grid h-9 w-9 place-items-center rounded-md text-foreground/70 transition hover:bg-foreground/5"
           >
-            {theme === "light" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
+            {theme === "light" ? (
+              <Moon className="h-4 w-4" />
+            ) : (
+              <Sun className="h-4 w-4" />
+            )}
           </button>
           <Link
             href="/login"
             className="rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition hover:opacity-90"
           >
-            Log in
+            {t("nav.login")}
           </Link>
           <button
             className="grid h-9 w-9 place-items-center rounded-md md:hidden"
@@ -68,7 +105,8 @@ export function SiteNav() {
       {open && (
         <nav className="border-t border-border bg-background px-5 py-3 md:hidden">
           {links.map((l) => {
-            const active = l.to === "/" ? pathname === "/" : pathname.startsWith(l.to);
+            const active =
+              l.to === "/" ? pathname === "/" : pathname.startsWith(l.to);
             return (
               <Link
                 key={l.to}
@@ -81,24 +119,13 @@ export function SiteNav() {
                   .filter(Boolean)
                   .join(" ")}
               >
-                {l.label}
+                {t(l.labelKey)}
               </Link>
             );
           })}
         </nav>
       )}
     </header>
-  );
-}
-
-export function SiteFooter() {
-  return (
-    <footer className="border-t border-border">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-5 py-8 text-sm text-muted-foreground sm:flex-row sm:px-8">
-        <span className="font-display font-semibold text-foreground">RealBiz</span>
-        <span>© {new Date().getFullYear()} RealBiz. Built for operators, not just owners.</span>
-      </div>
-    </footer>
   );
 }
 
